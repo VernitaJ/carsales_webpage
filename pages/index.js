@@ -16,7 +16,7 @@ export default function Home() {
     <div>
       <img
         src="/bannermodern.png"
-        alt="Vercel Logo"
+        alt="banner yo"
         width={"100%"}
         height={"100vh"}
       />
@@ -43,7 +43,7 @@ export default function Home() {
               </p>
             </a>
 
-            <a onClick={() => router.push("/contact")} className={styles.card}>
+            <a onClick={() => router.push("/uploadcar")} className={styles.card}>
               <h2>Selling &rarr;</h2>
               <p>
                 Sell your car directly to its new owner with the profit in your
