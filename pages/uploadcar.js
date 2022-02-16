@@ -41,20 +41,16 @@ export default function Upload() {
     };
     const formData = new FormData();
     formData.append('brand', car.brand);
-    console.log("formdata", formData, car.brand);
 
     formData.append("model", car.model);
 
-    console.log("formdata", formData);
     formData.append("year", car.year);
 
-    console.log("formdata", formData);
     formData.append("colour", car.colour);
     formData.append("price", car.price);
     // for (let i = 0; i < img.files.length; i++) {
     formData.append("img", car.img);
     // save the post
-    console.log("formdata", formData);
     let response = await fetch("/api/cars", {
       method: "POST",
       body: formData,
@@ -77,7 +73,7 @@ export default function Upload() {
 
   return (
     <div>
-      <div className={styles.container}>
+      <div>
         <form onSubmit={handlePost} className={styles.form}>
           {error ? (
             <div className={styles.formItem}>

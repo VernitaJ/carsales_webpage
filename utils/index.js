@@ -40,7 +40,7 @@ export default async (req, res) => {
           colour: req.body.colour,
           price: req.body.price,
           img: {
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.img.data)),
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file)),
             contentType: 'image/png'
           },
         };

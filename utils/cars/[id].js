@@ -1,5 +1,5 @@
-import dbConnect from '../../../utils/dbConnect'
-import Car from '../../../models/Car'
+import dbConnect from '../dbConnect'
+import Car from '../../models/Car'
 
 dbConnect();
 

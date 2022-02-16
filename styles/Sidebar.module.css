@@ -1,0 +1,23 @@
+.container {
+  width: 25vw;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background-color: rgb(6, 34, 71);
+}
+
+.header {
+  font-size: 30px;
+  color: white;
+  margin: 3vh 2vw;
+}
+
+.content {
+  margin-left: 2vw;
+  color: white;
+  border: none;
+}
+
+.content ::before ::after {
+  border: none;
+}

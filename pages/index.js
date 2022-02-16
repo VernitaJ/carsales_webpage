@@ -15,10 +15,9 @@ export default function Home() {
   return (
     <div>
       <img
+        className={styles.banner}
         src="/bannermodern.png"
         alt="banner yo"
-        width={"100%"}
-        height={"100vh"}
       />
       <div className={styles.container}>
         <Head>
@@ -43,7 +42,10 @@ export default function Home() {
               </p>
             </a>
 
-            <a onClick={() => router.push("/uploadcar")} className={styles.card}>
+            <a
+              onClick={() => router.push("/uploadcar")}
+              className={styles.card}
+            >
               <h2>Selling &rarr;</h2>
               <p>
                 Sell your car directly to its new owner with the profit in your

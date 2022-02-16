@@ -13,6 +13,14 @@
   
 }
 
+.banner {
+  height: 20vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 5vh;
+}
+
 .footer {
   display: flex;
   flex: 1;

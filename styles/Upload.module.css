@@ -1,11 +1,13 @@
 .container {
-    max-width: 800px;
+    max-width: 80%;
+    justify-content: center;
     margin: 100px auto;
     padding: 10px;
+    background-color: red;
 }
 
 .form {
-    width: 100%;
+    width: 80%;
 }
 
 .formItem {

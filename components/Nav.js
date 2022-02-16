@@ -13,9 +13,9 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-      <Box backgroundColor={useColorModeValue("white", "white")} color={useColorModeValue("black", "darkblue")}px={70}>
+      <Box backgroundColor={useColorModeValue("black", "white")} color={useColorModeValue("white", "darkblue")}px={70}>
         <Flex
-          position={"fixed"}
+          // position={"fixed"}
           h={100}
           mb={"4"}
           alignItems={"center"}
