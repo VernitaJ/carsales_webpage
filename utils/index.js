@@ -1,6 +1,6 @@
 import dbConnect from "../../../utils/dbConnect";
 import Car from "../../../models/Car";
-var fs = require('fs');
+// var fs = require('fs');
 var path = require('path');
 
 dbConnect();

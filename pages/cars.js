@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { request, gql, GraphQLClient } from "graphql-request";
-import Filter from "../components/Filter";
+import Filters from "../components/Filters";
 import { Box, Image, Badge, Link } from "@chakra-ui/react";
 import style from "../styles/Cars.module.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -10,7 +10,7 @@ export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
   const graphQLClient = new GraphQLClient(url, {
     headers: {
-      Authorization: process.env.GRAPHCMS_TOKEN,
+      Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
     },
   });
 
@@ -40,62 +40,58 @@ const Cars = ({ cars }) => {
   const [colour, setColour] = useState("");
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState({ min: 0, max: 1000000 });
+  const [filteredCars, setFilteredCars] = useState(cars);
+
+  const applyFilter = (filtered) => {
+    setFilteredCars(filtered);
+  };
 
   const filterCars = (value) => {
     console.log(cars, value);
-    let filteredCars = cars.filter((car) => car.tags.includes(value));
-    cars = filteredCars;
+    let filtered = cars.filter((car) => car.tags.includes(value));
+    setFilteredCars(filtered);
   };
 
   return (
     <div>
-      <Sidebar />
-      {cars ? (
+      {/* <Sidebar> */}
+        <Filters cars={cars} updateFilter={applyFilter} />
+      {/* </Sidebar> */}
+      {filteredCars ? (
         <div className={style.main}>
-          {/* <button cars={() => filterCars("red")}>Big ol button</button> */}
           {cars.map((car, key) => (
             <div key={car.id} className={style.carbox}>
-              <Box
-                maxW="sm"
-                borderWidth="1px"
-                borderRadius="lg"
-                overflow="hidden"
-                margin="10vh"
-              >
+              <Box key={car.id} overflow="hidden">
                 <Link href={`/car/${car.slug}`}>
                   <div key={key} className={style.image}>
                     <img src={car.image[0].url} />
                   </div>
                 </Link>
-                <Box p="6">
-                  <Box display="flex" alignItems="baseline">
-                    <Badge borderRadius="full" px="2" colorScheme="teal">
-                      New
-                    </Badge>
-                    <Box
-                      color="gray.500"
-                      fontWeight="semibold"
-                      letterSpacing="wide"
-                      fontSize="xs"
-                      textTransform="uppercase"
-                      ml="2"
-                    >
-                      {car.colour} &bull; {car.year}
-                    </Box>
-                  </Box>
+                <Box display="flex" alignItems="baseline">
+                  <Badge borderRadius="full" px="2" colorScheme="teal">
+                    New
+                  </Badge>
                   <Box
-                    mt="1"
+                    color="gray.500"
                     fontWeight="semibold"
-                    as="h4"
-                    lineHeight="tight"
-                    isTruncated
+                    letterSpacing="wide"
+                    fontSize="xs"
+                    textTransform="uppercase"
+                    ml="2"
                   >
-                    {car.brand} {car.model}
+                    {car.colour} &bull; {car.year}
                   </Box>
-                  <Box>
-                    R{car.price}
-                    <Box as="span" color="gray.600" fontSize="sm"></Box>
-                  </Box>
+                </Box>
+                <Box
+                  mt="1"
+                  fontWeight="semibold"
+                  as="h4"
+                  lineHeight="tight"
+                  isTruncated
+                >
+                  {car.brand} {car.model}
+                  <br />R{car.price}
+                  <Box as="span" color="gray.600" fontSize="sm"></Box>
                 </Box>
               </Box>
             </div>
