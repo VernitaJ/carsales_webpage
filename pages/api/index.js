@@ -1,4 +1,6 @@
 import { GraphQLClient, gql } from "graphql-request";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "styles/tailwind.css";
 
 export default async (req, res) => {
   const variables = req.body;
