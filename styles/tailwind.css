@@ -47,6 +47,7 @@ Remove the margin in all browsers.
 
 body {
   margin: 0;
+  background-color: rgba(5, 94, 196, 0.966);
 }
 
 /**
@@ -395,6 +396,13 @@ hr {
   border-top-width: 1px;
 }
 
+col-span-1 {
+  grid-column: span 1 / 2
+}
+
+col-span-3 {
+  grid-column: span 2 / 4
+}
 /**
  * Undo the `border-style: none` reset that Normalize applies to images so that
  * our `border-{width}` utilities have the expected effect.
@@ -506,7 +514,7 @@ audio,
 iframe,
 embed,
 object {
-  display: block;
+  display: inline-block;
   vertical-align: middle;
 }
 
@@ -3585,6 +3593,10 @@ select {
   gap: 1.5rem;
 }
 
+.gap-9 {
+  gap: 3.5rem;
+}
+
 .grid-flow-row {
   grid-auto-flow: row;
 }
@@ -3608,6 +3620,18 @@ select {
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
+.grid-cols-3 {
+  display: grid;
+  grid-template-columns: 1fr, 2fr;
+}
+
+.grid-cols-4 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+
 
 .transform {
   --tw-translate-x: 0;

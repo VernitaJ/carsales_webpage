@@ -10,7 +10,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 .banner {
@@ -117,3 +116,15 @@
     flex-direction: column;
   }
 }
+
+.navbar-button {
+  display: hidden;
+}
+
+.navbar-button {
+  @media (min-width: 640px) {
+    display: hidden;
+  }
+}
+
+/* relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75 */

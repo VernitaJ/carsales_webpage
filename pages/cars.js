@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { request, gql, GraphQLClient } from "graphql-request";
 import Filters from "../components/Filters";
 import { Box, Image, Badge, Link } from "@chakra-ui/react";
-import style from "../styles/Cars.module.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
 
@@ -23,6 +22,7 @@ export const getStaticProps = async () => {
         price
         colour
         tags
+        location
         slug
         image {
           url
@@ -53,47 +53,33 @@ const Cars = ({ cars }) => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: "black", color: "white" }}>
       {/* <Sidebar> */}
-        <Filters cars={cars} updateFilter={applyFilter} />
-      {/* </Sidebar> */}
+      <Sidebar cars={cars} updateFilter={applyFilter} class="z-10 m-0" />
       {filteredCars ? (
-        <div className={style.main}>
-          {cars.map((car, key) => (
-            <div key={car.id} className={style.carbox}>
-              <Box key={car.id} overflow="hidden">
-                <Link href={`/car/${car.slug}`}>
-                  <div key={key} className={style.image}>
-                    <img src={car.image[0].url} />
-                  </div>
-                </Link>
-                <Box display="flex" alignItems="baseline">
-                  <Badge borderRadius="full" px="2" colorScheme="teal">
-                    New
-                  </Badge>
-                  <Box
-                    color="gray.500"
-                    fontWeight="semibold"
-                    letterSpacing="wide"
-                    fontSize="xs"
-                    textTransform="uppercase"
-                    ml="2"
-                  >
-                    {car.colour} &bull; {car.year}
-                  </Box>
-                </Box>
-                <Box
-                  mt="1"
-                  fontWeight="semibold"
-                  as="h4"
-                  lineHeight="tight"
-                  isTruncated
-                >
+        // <div className="car-container">
+        <div class="px-0 md:p-6">
+          {filteredCars.map((car, key) => (
+            <div
+              key={car.id}
+              class="grid md:max-w-4xl m-auto relative grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-9 border-2 border-gray-300 mb-4 rounded-xl"
+            >
+              <div class="grid text-xl rounded-xl p-6 bg-black ml-3 pt-16 col-start-1 col-span-1">
+                <p class="text-white bold">
                   {car.brand} {car.model}
-                  <br />R{car.price}
-                  <Box as="span" color="gray.600" fontSize="sm"></Box>
-                </Box>
-              </Box>
+                </p>
+                <p class="text-white sm:text-red">
+                  {car.colour} &bull; {car.year}
+                </p>
+
+                <br />
+                <p className="text-white">R{car.price}</p>
+              </div>
+              <div class="flex justify-center text-6xl  p-6 bg-black col-start-2 col-span-2">
+                <Link href={`/car/${car.slug}`}>
+                  <img class="mx-auto" src={car.image[0].url} />
+                </Link>
+              </div>
             </div>
           ))}
         </div>

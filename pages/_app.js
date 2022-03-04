@@ -7,27 +7,30 @@ import Router from "next/router";
 import PageChange from "../components/PageChange";
 import Navbar from "../components/Navbar";
 
+import "../styles/cars.css";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/tailwind.css"
-// import 'tailwindcss/tailwind.css';
+import "../styles/globals.css"
+//import "@tailwind.css";
+import Footer from "../components/Footer";
 
-Router.events.on("routeChangeStart", (url) => {
-  console.log(`Loading: ${url}`);
-  document.body.classList.add("body-page-transition");
-  ReactDOM.render(
-    <PageChange path={url} />,
-    document.getElementById("page-transition")
-  );
-});
-Router.events.on("routeChangeComplete", () => {
-  ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
-  document.body.classList.remove("body-page-transition");
-});
-Router.events.on("routeChangeError", () => {
-  ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
-  document.body.classList.remove("body-page-transition");
-});
+// Router.events.on("routeChangeStart", (url) => {
+//   console.log(`Loading: ${url}`);
+//   document.body.classList.add("body-page-transition");
+//   ReactDOM.render(
+//     <PageChange path={url} />,
+//     document.getElementById("page-transition")
+//   );
+// });
+// Router.events.on("routeChangeComplete", () => {
+//   ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
+//   document.body.classList.remove("body-page-transition");
+// });
+// Router.events.on("routeChangeError", () => {
+//   ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
+//   document.body.classList.remove("body-page-transition");
+// });
 
 export default class MyApp extends App {
   
@@ -53,14 +56,14 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>Notus NextJS by Creative Tim</title>
-          <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+          <title>Autosurf</title>
         </Head>
         <Layout>
           <Navbar transparent/>
           <div suppressHydrationWarning>
           {typeof window === 'undefined' ? null : <Component {...pageProps} />}
           </div>
+          <Footer className="z-50"/>
         </Layout>
       </React.Fragment>
     );

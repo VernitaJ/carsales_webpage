@@ -16,9 +16,12 @@ function getPropertiesDisplayText(count) {
 }
 
 const Filter = (props) => {
-  const [brand, setBrand] = useState([]);
   const [brandList, setBrandList] = useState([]);
+  const [modelList, setModelList] = useState([]);
+  const [colourList, setColourList] = useState([]);
+  const [brand, setBrand] = useState([]);
   const [model, setModel] = useState([]);
+  const [colour, setColour] = useState([]);
   const [sortOrder, setSortOrder] = useState([]);
   const [sortOrders, setSortOrders] = useState([
     "Highest First",
@@ -33,13 +36,19 @@ const Filter = (props) => {
     if (brand) {
       console.log("here");
       for (let i = 0; i < brand.length; i++) {
-        result = result.filter((car) => car.brand == brand[i]);
+        console.log(brand[i]);
+        result = result.filter((car) => car.brand == brand[i].value);
       }
-      console.log(result);
+      console.log("result", result);
     }
     if (model) {
       for (let i = 0; i < model.length; i++) {
-        result = result.filter((car) => car.model === model[i]);
+        result = result.filter((car) => car.model == model[i].value);
+      }
+    }
+    if (colour) {
+      for (let i = 0; i < colour.length; i++) {
+        result = result.filter((car) => car.colour == colour[i].value);
       }
     }
     if (sortOrder) {
@@ -56,8 +65,10 @@ const Filter = (props) => {
   };
 
   const handleClear = () => {
-    setBrand("");
-    setModel("");
+    props.updateFilter(cars);
+    setBrand([]);
+    setModel([]);
+    setColour([]);
   };
   //   const handleChange = (prop, value) => {
   //     this.setState({
@@ -75,11 +86,21 @@ const Filter = (props) => {
   };
 
   const handleFilterSetup = () => {
-    const list = props.cars.map((car) => ({
+    const brands = props.cars.map((car) => ({
       label: car.brand,
       value: car.brand,
     }));
-    setBrandList(list);
+    const models = props.cars.map((car) => ({
+      label: car.model,
+      value: car.model,
+    }));
+    const colours = props.cars.map((car) => ({
+      label: car.colour,
+      value: car.colour,
+    }));
+    setBrandList(brands);
+    setModelList(models);
+    setColourList(colours);
   };
 
   useEffect(() => {
@@ -89,16 +110,15 @@ const Filter = (props) => {
   const containerClasses = classnames("container", "mb-1", styles.container);
   const formClasses = classnames("form-horizontal", styles.form);
   const { cars, updateFilter } = props;
-  console.log("props", props.cars);
 
   return (
-    <aside className="mt-2">
-      <div className={containerClasses}>
-        <h2 data-cy="cars-count">{`${cars.length} private cars for sale`}</h2>
+    <div className="mt-2" display="flex">
+      <div className={containerClasses} display="flex">
         <form
           onSubmit={() => setTimeout(() => applyFilter(), 0)}
           className={formClasses}
           noValidate
+          style={{ color: "black" }}
         >
           <p className="mb-1">
             Refine your results
@@ -118,7 +138,7 @@ const Filter = (props) => {
               <div className="form-group">
                 <div className="col-3 col-sm-12">
                   <label className="form-label" htmlFor="price-from">
-                    Price from
+                    Brand
                   </label>
                 </div>
                 <div className="col-9 col-sm-12">
@@ -129,20 +149,89 @@ const Filter = (props) => {
                       brand.includes(obj.value)
                     )} // set selected values
                     options={brandList} // set list of the data
-                    onChange={(event) => 
-                      setBrand((prevBrands) => [
-                        ...prevBrands,
+                    onChange={
+                      (event) =>
+                        setBrand((prevBrands) => [
+                          ...prevBrands,
+                          {
+                            value: event[0].value,
+                            label: event[0].label,
+                          },
+                        ])
+                      // console.log(event[0])
+                    } // assign onChange function
+                    isMulti
+                    isClearable
+                  />
+                  {brand ? brand.map((obj) => <div>{obj.value}</div>) : null}
+                </div>
+                <div className="col-3 col-sm-12">
+                  <label className="form-label" htmlFor="price-from">
+                    Models
+                  </label>
+                </div>
+                <div className="col-9 col-sm-12">
+                  <Select
+                    className="dropdown"
+                    placeholder="Select Option"
+                    value={props.cars.filter((obj) =>
+                      model.includes(obj.value)
+                    )}
+                    options={modelList}
+                    onChange={(event) =>
+                      setModel((prevModels) => [
+                        ...prevModels,
                         {
-                          value: event.value,
-                          label: event.label,
+                          value: event[0].value,
+                          label: event[0].label,
                         },
                       ])
                     } // assign onChange function
                     isMulti
                     isClearable
                   />
+                  {model ? (
+                    <div style={{ display: "flex" }}>
+                      {model.map((obj) => (
+                        <div class="sm:rounded">{obj.value}</div>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
-                <select
+                <div className="col-3 col-sm-12">
+                  <label className="form-label" htmlFor="price-from">
+                    Colours
+                  </label>
+                </div>
+                <div className="col-9 col-sm-12">
+                  <Select
+                    className="dropdown"
+                    placeholder="Select Option"
+                    value={props.cars.filter((obj) =>
+                      colour.includes(obj.value)
+                    )}
+                    options={colourList}
+                    onChange={(event) =>
+                      setColour((prevColours) => [
+                        ...prevColours,
+                        {
+                          value: event[0].value,
+                          label: event[0].label,
+                        },
+                      ])
+                    } // assign onChange function
+                    isMulti
+                    isClearable
+                  />
+                  {colour ? (
+                    <div style={{ display: "flex" }}>
+                      {colour.map((obj) => (
+                        <div class="sm:rounded">{obj.value}</div>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+                {/* <select
                   className="form-select"
                   id="model"
                   multiple={true}
@@ -161,58 +250,61 @@ const Filter = (props) => {
                     </option>
                   ))}
                 </select>
+              </div> */}
               </div>
-            </div>
-            <div className="column col-4 col-xs-12">
-              <div className="form-group">
-                <div className="col-3 col-sm-12">
-                  <label className="form-label" htmlFor="model">
-                    Model
-                  </label>
-                </div>
-                <div className="col-9 col-sm-12">
-                  <select
-                    className="form-select"
-                    id="model"
-                    multiple={true}
-                    value={model}
-                    onSelect={(event) =>
-                      setModel((prevModels) => [
-                        ...prevModels,
-                        event.target.value,
-                      ])
-                    }
-                  >
-                    <option value="">Choose...</option>
-                    {props.cars.map((car) => (
-                      <option key={car.id} value={car.model.toLowerCase()}>
-                        {car.model}
-                      </option>
-                    ))}
-                  </select>
+              <div className="column col-4 col-xs-12">
+                <div className="form-group">
+                  <div className="col-3 col-sm-12">
+                    <label className="form-label" htmlFor="model">
+                      Model
+                    </label>
+                  </div>
+                  <div className="col-9 col-sm-12">
+                    <select
+                      className="form-select"
+                      id="model"
+                      multiple={true}
+                      value={model}
+                      onSelect={(event) =>
+                        setModel((prevModels) => [
+                          ...prevModels,
+                          event.target.value,
+                        ])
+                      }
+                    >
+                      <option value="">Choose...</option>
+                      {props.cars.map((car) => (
+                        <option key={car.id} value={car.model.toLowerCase()}>
+                          {car.model}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="column col-4 col-xs-12">
-              <div className="form-group">
-                <div className="col-3 col-sm-12">
-                  <label className="form-label" htmlFor="sortorder">
-                    Sort Order
-                  </label>
-                </div>
-                <div className="col-9 col-sm-12">
-                  <select
-                    className="form-select"
-                    id="sortorder"
-                    value={sortOrder}
-                    multiple={true}
-                    onChange={(event) => setSortOrder(event.target.value)}
-                  >
-                    <option value="">Choose...</option>
-                    {sortOrders.map((order) => (
-                      <option value={getSortOrderValue(order)}>{order}</option>
-                    ))}
-                  </select>
+              <div className="column col-4 col-xs-12">
+                <div className="form-group">
+                  <div className="col-3 col-sm-12">
+                    <label className="form-label" htmlFor="sortorder">
+                      Sort Order
+                    </label>
+                  </div>
+                  <div className="col-9 col-sm-12">
+                    <select
+                      className="form-select"
+                      id="sortorder"
+                      value={sortOrder}
+                      multiple={true}
+                      onChange={(event) => setSortOrder(event.target.value)}
+                    >
+                      <option value="">Choose...</option>
+                      {sortOrders.map((order) => (
+                        <option value={getSortOrderValue(order)}>
+                          {order}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -222,7 +314,7 @@ const Filter = (props) => {
           </button>
         </form>
       </div>
-    </aside>
+    </div>
   );
 };
 

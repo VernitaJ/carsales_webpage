@@ -2,7 +2,6 @@ import { gql, GraphQLClient } from "graphql-request";
 import { Box, Image, Badge, Link } from "@chakra-ui/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import style from "../../styles/Cars.module.css";
 
 export const getServerSideProps = async (pageContext) => {
   const pagelink = pageContext.query.slug;
@@ -10,7 +9,7 @@ export const getServerSideProps = async (pageContext) => {
   const url = process.env.ENDPOINT;
   const graphQLClient = new GraphQLClient(url, {
     headers: {
-      Authorization: process.env.GRAPHCMS_TOKEN,
+      Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
     },
   });
 
@@ -23,6 +22,7 @@ export const getServerSideProps = async (pageContext) => {
         price
         colour
         slug
+        location
         tags
         image {
           url
@@ -49,49 +49,48 @@ const Car = ({ car }) => {
   return (
     <div>
       {car ? (
-        <div className={style.main}>
-          <div key={car.id} className={style.individual}>
+        <div className="main">
+          <div key={car.id} className="individual" >
             <Box
               maxW="sm"
               borderWidth="1px"
-              borderRadius="lg"
+              borderRadius="10px"
+              border="3px solid blue"
               overflow="hidden"
               margin="10vh"
+              padding="10vh"
+              backgroundColor="rgba(255, 255, 255, .6)"
             >
-                <Box p="6">
+              <Box p="6" marginBottom="2rem" fontSize="1.2rem">
+                <Box
+                  mt="1"
+                  fontWeight="semibold"
+                  as="h4"
+                  lineHeight="loose"
+                  isTruncated
+                >
+                  {car.brand} {car.model}
+                </Box>
                 <Box display="flex" alignItems="baseline">
-                  <Badge borderRadius="full" px="2" colorScheme="teal">
-                    New
-                  </Badge>
                   <Box
-                    color="gray.500"
                     fontWeight="semibold"
                     letterSpacing="wide"
-                    fontSize="xs"
-                    textTransform="uppercase"
+                    fontSize="xl"
                     ml="2"
                   >
                     {car.colour} &bull; {car.year}
                   </Box>
                 </Box>
-                <Box
-                  mt="1"
-                  fontWeight="semibold"
-                  as="h4"
-                  lineHeight="tight"
-                  isTruncated
-                >
-                  {car.brand} {car.model}
-                </Box>
+
                 <Box>
                   R {car.price}
-                  <Box as="span" color="gray.600" fontSize="sm"></Box>
+                  <Box as="span" fontSize="sm"></Box>
                 </Box>
               </Box>
-              <Carousel>
+              <Carousel >
                 {car.image.map((img, key) => (
-                  <div  key={key} >
-                    <img src={img.url} className={style.carimage} />
+                  <div key={key} className="carimage" >
+                    <img src={img.url} />
                   </div>
                 ))}
               </Carousel>
