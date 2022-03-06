@@ -56,13 +56,13 @@ const Cars = ({ cars }) => {
     <div style={{ backgroundColor: "black", color: "white" }}>
       {/* <Sidebar> */}
       <Sidebar cars={cars} updateFilter={applyFilter} class="z-10 m-0" />
-      {filteredCars ? (
+      {filteredCars.length > 0 ? (
         // <div className="car-container">
         <div class="px-0 md:p-6">
           {filteredCars.map((car, key) => (
             <div
               key={car.id}
-              class="grid md:max-w-4xl m-auto relative grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-9 border-2 border-gray-300 mb-4 rounded-xl"
+              class="grid md:w-1/2 m-auto relative grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-9 border-2 border-gray-300 mb-4 rounded-xl"
             >
               <div class="grid text-xl rounded-xl p-6 bg-black ml-3 pt-16 col-start-1 col-span-1">
                 <p class="text-white bold">
@@ -83,7 +83,7 @@ const Cars = ({ cars }) => {
             </div>
           ))}
         </div>
-      ) : null}
+      ) : <div className=" z-50 mr-0 p-40 bg-transparent">Unfortunately we don't have the exact match. Try another search.</div>}
     </div>
   );
 };
