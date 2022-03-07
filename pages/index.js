@@ -125,34 +125,30 @@ export default function Landing() {
                   <i className="fas fa-user-friends text-xl"></i>
                 </div>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Working with us is a pleasure
+                  Buying a vehicle with us is a breeze
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  Don&apos;t let your uses guess by attaching tooltips and
-                  popoves to any element. Just make sure you enable them first
-                  via JavaScript.
+                  Once you find the vehicle you are interested in we arrange a
+                  meeting between you and the seller. We inspect the vehicle
+                  together and thereafter you can decide whether you would to
+                  complete the deal.
                 </p>
                 <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
-                  The kit comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and
-                  you&apos;re good to go. Just make sure you enable them first
-                  via JavaScript.
+                  We arrange financing through one of the many banks we're
+                  affiliated with, and we drop off your new vehicle as soon as
+                  the financing application is completed.
                 </p>
-                <Link href="/">
-                  <a href="#pablo" className="font-bold text-blueGray-700 mt-8">
-                    Check Notus NextJS!
-                  </a>
+                <Link href="/cars" className="font-bold text-blueGray-700 mt-8">
+                  Check out the cars we have on offer!
                 </Link>
               </div>
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blueGray-700">
-                  <Image
+                <div className="relative flex flex-col min-w-0 break-words  w-full shadow-lg rounded-lg bg-blueGray-700">
+                  <img
                     alt="..."
-                    src="/car3.png"
+                    src="/car.png"
                     className="w-full align-middle rounded-t-lg"
-                    width={500}
-                    height={200}
                   />
                   <blockquote className="relative p-8 mb-4">
                     <svg
@@ -205,21 +201,19 @@ export default function Landing() {
           <div className="container mx-auto px-4">
             <div className="items-center flex flex-wrap">
               <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
-                <Image
-                  alt="..."
+                <img
+                  alt="car"
                   className="max-w-full rounded-lg shadow-lg"
                   src="/car2.png"
-                  width={100}
-                  height={200}
                 />
               </div>
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
-                <div className="md:pr-12">
+                <div className="md:pr-12 text-white">
                   <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-blueGray-200">
                     <i className="fas fa-rocket text-xl"></i>
                   </div>
                   <h3 className="text-3xl font-semibold">A growing company</h3>
-                  <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
+                  <p className="mt-4 text-lg leading-relaxed ">
                     The extension comes with three pre-built pages to help you
                     get started faster. You can change the text and images and
                     you&apos;re good to go.
@@ -228,28 +222,24 @@ export default function Landing() {
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-100 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full  bg-blueGray-100 mr-3">
                             <i className="fas fa-fingerprint"></i>
                           </span>
                         </div>
                         <div>
-                          <h4 className="text-blueGray-500">
-                            Carefully crafted components
-                          </h4>
+                          <h4>Carefully crafted components</h4>
                         </div>
                       </div>
                     </li>
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-100 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full bg-blueGray-100 mr-3">
                             <i className="fab fa-html5"></i>
                           </span>
                         </div>
                         <div>
-                          <h4 className="text-blueGray-500">
-                            Amazing page examples
-                          </h4>
+                          <h4>Amazing page examples</h4>
                         </div>
                       </div>
                     </li>
@@ -261,9 +251,7 @@ export default function Landing() {
                           </span>
                         </div>
                         <div>
-                          <h4 className="text-blueGray-500">
-                            Dynamic components
-                          </h4>
+                          <h4>Dynamic components</h4>
                         </div>
                       </div>
                     </li>

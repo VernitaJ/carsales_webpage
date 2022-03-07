@@ -11,14 +11,14 @@ export default function Navbar(props) {
       <nav className="top-0 relative z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-black sm:bg-white-100">
         <div className="container px-4 mx-auto flex flex-row items-center justify-between">
           <div className="w-full relative flex justify-between md:w-auto lg:static lg:block lg:justify-start">
-            <Link href="/index" passHref>
+            <Link href="/" passHref>
               <a>
                 <Image
-                  src="/autoscout2.png"
+                  src="/logo.png"
                   alt="Logo"
                   // layout="responsive"
-                  width={280}
-                  height={60}
+                  width={240}
+                  height={40}
                 />
               </a>
             </Link>
@@ -40,7 +40,7 @@ export default function Navbar(props) {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">
                 <Link href="/">
-                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-bold">
+                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
                     Home
                   </a>
                 </Link>
@@ -48,7 +48,7 @@ export default function Navbar(props) {
 
               <li className="flex items-center">
                 <Link href="/about">
-                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-bold">
+                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
                     About
                   </a>
                 </Link>
@@ -56,7 +56,7 @@ export default function Navbar(props) {
 
               <li className="flex items-center">
                 <Link href="/contact">
-                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-bold">
+                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
                     Contact
                   </a>
                 </Link>

@@ -54,8 +54,9 @@ export default class MyApp extends App {
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
           <title>Autosurf</title>
+          <link rel="icon" href="/favicon.png" />
         </Head>
-        <Layout height="100vh">
+        <Layout min-height="100vh" position="relative">
           <Navbar transparent />
           <div suppressHydrationWarning>
             {typeof window === "undefined" ? null : (

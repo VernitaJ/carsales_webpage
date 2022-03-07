@@ -102,8 +102,8 @@
   padding: 3%;
   margin: auto;
   border-radius: 15px;
-
   margin-top: 6vh;
+  margin-bottom: 15vh;
 }
 
 @media (min-width: 640px) {

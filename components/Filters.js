@@ -201,7 +201,11 @@ const Filter = (props) => {
               </div> */}
             </div>
           </div>
-          <button type="submit" className="btn b" onClick={applyFilter}>
+          <button
+            type="submit"
+            className="btn bg-gray-400 rounded p-2 mt-6 ml-6 text-sm font-semibold"
+            onClick={applyFilter}
+          >
             Apply filter
           </button>
         </form>
