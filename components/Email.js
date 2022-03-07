@@ -1,17 +1,13 @@
 import { useRef } from "react";
-import emailjs from "@emailjs/browser";
+import emailjs, { init } from "@emailjs/browser";
 
 const Email = () => {
   const form = useRef();
   const onSubmit = (e) => {
     e.preventDefault();
+    init("_whBgZcKBCwNSKX31");
     emailjs
-      .sendForm(
-        process.env.EMAIL_ID,
-        process.env.EMAIL_TEMPLATE,
-        form.current,
-        process.env.EMAIL_USER
-      )
+      .sendForm(process.env.EMAIL_ID, process.env.EMAIL_TEMPLATE, form.current)
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
       })
