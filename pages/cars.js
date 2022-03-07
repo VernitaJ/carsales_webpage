@@ -55,35 +55,39 @@ const Cars = ({ cars }) => {
   return (
     <div style={{ backgroundColor: "black", color: "white" }}>
       {/* <Sidebar> */}
-      <Sidebar cars={cars} updateFilter={applyFilter} class="z-10 m-0" />
+      <Sidebar cars={cars} updateFilter={applyFilter} className="z-10 m-0" />
       {filteredCars.length > 0 ? (
-        // <div className="car-container">
-        <div class="px-0 md:p-6">
+        // <div classNameName="car-container">
+        <div className="px-0 md:p-6">
           {filteredCars.map((car, key) => (
             <div
               key={car.id}
-              class="grid md:w-1/2 m-auto relative grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-9 border-2 border-gray-300 mb-4 rounded-xl"
+              className="grid md:w-1/2 m-auto relative grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-9 border-2 border-gray-300 mb-4 rounded-xl"
             >
-              <div class="grid text-xl rounded-xl p-6 bg-black ml-3 pt-16 col-start-1 col-span-1">
-                <p class="text-white bold">
+              <div className="grid text-xl rounded-xl p-6 bg-black ml-3 pt-16 col-start-1 col-span-1">
+                <p className="text-white bold">
                   {car.brand} {car.model}
                 </p>
-                <p class="text-white sm:text-red">
+                <p className="text-white sm:text-red">
                   {car.colour} &bull; {car.year}
                 </p>
 
                 <br />
                 <p className="text-white">R{car.price}</p>
               </div>
-              <div class="flex justify-center text-6xl  p-6 bg-black col-start-2 col-span-2">
+              <div className="flex justify-center text-6xl  p-6 bg-black col-start-2 col-span-2">
                 <Link href={`/car/${car.slug}`}>
-                  <img class="mx-auto" src={car.image[0].url} />
+                  <img className="mx-auto" src={car.image[0].url} />
                 </Link>
               </div>
             </div>
           ))}
         </div>
-      ) : <div className=" z-50 mr-0 p-40 bg-transparent">Unfortunately we don't have the exact match. Try another search.</div>}
+      ) : (
+        <div className="z-50 mr-0 p-40 bg-transparent">
+          Unfortunately we don't have the exact match. Try another search.
+        </div>
+      )}
     </div>
   );
 };

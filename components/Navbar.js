@@ -13,13 +13,13 @@ export default function Navbar(props) {
           <div className="w-full relative flex justify-between md:w-auto lg:static lg:block lg:justify-start">
             <Link href="/index" passHref>
               <a>
-            <Image
-                src="/autoscout2.png"
-                alt="Logo"
-                // layout="responsive"
-                width={280}
-                height={60}
-              />
+                <Image
+                  src="/autoscout2.png"
+                  alt="Logo"
+                  // layout="responsive"
+                  width={280}
+                  height={60}
+                />
               </a>
             </Link>
             <button
@@ -40,20 +40,25 @@ export default function Navbar(props) {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">
                 <Link href="/">
-                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-bold">Home</a>
+                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-bold">
+                    Home
+                  </a>
                 </Link>
               </li>
 
               <li className="flex items-center">
                 <Link href="/about">
-                <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-bold">About</a>
-
+                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-bold">
+                    About
+                  </a>
                 </Link>
               </li>
 
               <li className="flex items-center">
                 <Link href="/contact">
-                <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-bold">Contact</a>
+                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-bold">
+                    Contact
+                  </a>
                 </Link>
               </li>
 

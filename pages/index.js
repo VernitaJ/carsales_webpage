@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 import Footer from "../components/Footer";
 
@@ -11,14 +12,13 @@ export default function Landing() {
       {/* <Navbar transparent /> */}
       <main>
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
-          <div 
+          <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
                 "url('https://res.cloudinary.com/gothenburg-university/image/upload/v1645822110/car_ohug26.jpg')",
             }}
           >
-            
             <span
               id="blackOverlay"
               className="w-full h-full absolute opacity-75 bg-black"
@@ -28,12 +28,13 @@ export default function Landing() {
             <div className="items-center flex flex-wrap">
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
-                  
                   <h1 className="text-white font-semibold text-5xl">
                     Welcome aboard
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
-                    At Autolink, we believe in openness and honesty above all else. When you purchase a vehicle with us, you will meet the seller in person.
+                    At Autolink, we believe in openness and honesty above all
+                    else. When you purchase a vehicle with us, you will meet the
+                    seller in person.
                   </p>
                 </div>
               </div>
@@ -43,7 +44,6 @@ export default function Landing() {
             className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-16"
             style={{ transform: "translateZ(0)" }}
           >
-            
             <svg
               className="absolute bottom-0 overflow-hidden"
               xmlns="http://www.w3.org/2000/svg"
@@ -65,42 +65,54 @@ export default function Landing() {
           <div className="container mx-auto -px-4">
             <div className="flex flex-wrap">
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-                <div onClick={() => router.push("/cars")} className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div
+                  onClick={() => router.push("/cars")}
+                  className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+                >
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                       <i className="fas fa-award"></i>
                     </div>
                     <h6 className="text-3xl font-semibold">Buying</h6>
                     <p className="text-xl mt-2 mb-4 text-blueGray-500">
-                    Find your new car at the best price - with financing available.
+                      Find your new car at the best price - with financing
+                      available.
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="w-full md:w-4/12 px-4 text-center">
-                <div onClick={() => router.push('/upload')} className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div
+                  onClick={() => router.push("/upload")}
+                  className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+                >
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
                       <i className="fas fa-retweet"></i>
                     </div>
                     <h6 className="text-3xl font-semibold">Selling</h6>
                     <p className="text-xl mt-2 mb-4 text-blueGray-500">
-                    Sell your car directly to its new owner with the profit in your pocket.
+                      Sell your car directly to its new owner with the profit in
+                      your pocket.
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="pt-6 w-full md:w-4/12 px-4 text-center">
-                <div onClick={() => router.push('/financing')} className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div
+                  onClick={() => router.push("/financing")}
+                  className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+                >
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
                       <i className="fas fa-fingerprint"></i>
                     </div>
                     <h6 className="text-3xl font-semibold">Financing</h6>
                     <p className="text-xl mt-2 mb-4 text-blueGray-500">
-                      With support by all major South African banks, you'll be sure to drive away with a smile.
+                      With support by all major South African banks, you&apos;ll
+                      be sure to drive away with a smile.
                     </p>
                   </div>
                 </div>
@@ -116,15 +128,15 @@ export default function Landing() {
                   Working with us is a pleasure
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  Don't let your uses guess by attaching tooltips and popoves to
-                  any element. Just make sure you enable them first via
-                  JavaScript.
+                  Don&apos;t let your uses guess by attaching tooltips and
+                  popoves to any element. Just make sure you enable them first
+                  via JavaScript.
                 </p>
                 <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
                   The kit comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and you're
-                  good to go. Just make sure you enable them first via
-                  JavaScript.
+                  started faster. You can change the text and images and
+                  you&apos;re good to go. Just make sure you enable them first
+                  via JavaScript.
                 </p>
                 <Link href="/">
                   <a href="#pablo" className="font-bold text-blueGray-700 mt-8">
@@ -135,7 +147,7 @@ export default function Landing() {
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blueGray-700">
-                  <img
+                  <Image
                     alt="..."
                     src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
                     className="w-full align-middle rounded-t-lg"
@@ -191,7 +203,7 @@ export default function Landing() {
           <div className="container mx-auto px-4">
             <div className="items-center flex flex-wrap">
               <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
-                <img
+                <Image
                   alt="..."
                   className="max-w-full rounded-lg shadow-lg"
                   src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
@@ -206,7 +218,7 @@ export default function Landing() {
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
                     The extension comes with three pre-built pages to help you
                     get started faster. You can change the text and images and
-                    you're good to go.
+                    you&apos;re good to go.
                   </p>
                   <ul className="list-none mt-6">
                     <li className="py-2">
@@ -298,11 +310,11 @@ export default function Landing() {
                   <i className="fas fa-medal text-xl"></i>
                 </div>
                 <h6 className="text-xl mt-5 font-semibold text-white">
-                  Excelent Services
+                  Excellent Services
                 </h6>
                 <p className="mt-2 mb-4 text-blueGray-400">
                   Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  the bulk of the card&apos;s content.
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -314,7 +326,7 @@ export default function Landing() {
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
                   Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  the bulk of the card&apos;s content.
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -326,7 +338,7 @@ export default function Landing() {
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
                   Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  the bulk of the card&apos;s content.
                 </p>
               </div>
             </div>

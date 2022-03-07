@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
-import makeAnimated from 'react-select/animated';
+import makeAnimated from "react-select/animated";
 
 import styles from "../styles/Filters.module.css";
 
@@ -34,7 +34,7 @@ const Filter = (props) => {
     let result = cars;
     console.log("brand", brand);
     if (brand.length > 0) {
-      result = result.filter((car) => brand.includes(car.brand))
+      result = result.filter((car) => brand.includes(car.brand));
       console.log("here");
       // for (let i = 0; i < brand.length; i++) {
       //   console.log(brand[i]);
@@ -43,10 +43,10 @@ const Filter = (props) => {
       console.log("result", result);
     }
     if (model.length > 0) {
-      result = result.filter((car) => model.includes(car.model))
+      result = result.filter((car) => model.includes(car.model));
     }
     if (colour.length > 0) {
-      result = result.filter((car) => colour.includes(car.colour))
+      result = result.filter((car) => colour.includes(car.colour));
     }
     if (sortOrder) {
       if (sortOrder === "highestfirst") {
@@ -71,47 +71,43 @@ const Filter = (props) => {
     setColour([]);
   };
 
-
-  const handleFilterSetup = () => {
-    const brands = filteredCars.map((car) => ({
-      label: car.brand,
-      value: car.brand,
-    }));
-    const models = filteredCars.map((car) => ({
-      label: car.model,
-      value: car.model,
-    }));
-    const colours = filteredCars.map((car) => ({
-      label: car.colour,
-      value: car.colour,
-    }));
-    setBrandList(brands);
-    setModelList(models);
-    setColourList(colours);
-  };
-
   useEffect(() => {
+    const handleFilterSetup = () => {
+      const brands = filteredCars.map((car) => ({
+        label: car.brand,
+        value: car.brand,
+      }));
+      const models = filteredCars.map((car) => ({
+        label: car.model,
+        value: car.model,
+      }));
+      const colours = filteredCars.map((car) => ({
+        label: car.colour,
+        value: car.colour,
+      }));
+      setBrandList(brands);
+      setModelList(models);
+      setColourList(colours);
+    };
     handleFilterSetup();
   }, [filteredCars]);
 
   const { cars, updateFilter } = props;
-console.log("brand", brand, "model", model, "colour", colour);
+  console.log("brand", brand, "model", model, "colour", colour);
   return (
     <div className="mt-2" display="flex">
-        <button
-              data-cy="clear-button"
-              className="mr-0 ml-40 text-blac k"
-              type="button"
-              onClick={() => {
-                handleClear();
-              }}
-            >
-              Clear
-            </button>
-      <p className="m-4 text-xl text-white">
-            Refine your results
-          </p>
-          
+      <button
+        data-cy="clear-button"
+        className="mr-0 ml-40 text-blac k"
+        type="button"
+        onClick={() => {
+          handleClear();
+        }}
+      >
+        Clear
+      </button>
+      <p className="m-4 text-xl text-white">Refine your results</p>
+
       <div className="">
         <form
           onSubmit={() => setTimeout(() => applyFilter(), 0)}
@@ -119,20 +115,20 @@ console.log("brand", brand, "model", model, "colour", colour);
           noValidate
           style={{ color: "black" }}
         >
-          
           <div className="columns text-center">
             <div className="column col-4 col-xs-12">
               <div className="form-group flex md:inline-block">
                 <div className="col-9 col-sm-12 p-4 md:p-1">
-                <label className="text-black font-semibold" htmlFor="car-brand">
+                  <label
+                    className="text-black font-semibold"
+                    htmlFor="car-brand"
+                  >
                     Brand
                   </label>
                   <Select
                     className="dropdown"
                     placeholder="Select Option"
-                    value={brandList.filter((obj) =>
-                      brand.includes(obj.value)
-                    )}
+                    value={brandList.filter((obj) => brand.includes(obj.value))}
                     options={brandList} // set list of the data
                     onChange={(e) =>
                       setBrand(Array.isArray(e) ? e.map((x) => x.value) : [])
@@ -143,26 +139,24 @@ console.log("brand", brand, "model", model, "colour", colour);
                 </div>
 
                 <div className="col-9 col-sm-12 p-4 md:p-1">
-                <label className="form-label" htmlFor="price-from">
+                  <label className="form-label" htmlFor="price-from">
                     Models
                   </label>
                   <Select
                     className="dropdown"
                     placeholder="Select Option"
-                    value={modelList.filter((obj) =>
-                      model.includes(obj.value)
-                    )}
+                    value={modelList.filter((obj) => model.includes(obj.value))}
                     options={modelList}
                     onChange={(e) =>
                       setModel(Array.isArray(e) ? e.map((x) => x.value) : [])
-                    }  // assign onChange function
+                    } // assign onChange function
                     isMulti
                     isClearable
                   />
                 </div>
-                
+
                 <div className="col-9 col-sm-12 p-4 md:p-1">
-                <label className="form-label" htmlFor="price-from">
+                  <label className="form-label" htmlFor="price-from">
                     Colours
                   </label>
                   <Select
@@ -174,7 +168,7 @@ console.log("brand", brand, "model", model, "colour", colour);
                     options={colourList}
                     onChange={(e) =>
                       setColour(Array.isArray(e) ? e.map((x) => x.value) : [])
-                    }  // assign onChange function
+                    } // assign onChange function
                     isMulti
                     isClearable
                   />
