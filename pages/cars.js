@@ -85,7 +85,7 @@ const Cars = ({ cars }) => {
         </div>
       ) : (
         <div className="z-50 mr-0 p-40 bg-transparent">
-          Unfortunately we don't have the exact match. Try another search.
+          Unfortunately we don&apos;t have the exact match. Try another search.
         </div>
       )}
     </div>
