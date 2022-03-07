@@ -134,7 +134,7 @@ export default function Landing() {
                   complete the deal.
                 </p>
                 <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
-                  We arrange financing through one of the many banks we're
+                  We arrange financing through one of the many banks we&apos;re
                   affiliated with, and we drop off your new vehicle as soon as
                   the financing application is completed.
                 </p>
