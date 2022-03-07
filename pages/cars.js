@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { request, gql, GraphQLClient } from "graphql-request";
-import Filters from "../components/Filters";
-import { Box, Image, Badge, Link } from "@chakra-ui/react";
+import { Box, Badge, Link } from "@chakra-ui/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
 
@@ -77,7 +76,11 @@ const Cars = ({ cars }) => {
               </div>
               <div className="flex justify-center text-6xl  p-6 bg-black col-start-2 col-span-2">
                 <Link href={`/car/${car.slug}`}>
-                  <img className="mx-auto" src={car.image[0].url} />
+                  <img
+                    className="mx-auto"
+                    alt="car main image"
+                    src={car.image[0].url}
+                  />
                 </Link>
               </div>
             </div>

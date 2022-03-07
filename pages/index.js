@@ -149,8 +149,10 @@ export default function Landing() {
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blueGray-700">
                   <Image
                     alt="..."
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+                    src="/car3.png"
                     className="w-full align-middle rounded-t-lg"
+                    width={500}
+                    height={200}
                   />
                   <blockquote className="relative p-8 mb-4">
                     <svg
@@ -206,7 +208,9 @@ export default function Landing() {
                 <Image
                   alt="..."
                   className="max-w-full rounded-lg shadow-lg"
-                  src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                  src="/car2.png"
+                  width={100}
+                  height={200}
                 />
               </div>
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">

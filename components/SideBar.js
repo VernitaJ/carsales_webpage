@@ -1,9 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
-import NotificationDropdown from "./NotificationDropdown.js";
-import UserDropdown from "./UserDropdown.js";
 import Filters from "./Filters";
 
 export default function Sidebar(props) {

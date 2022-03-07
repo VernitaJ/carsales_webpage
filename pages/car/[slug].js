@@ -1,7 +1,8 @@
 import { gql, GraphQLClient } from "graphql-request";
-import { Box, Image, Badge, Link } from "@chakra-ui/react";
+import { Box, Badge, Link } from "@chakra-ui/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import Image from "next/image";
 
 export const getServerSideProps = async (pageContext) => {
   const pagelink = pageContext.query.slug;
@@ -50,7 +51,7 @@ const Car = ({ car }) => {
     <div>
       {car ? (
         <div className="main">
-          <div key={car.id} className="individual" >
+          <div key={car.id} className="individual">
             <Box
               maxW="sm"
               borderWidth="1px"
@@ -87,10 +88,10 @@ const Car = ({ car }) => {
                   <Box as="span" fontSize="sm"></Box>
                 </Box>
               </Box>
-              <Carousel >
+              <Carousel>
                 {car.image.map((img, key) => (
-                  <div key={key} className="carimage" >
-                    <img src={img.url} />
+                  <div key={key} className="carimage">
+                    <Image src={img.url} alt="carousel image" />
                   </div>
                 ))}
               </Carousel>
