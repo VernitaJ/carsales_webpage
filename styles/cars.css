@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   background-color: black;
-  background-image: url('/banner.jpg');
+  background-image: url("/banner.jpg");
 }
 
 .button {
@@ -82,7 +82,7 @@
 .home-container {
   position: relative;
   margin-top: 20vh;
-  background-color:red;
+  background-color: red;
   padding-top: 16rem;
   padding-bottom: 5rem;
   display: flex;
@@ -94,4 +94,36 @@
 .filter-tags {
   border: 1px solid #242020;
   border-radius: 15px;
+}
+
+.email-container {
+  max-width: 90%;
+  background-color: white !important;
+  padding: 3%;
+  margin: auto;
+  border-radius: 15px;
+
+  margin-top: 6vh;
+}
+
+@media (min-width: 640px) {
+  .email-container {
+    max-width: 50%;
+  }
+}
+
+.email-input {
+  margin: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.email-submit {
+  color: white;
+  right: 0;
+  margin-top: 3vh;
+  font-weight: bold;
+  background-color: green !important;
+  border-radius: 15px;
+  padding: 5px;
 }

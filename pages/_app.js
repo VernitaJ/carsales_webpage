@@ -1,8 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
-import Router from "next/router";
 
 import PageChange from "../components/PageChange";
 import Navbar from "../components/Navbar";
@@ -10,8 +8,8 @@ import Navbar from "../components/Navbar";
 import "../styles/cars.css";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "../styles/tailwind.css"
-import "../styles/globals.css"
+import "../styles/tailwind.css";
+import "../styles/globals.css";
 //import "@tailwind.css";
 import Footer from "../components/Footer";
 
@@ -33,7 +31,6 @@ import Footer from "../components/Footer";
 // });
 
 export default class MyApp extends App {
-  
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
 
@@ -43,7 +40,7 @@ export default class MyApp extends App {
 
     return { pageProps };
   }
-  
+
   render() {
     const { Component, pageProps } = this.props;
 
@@ -58,12 +55,14 @@ export default class MyApp extends App {
           />
           <title>Autosurf</title>
         </Head>
-        <Layout>
-          <Navbar transparent/>
+        <Layout height="100vh">
+          <Navbar transparent />
           <div suppressHydrationWarning>
-          {typeof window === 'undefined' ? null : <Component {...pageProps} />}
+            {typeof window === "undefined" ? null : (
+              <Component {...pageProps} />
+            )}
           </div>
-          <Footer className="z-50"/>
+          <Footer className="z-50" />
         </Layout>
       </React.Fragment>
     );
