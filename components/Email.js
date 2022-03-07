@@ -5,9 +5,13 @@ const Email = () => {
   const form = useRef();
   const onSubmit = (e) => {
     e.preventDefault();
-    init("_whBgZcKBCwNSKX31");
     emailjs
-      .sendForm(process.env.EMAIL_ID, process.env.EMAIL_TEMPLATE, form.current)
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAIL_ID,
+        process.env.NEXT_PUBLIC_EMAIL_TEMPLATE,
+        form.current,
+        process.env.NEXT_PUBLIC_EMAIL_USER
+      )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
       })
