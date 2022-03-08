@@ -33,18 +33,12 @@ export default function Footer() {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/presentation?ref=nnjs-footer"
-                      >
+                      <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">
                         About Us
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=nnjs-footer"
-                      >
+                      <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">
                         Free Products
                       </a>
                     </li>
@@ -56,18 +50,12 @@ export default function Footer() {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/terms?ref=nnjs-footer"
-                      >
+                      <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">
                         Terms & Conditions
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/privacy?ref=nnjs-footer"
-                      >
+                      <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">
                         Privacy Policy
                       </a>
                     </li>
