@@ -37,8 +37,15 @@
 }
 
 .individual {
-  width: 70%;
+  min-width: 80%;
   border-radius: 50px;
+}
+
+
+@media (min-width: 640px) {
+  .individual {
+    min-width: 50%;
+  }
 }
 
 .carimage {
