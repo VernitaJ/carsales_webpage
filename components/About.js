@@ -5,7 +5,7 @@ const About = () => {
     <div className={styles.content}>
       <h1>Established in 2021</h1>
       <p className="m-10">
-        AutoSurf was created with people in mind. It's clear that vehicle
+        AutoSurf was created with people in mind. It&apos;s clear that vehicle
         garages take a large amount of the profit from selling cars, and the
         buyer never gets to meet the seller.
       </p>

@@ -64,7 +64,7 @@ export default function Landing() {
         <section className="pb-20 bg-blueGray-200 -mt-24">
           <div className="container mx-auto -px-4">
             <div className="flex flex-wrap">
-              <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+              <div className="lg:pt-0 md:w-6/12 px-12 text-center">
                 <div
                   onClick={() => router.push("/cars")}
                   className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
@@ -82,7 +82,7 @@ export default function Landing() {
                 </div>
               </div>
 
-              <div className="w-full md:w-4/12 px-4 text-center">
+              <div className="lg:pt-0 md:w-6/12 px-12 text-center">
                 <div
                   onClick={() => router.push("/upload")}
                   className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
@@ -100,7 +100,7 @@ export default function Landing() {
                 </div>
               </div>
 
-              <div className="pt-6 w-full md:w-4/12 px-4 text-center">
+              {/* <div className="pt-6 w-full md:w-4/12 px-4 text-center">
                 <div
                   onClick={() => router.push("/financing")}
                   className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
@@ -116,7 +116,7 @@ export default function Landing() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="flex flex-wrap items-center mt-32">
