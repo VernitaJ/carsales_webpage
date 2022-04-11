@@ -88,10 +88,15 @@ const Car = ({ car }) => {
                   <Box as="span" fontSize="sm"></Box>
                 </Box>
               </Box>
-              <Carousel>
+              <Carousel >
                 {car.image.map((img, key) => (
                   <div key={key} className="carimage">
-                    <Image src={img.url} alt="carousel image" />
+                    <Image
+                      sizes="320 640 750"
+                      layout="responsive"
+                      width={1200}
+                      height={780}
+                      src={img.url} alt=" carousel image" />
                   </div>
                 ))}
               </Carousel>

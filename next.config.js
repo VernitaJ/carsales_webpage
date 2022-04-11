@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ["media.graphcms.com"],
+    domains: ["media.graphassets.com"],
   },
   env: {
     MONGO_URI: "mongodb+srv://vgouws:vgouws@cluster0.wbd9s.mongodb.net/autodb",

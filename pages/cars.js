@@ -3,6 +3,7 @@ import { request, gql, GraphQLClient } from "graphql-request";
 import { Box, Badge, Link } from "@chakra-ui/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
+import Image from "next/image";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -51,6 +52,14 @@ const Cars = ({ cars }) => {
     setFilteredCars(filtered);
   };
 
+  const format = (num) => {
+    let numArray = num.toString().split('').reverse();
+    for (let i = 3; i < numArray.length; i += 4) {
+      numArray.splice(i, 0, ',');
+    }
+    return numArray.reverse().join("");
+  }
+
   return (
     <div style={{ backgroundColor: "black", color: "white" }}>
       {/* <Sidebar> */}
@@ -61,7 +70,7 @@ const Cars = ({ cars }) => {
           {filteredCars.map((car, key) => (
             <div
               key={car.id}
-              className="grid md:w-1/2 m-auto relative grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-9 border-2 border-gray-300 mb-4 rounded-xl"
+              className="grid md:w-2/4 m-auto relative grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-9 border-2 border-gray-300 mb-4 rounded-xl"
             >
               <div className="grid text-xl rounded-xl p-6 bg-black ml-3 pt-16 col-start-1 col-span-1">
                 <p className="text-white bold">
@@ -72,14 +81,17 @@ const Cars = ({ cars }) => {
                 </p>
 
                 <br />
-                <p className="text-white">R{car.price}</p>
+                <p className="text-white">R{format(car.price)}</p>
               </div>
-              <div className="flex justify-center text-6xl  p-6 bg-black col-start-2 col-span-2">
+              <div className="flex justify-center text-6xl p-6 m-4 bg-black col-start-2 col-span-2">
                 <Link href={`/car/${car.slug}`}>
-                  <img
+                  <Image
                     className="mx-auto"
                     alt="car main image"
                     src={car.image[0].url}
+                    layout="intrinsic"
+                    width={900}
+                    height={600}
                   />
                 </Link>
               </div>

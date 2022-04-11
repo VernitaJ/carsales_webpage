@@ -37,7 +37,7 @@
 }
 
 .individual {
-  width: 70%;
+  width: 50%;
   border-radius: 50px;
 }
 
@@ -70,6 +70,7 @@
   .navbar-button {
     display: none;
   }
+
   /* cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent visible block md:hidden outline-none focus:outline-none */
 }
 
