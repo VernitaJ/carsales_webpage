@@ -47,64 +47,46 @@ export const getServerSideProps = async (pageContext) => {
 };
 
 const Car = ({ car }) => {
+
+  const format = (num) => {
+    let numArray = num.toString().split('').reverse();
+    for (let i = 3; i < numArray.length; i += 4) {
+      numArray.splice(i, 0, ',');
+    }
+    return numArray.reverse().join("");
+  }
   return (
     <div>
       {car ? (
         <div className="main">
           <div key={car.id} className="individual">
-            <Box
-              maxW="sm"
-              borderWidth="1px"
-              borderRadius="10px"
-              border="3px solid blue"
-              overflow="hidden"
-              margin="10vh"
-              padding="10vh"
-              backgroundColor="rgba(255, 255, 255, .6)"
-            >
-              <Box p="6" marginBottom="2rem" fontSize="1.2rem">
-                <Box
-                  mt="1"
-                  fontWeight="semibold"
-                  as="h4"
-                  lineHeight="loose"
-                  isTruncated
-                >
-                  {car.brand} {car.model}
-                </Box>
-                <Box display="flex" alignItems="baseline">
-                  <Box
-                    fontWeight="semibold"
-                    letterSpacing="wide"
-                    fontSize="xl"
-                    ml="2"
-                  >
-                    {car.colour} &bull; {car.year}
-                  </Box>
-                </Box>
-
-                <Box>
-                  R {car.price}
-                  <Box as="span" fontSize="sm"></Box>
-                </Box>
-              </Box>
-              <Carousel >
-                {car.image.map((img, key) => (
-                  <div key={key} className="carimage">
-                    <Image
-                      sizes="320 640 750"
-                      layout="responsive"
-                      width={1200}
-                      height={780}
-                      src={img.url} alt=" carousel image" />
-                  </div>
-                ))}
-              </Carousel>
-            </Box>
+            <div className="grid text-l rounded-xl p-12 ml-3 pt-20 col-start-1 col-span-1">
+              <p className="text-white bold">
+                {car.brand} {car.model}
+              </p>
+              <p className="text-white sm:text-red">
+                {car.colour} &bull; {car.year}
+              </p>
+              <br />
+              <p className="text-white">R{format(car.price)}</p>
+            </div>
+            <Carousel>
+              {car.image.map((img, key) => (
+                <div key={key} className="carimage">
+                  <Image
+                    sizes="320 640 750"
+                    layout="responsive"
+                    width={1400}
+                    height={980}
+                    src={img.url} alt=" carousel image" />
+                </div>
+              ))}
+            </Carousel>
           </div>
         </div>
-      ) : null}
-    </div>
+      ) : null
+      }
+    </div >
   );
 };
 
