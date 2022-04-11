@@ -177,7 +177,7 @@ export default function Landing() {
           </div>
         </section>
 
-        <section className="relative py-20">
+        {/* <section className="relative py-20">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
             style={{ transform: "translateZ(0)" }}
@@ -260,7 +260,7 @@ export default function Landing() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="pb-20 relative block bg-blueGray-800">
           <div

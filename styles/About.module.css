@@ -10,3 +10,9 @@
   padding: 2rem;
   margin: 100px;
 }
+
+.about_image {
+  height: 500px;
+  width: auto;
+  margin-left: 60px;
+}
