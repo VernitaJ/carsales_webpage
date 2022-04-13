@@ -54,12 +54,12 @@ Improve consistency of default fonts in all browsers. (https://github.com/sindre
 
 body {
   font-family:
+    Roboto,
+    Helvetica,
     system-ui,
     -apple-system,
     /* Firefox supports this but not yet `system-ui` */
     'Segoe UI',
-    Roboto,
-    Helvetica,
     Arial,
     sans-serif,
     'Apple Color Emoji',
@@ -2990,7 +2990,7 @@ select {
 }
 
 .bottom-0 {
-  bottom: 0px;
+  bottom: 0;
 }
 
 .left-0 {

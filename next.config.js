@@ -2,6 +2,11 @@ module.exports = {
   images: {
     domains: ["media.graphassets.com"],
   },
+  resolve: {
+    fallback: {
+      "fs": false
+    },
+  },
   env: {
     MONGO_URI: "mongodb+srv://vgouws:vgouws@cluster0.wbd9s.mongodb.net/autodb",
     MONGODB_DB: "autodb",

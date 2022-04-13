@@ -2,8 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import PagesDropdown from "./PagesDropdown.js";
-
 export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (

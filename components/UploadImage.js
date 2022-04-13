@@ -5,32 +5,32 @@ class UploadImage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state ={
-      file:null
+    this.state = {
+      file: null
     }
     this.onFormSubmit = this.onFormSubmit.bind(this)
     this.onChange = this.onChange.bind(this)
     this.fileUpload = this.fileUpload.bind(this)
   }
-  onFormSubmit(e){
+  onFormSubmit(e) {
     e.preventDefault() // Stop form submit
-    this.fileUpload(this.state.file).then((response)=>{
+    this.fileUpload(this.state.file).then((response) => {
       console.log(response.data);
     })
   }
   onChange(e) {
-    this.setState({file:e.target.files[0]})
+    this.setState({ file: e.target.files[0] })
   }
-  fileUpload(file){
+  fileUpload(file) {
     const url = 'http://example.com/file-upload';
     const formData = new FormData();
-    formData.append('file',file)
+    formData.append('file', file)
     const config = {
-        headers: {
-            'content-type': 'multipart/form-data'
-        }
+      headers: {
+        'content-type': 'multipart/form-data'
+      }
     }
-    return  post(url, formData,config)
+    return post(url, formData, config)
   }
 
   render() {
@@ -40,7 +40,7 @@ class UploadImage extends React.Component {
         <input type="file" onChange={this.onChange} />
         <button type="submit">Upload</button>
       </form>
-   )
+    )
   }
 }
 

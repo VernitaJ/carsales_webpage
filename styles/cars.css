@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("/banner.jpg");
 }
 
 .popup {
@@ -63,15 +62,15 @@
   min-width: 90%;
   border-radius: 50px;
   padding: 3%;
-  margin: 2% 0 10%;
-  border-style: rgb(0, 132, 240) 5px;
-  background-color: rgba(255, 255, 255, 0.9);
+  margin: 2% 0 5%;
+  border: solid rgb(4, 103, 184) 5px;
+  background-color: rgba(255, 255, 255, 0.842);
 }
 
 
 @media (min-width: 640px) {
   .individual {
-    min-width: 50%;
+    min-width: 35%;
   }
 }
 
@@ -182,11 +181,4 @@
 .content-wrap {
   padding-bottom: 2.5rem;
   /* Footer height */
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
 }

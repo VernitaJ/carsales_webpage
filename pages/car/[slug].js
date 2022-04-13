@@ -1,5 +1,4 @@
 import { gql, GraphQLClient } from "graphql-request";
-import { Box, Badge, Link } from "@chakra-ui/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
@@ -60,16 +59,15 @@ const Car = ({ car }) => {
       {car ? (
         <div className="main">
           <div key={car.id} className="individual">
-            <div className="text-white bold ml-20">
-
+            <div className="text-black bold ml-20">
               <p>
                 {car.brand} {car.model}
               </p>
-              <p className="text-white sm:text-red">
+              <p className="text-black ">
                 {car.colour} &bull; {car.year}
               </p>
               <br />
-              <p className="text-white">R{format(car.price)}</p>
+              <p className="text-black">R{format(car.price)}</p>
               <button className="interest-button">Interested</button>
 
             </div>

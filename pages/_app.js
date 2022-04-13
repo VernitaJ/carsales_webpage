@@ -2,7 +2,6 @@ import React from "react";
 import App from "next/app";
 import Head from "next/head";
 
-import PageChange from "../components/PageChange";
 import Navbar from "../components/Navbar";
 
 import "../styles/cars.css";
@@ -13,22 +12,6 @@ import "../styles/globals.css";
 //import "@tailwind.css";
 import Footer from "../components/Footer";
 
-// Router.events.on("routeChangeStart", (url) => {
-//   console.log(`Loading: ${url}`);
-//   document.body.classList.add("body-page-transition");
-//   ReactDOM.render(
-//     <PageChange path={url} />,
-//     document.getElementById("page-transition")
-//   );
-// });
-// Router.events.on("routeChangeComplete", () => {
-//   ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
-//   document.body.classList.remove("body-page-transition");
-// });
-// Router.events.on("routeChangeError", () => {
-//   ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
-//   document.body.classList.remove("body-page-transition");
-// });
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -56,14 +39,14 @@ export default class MyApp extends App {
           <title>OpenAuto</title>
           <link rel="icon" href="/wheellight.png" />
         </Head>
-        <Layout className="page-container">
+        <Layout position="relative" minHeight="100vh">
           <Navbar transparent />
           <div suppressHydrationWarning>
             {typeof window === "undefined" ? null : (
-              <Component {...pageProps} className="content-wrap" />
+              <Component {...pageProps} height="100vh" paddingBottom="50px" />
             )}
           </div>
-          <Footer className="footer" />
+          <Footer position="absolute" height="50px" />
         </Layout>
       </React.Fragment>
     );

@@ -3,8 +3,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-import Footer from "../components/Footer";
-
 export default function Landing() {
   const router = useRouter();
   return (
@@ -21,7 +19,7 @@ export default function Landing() {
           >
             <span
               id="blackOverlay"
-              className="w-full h-full absolute opacity-60 bg-black"
+              className="w-full h-full absolute opacity-80 bg-black"
             ></span>
           </div>
           <div className="container relative mx-auto">
@@ -56,7 +54,7 @@ export default function Landing() {
               y="0"
             >
               <polygon
-                className="text-blueGray-800 fill-current"
+                className="text-blueGray-900 fill-current"
                 points="2560 0 2560 100 0 100"
               ></polygon>
             </svg>

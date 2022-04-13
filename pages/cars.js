@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { request, gql, GraphQLClient } from "graphql-request";
-import { Box, Badge, Link } from "@chakra-ui/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
 import PopUp from "../components/ContactPopUp";
 import Image from "next/image";
+import Link from "next/link";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -62,36 +62,52 @@ const Cars = ({ cars }) => {
     return numArray.reverse().join("");
   }
 
-  setTimeout = () => {
-    setShowPopUp(true)
-      , 5000
-  }
+  useEffect(() => {
+    setTimeout = () => {
+      setShowPopUp(true)
+        , 3000
+    }
+  }, [])
+
 
   return (
     <div style={{ backgroundColor: "black", color: "white" }}>
       {/* <Sidebar> */}
       <Sidebar cars={cars} updateFilter={applyFilter} className="z-10 m-0" />
-      {showPopUp ? <PopUp /> : null}
+      {showPopUp ? <div><PopUp /></div> : null}
       {filteredCars.length > 0 ? (
         // <div classNameName="car-container">
         <div className="px-0 md:p-6">
           {filteredCars.map((car, key) => (
             <div
               key={car.id}
-              className="grid md:w-1/3 md:m-auto relative md:mt-10 grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-9 md:border-8 border-blue-900 bg-gray-100 rounded-xl"
+              className="grid md:w-6/12 md:m-auto text-white relative md:mt-10 grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-9 md:border-8 border-blue-900 bg-black rounded-xl"
             >
-              <div className="grid text-xl rounded-xl p-6 ml-3 pt-16 col-start-1 col-span-1">
-                <p className="text-black bold">
+              <div className="grid text-md rounded-xl p-6 ml-3 col-start-1 col-span-2">
+                <p>
+                  Brand and Model:
+                </p>
+                <p>
+                  Colour:
+                </p>
+                <p>
+                  Year:
+                </p>
+                <p>Price:</p>
+              </div>
+              <div className="grid text-xlrounded-xl p-6 ml-3 col-start-3 col-span-1">
+                <p>
                   {car.brand} {car.model}
                 </p>
-                <p className="text-black">
-                  {car.colour} &bull; {car.year}
+                <p>
+                  {car.colour}
                 </p>
-
-                <br />
-                <p className="text-black">R{format(car.price)}</p>
+                <p>
+                  {car.year}
+                </p>
+                <p >R{format(car.price)}</p>
               </div>
-              <div className="flex justify-center text-6xl p-6 m-auto col-start-2 col-span-2">
+              <div className="flex justify-center text-6xl p-6 m-auto col-start-4 col-span-3">
                 <Link href={`/car/${car.slug}`}>
                   <Image
                     className="mx-auto"
