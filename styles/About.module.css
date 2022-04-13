@@ -4,11 +4,12 @@
 }
 
 .content {
-  background-color: rgb(0, 26, 83);
+  background-color: rgb(2, 16, 48);
   border-radius: 10px;
+  font-style: bold;
   color: white;
   padding: 2%;
-  margin: 10%;
+  margin: 5% 10%;
 }
 
 .paragraph {
@@ -17,7 +18,7 @@
 
 .about_image {
   height: auto;
-  width: 80%;
+  width: 50%;
   max-width: 400px;
-  margin: 10% 5%;
+  margin: 5% 5%;
 }

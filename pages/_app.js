@@ -53,17 +53,17 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>Autosurf</title>
-          <link rel="icon" href="/favicon.png" />
+          <title>OpenAuto</title>
+          <link rel="icon" href="/wheellight.png" />
         </Head>
-        <Layout min-height="100vh" position="relative">
+        <Layout className="page-container">
           <Navbar transparent />
           <div suppressHydrationWarning>
             {typeof window === "undefined" ? null : (
-              <Component {...pageProps} />
+              <Component {...pageProps} className="content-wrap" />
             )}
           </div>
-          <Footer className="z-50" />
+          <Footer className="footer" />
         </Layout>
       </React.Fragment>
     );

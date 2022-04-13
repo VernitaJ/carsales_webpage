@@ -1,21 +1,44 @@
 .car-container {
-  padding: 5rem;
+  padding: 3rem;
+  padding-top: 5rem;
   border: none;
-  max-width: 60%;
+  max-width: 80%;
   margin: auto;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: black;
   background-image: url("/banner.jpg");
 }
 
-.button {
-  background-color: red;
+.popup {
+  position: fixed;
+  height: auto;
+  border-radius: 50%;
+  padding: 2%;
+  padding-left: 3%;
+  margin-top: 13%;
+  margin-right: 2%;
+  right: 0;
+  background-color: white;
+  font-size: large;
+  color: black;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .popup {
+    display: block;
+  }
+}
+
+.infotext {
+  color: white;
+  margin-top: 5%;
+  font-size: larger;
+  font-style: bold;
 }
 
 .carbox {
@@ -37,8 +60,12 @@
 }
 
 .individual {
-  min-width: 80%;
+  min-width: 90%;
   border-radius: 50px;
+  padding: 3%;
+  margin: 2% 0 10%;
+  border-style: rgb(0, 132, 240) 5px;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 
@@ -46,6 +73,17 @@
   .individual {
     min-width: 50%;
   }
+}
+
+.interest-button {
+  font-size: small;
+  float: right;
+  position: sticky;
+  border-radius: 20px;
+  padding: 2%;
+  margin: 5%;
+  background-color: rgb(49, 146, 224);
+  color: white;
 }
 
 .carimage {
@@ -110,8 +148,8 @@
   padding: 3%;
   margin: auto;
   border-radius: 15px;
-  margin-top: 6vh;
-  margin-bottom: 15vh;
+  margin-top: 6%;
+  margin-bottom: 10%;
 }
 
 @media (min-width: 640px) {
@@ -121,7 +159,7 @@
 }
 
 .email-input {
-  margin: 2px;
+  margin: 1%;
   display: flex;
   justify-content: space-between;
 }
@@ -134,4 +172,21 @@
   background-color: green !important;
   border-radius: 15px;
   padding: 5px;
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 2.5rem;
+  /* Footer height */
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }

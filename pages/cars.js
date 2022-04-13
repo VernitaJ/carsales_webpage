@@ -3,6 +3,7 @@ import { request, gql, GraphQLClient } from "graphql-request";
 import { Box, Badge, Link } from "@chakra-ui/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
+import PopUp from "../components/ContactPopUp";
 import Image from "next/image";
 
 export const getStaticProps = async () => {
@@ -37,6 +38,7 @@ export const getStaticProps = async () => {
 };
 
 const Cars = ({ cars }) => {
+  const [showPopUp, setShowPopUp] = useState(false);
   const [colour, setColour] = useState("");
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState({ min: 0, max: 1000000 });
@@ -60,30 +62,36 @@ const Cars = ({ cars }) => {
     return numArray.reverse().join("");
   }
 
+  setTimeout = () => {
+    setShowPopUp(true)
+      , 5000
+  }
+
   return (
     <div style={{ backgroundColor: "black", color: "white" }}>
       {/* <Sidebar> */}
       <Sidebar cars={cars} updateFilter={applyFilter} className="z-10 m-0" />
+      {showPopUp ? <PopUp /> : null}
       {filteredCars.length > 0 ? (
         // <div classNameName="car-container">
         <div className="px-0 md:p-6">
           {filteredCars.map((car, key) => (
             <div
               key={car.id}
-              className="grid md:w-2/4 m-auto relative grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-9 border-2 border-gray-300 mb-4 rounded-xl"
+              className="grid md:w-1/3 md:m-auto relative md:mt-10 grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-9 md:border-8 border-blue-900 bg-gray-100 rounded-xl"
             >
-              <div className="grid text-xl rounded-xl p-6 bg-black ml-3 pt-16 col-start-1 col-span-1">
-                <p className="text-white bold">
+              <div className="grid text-xl rounded-xl p-6 ml-3 pt-16 col-start-1 col-span-1">
+                <p className="text-black bold">
                   {car.brand} {car.model}
                 </p>
-                <p className="text-white sm:text-red">
+                <p className="text-black">
                   {car.colour} &bull; {car.year}
                 </p>
 
                 <br />
-                <p className="text-white">R{format(car.price)}</p>
+                <p className="text-black">R{format(car.price)}</p>
               </div>
-              <div className="flex justify-center text-6xl p-6 m-4 bg-black col-start-2 col-span-2">
+              <div className="flex justify-center text-6xl p-6 m-auto col-start-2 col-span-2">
                 <Link href={`/car/${car.slug}`}>
                   <Image
                     className="mx-auto"
@@ -106,22 +114,5 @@ const Cars = ({ cars }) => {
     </div>
   );
 };
-
-// export async function getServerSideProps() {
-//   console.log("here");
-//   let dev = process.env.NODE_ENV !== "production";
-//   let { DEV_URL, PROD_URL } = process.env;
-//   // request posts from api
-//   let response = await fetch("http://localhost:3000/api/cars");
-//   // let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/cars`);
-//   // extract the data
-//   let { data } = await response.json();
-//   console.log("data:", data);
-//   return {
-//     props: {
-//       cars: data,
-//     },
-//   };
-// }
 
 export default Cars;

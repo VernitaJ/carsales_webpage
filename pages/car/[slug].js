@@ -60,8 +60,9 @@ const Car = ({ car }) => {
       {car ? (
         <div className="main">
           <div key={car.id} className="individual">
-            <div className="grid text-l rounded-xl p-12 ml-3 pt-20 col-start-1 col-span-1">
-              <p className="text-white bold">
+            <div className="text-white bold ml-20">
+
+              <p>
                 {car.brand} {car.model}
               </p>
               <p className="text-white sm:text-red">
@@ -69,6 +70,8 @@ const Car = ({ car }) => {
               </p>
               <br />
               <p className="text-white">R{format(car.price)}</p>
+              <button className="interest-button">Interested</button>
+
             </div>
             <Carousel>
               {car.image.map((img, key) => (
@@ -83,7 +86,7 @@ const Car = ({ car }) => {
               ))}
             </Carousel>
           </div>
-        </div>
+        </div >
       ) : null
       }
     </div >

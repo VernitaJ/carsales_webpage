@@ -8,17 +8,17 @@ export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="top-0 relative z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-black sm:bg-white-100">
+      <nav className="top-0 relative z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white sm:bg-white-100">
         <div className="container px-4 mx-auto flex flex-row items-center justify-between">
           <div className="w-full relative flex justify-between md:w-auto lg:static lg:block lg:justify-start">
             <Link href="/" passHref>
               <a>
                 <Image
-                  src="/logo.png"
+                  src="/openauto.png"
                   alt="Logo"
                   // layout="responsive"
-                  width={240}
-                  height={40}
+                  width={120}
+                  height={60}
                 />
               </a>
             </Link>
@@ -27,7 +27,7 @@ export default function Navbar(props) {
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
-              <i className="text-white fas fa-bars"></i>
+              <i className="text-black fas fa-bars"></i>
             </button>
           </div>
           <div
@@ -40,7 +40,7 @@ export default function Navbar(props) {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">
                 <Link href="/">
-                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
+                  <a className="lg:text-black lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
                     Home
                   </a>
                 </Link>
@@ -48,7 +48,7 @@ export default function Navbar(props) {
 
               <li className="flex items-center">
                 <Link href="/about">
-                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
+                  <a className="lg:text-black lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
                     About
                   </a>
                 </Link>
@@ -56,7 +56,7 @@ export default function Navbar(props) {
 
               <li className="flex items-center">
                 <Link href="/contact">
-                  <a className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
+                  <a className="lg:text-black lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
                     Contact
                   </a>
                 </Link>
