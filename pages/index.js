@@ -171,7 +171,7 @@ export default function Landing() {
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
                       From car brands, models, quality, and mileage, to financing and which car is best for your pocket.
-                      We're here to help you. Contact us today.
+                      We&apos;re here to help you. Contact us today.
                     </p>
                   </blockquote>
                 </div>
