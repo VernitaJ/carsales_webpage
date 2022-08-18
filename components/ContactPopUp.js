@@ -16,7 +16,7 @@ const PopUp = () => {
                     height={50}
                 />
             </Link>
-            <span>Contact us - we'&apos;ll respond within 24hrs</span>
+            <span>Contact us - we&apos;ll respond within 24hrs</span>
 
         </PopUpContainer >
     )
