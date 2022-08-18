@@ -3,14 +3,13 @@ import App from "next/app";
 import Head from "next/head";
 
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 import "../styles/cars.css";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/tailwind.css";
 import "../styles/globals.css";
-//import "@tailwind.css";
-import Footer from "../components/Footer";
 
 
 export default class MyApp extends App {
@@ -46,7 +45,6 @@ export default class MyApp extends App {
               <Component {...pageProps} height="100vh" paddingBottom="50px" />
             )}
           </div>
-          <Footer position="absolute" height="50px" />
         </Layout>
       </React.Fragment>
     );

@@ -81,7 +81,7 @@
   border-radius: 20px;
   padding: 2%;
   margin: 5%;
-  background-color: rgb(49, 146, 224);
+  background-color: rgb(4, 29, 49);
   color: white;
 }
 
@@ -99,7 +99,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
-  background-color: rgb(0, 0, 0);
   color: white;
 }
 

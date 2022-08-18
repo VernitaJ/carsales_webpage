@@ -5,6 +5,13 @@ import Sidebar from "../components/SideBar";
 import PopUp from "../components/ContactPopUp";
 import Image from "next/image";
 import Link from "next/link";
+import styled from "styled-components";
+import Transmission from '../public/CarGear.svg'
+import Mileage from "../public/CarMileage.svg"
+import Door from "../public/CarDoor.svg"
+import Seats from "../public/CarSeat.svg"
+
+import { Carousel } from "react-responsive-carousel";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -71,64 +78,146 @@ const Cars = ({ cars }) => {
 
 
   return (
-    <div style={{ backgroundColor: "black", color: "white" }}>
+    <CarPage>
       {/* <Sidebar> */}
       <Sidebar cars={cars} updateFilter={applyFilter} className="z-10 m-0" />
       {showPopUp ? <div><PopUp /></div> : null}
+
       {filteredCars.length > 0 ? (
-        // <div classNameName="car-container">
-        <div className="px-0 md:p-6">
-          {filteredCars.map((car, key) => (
-            <div
-              key={car.id}
-              className="grid md:w-6/12 md:m-auto text-white relative md:mt-10 grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-9 md:border-8 border-blue-900 bg-black rounded-xl"
-            >
-              <div className="grid text-md rounded-xl p-6 ml-3 col-start-1 col-span-2">
-                <p>
-                  Brand and Model:
-                </p>
-                <p>
-                  Colour:
-                </p>
-                <p>
-                  Year:
-                </p>
-                <p>Price:</p>
-              </div>
-              <div className="grid text-xlrounded-xl p-6 ml-3 col-start-3 col-span-1">
-                <p>
-                  {car.brand} {car.model}
-                </p>
-                <p>
-                  {car.colour}
-                </p>
-                <p>
-                  {car.year}
-                </p>
-                <p >R{format(car.price)}</p>
-              </div>
-              <div className="flex justify-center text-6xl p-6 m-auto col-start-4 col-span-3">
-                <Link href={`/car/${car.slug}`}>
-                  <Image
-                    className="mx-auto"
-                    alt="car main image"
-                    src={car.image[0].url}
-                    layout="intrinsic"
-                    width={900}
-                    height={600}
-                  />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
+        <CarsContainer>
+          {
+            filteredCars.map((car, key) => (
+              <CarBox
+                key={car.id}
+                className=""
+              >
+                <TopSection>
+                <CarImage >
+                  <Carousel dynamicHeight={false} showThumbs={false}>
+              {car.image.map((img, key) => (
+                <div key={key} >
+                  <img
+                    src={img.url} alt="carousel image" style={{width:'300px', height: 'auto'}}/>
+                </div>
+              ))}
+            </Carousel>
+                </CarImage>
+                <CarInfo>
+                  <CarHeading>
+                    {car.brand}&nbsp;
+                    {car.model}
+                  </CarHeading>
+                  <p>
+                    {car.year}
+                  </p>
+                  <Price>R{format(car.price)}</Price>
+                  <Text>
+                    {car.colour}
+                  </Text>
+                </CarInfo>
+                <InterestButton>
+                  Check Availability
+                </InterestButton>
+                </TopSection>
+                <BottomTextInfo>
+                  <Transmission/>
+                  Manual
+                  <Door /><p>5 door</p>
+                  <Seats /><p>5 seats</p>
+                  <Mileage /><p>10,000km</p>
+                </BottomTextInfo>
+              </CarBox>
+            ))}
+        </CarsContainer>) : (
         <div className="z-50 mr-0 p-40 bg-transparent">
           Unfortunately we don&apos;t have the exact match. Try another search.
         </div>
-      )}
-    </div>
+      )
+      }
+    </CarPage>
   );
 };
 
 export default Cars;
+
+const CarPage = styled.div`
+top: 0;
+padding: 20px;
+min-height: 100vh - 100px;
+background-color: white;
+`
+
+const CarsContainer = styled.div`
+width: 50%;
+margin-left: 25%;
+`
+
+const CarBox = styled.div`
+margin-top: 5%;
+border: 1px solid darkblue;
+color: black;
+border-radius: 10px;
+display: flex;
+position: relative;
+flex-direction: column;
+justify-content: center;
+grid-template-columns: 1fr, 2fr;
+`
+const TopSection = styled.div`
+position: relative;
+display: flex;
+gap: 30px;
+`
+
+const CarInfo = styled.div`
+display: flex;
+flex-direction: column;
+`
+
+const CarImage = styled.div`
+  width: 300px;
+  margin: 0px 20px 30px 0px;
+`
+
+const CarHeading = styled.p`
+margin: 20px 0;
+font-size: 19px;
+font-weight: bold;
+`
+
+const Text = styled.p`
+font-size: 18px;
+`
+
+const Price = styled.p`
+  font-size: 22px;
+  font-weight: bold;
+`
+
+const InterestButton = styled.button`
+position: absolute;
+padding: 8px;
+border-radius: 5px;
+  border: 1px solid darkblue;
+  right: 30px;
+  bottom: 100px;
+  :hover {
+    box-shadow: 2px 2px 2px 1px rgba(0, 20, 100, .9);
+    border:1px solid lightblue;
+  }
+`
+const BottomTextInfo = styled.p`
+  position: relative;
+  svg {
+    margin-left: 20px;
+    margin-right: 5px;
+    height: 25px;
+    max-width: 25px;
+  }
+  width: 80%;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  left: 20px;
+  margin-bottom: 20px;
+`

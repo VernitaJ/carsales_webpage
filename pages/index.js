@@ -1,64 +1,50 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import styled from "styled-components";
 import Image from "next/image";
 
 export default function Landing() {
   const router = useRouter();
   return (
     <>
-      {/* <Navbar transparent /> */}
       <main>
-        <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75 bg-black">
-          <div
-            className="absolute top-0 w-full h-full bg-center bg-cover"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/gothenburg-university/image/upload/v1645822110/car_ohug26.jpg')",
-            }}
-          >
+        <TopSection >
+          <Background>
             <span
               id="blackOverlay"
               className="w-full h-full absolute opacity-80 bg-black"
             ></span>
+          </Background>
+          <div style={{ display: 'flex', color: 'white', zIndex: '20', flexDirection: 'column', alignItems: 'center', width: '600px' }}>
+            <Heading>
+              Welcome aboard
+            </Heading>
+            <InfoParagraph>
+              Blue Auto is the only dealership where the seller AND the buyer get the best prices.
+            </InfoParagraph>
+            <InfoParagraph>With personal service every step of the way, we build relationships that last.</InfoParagraph>
           </div>
-          <div className="container relative mx-auto">
-            <div className="items-center flex flex-wrap">
-              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-                <div className="pr-12">
-                  <h1 className="text-white font-semibold text-5xl">
-                    Welcome aboard
-                  </h1>
-                  <h2 className="infotext">
-                    At Open Auto, we believe in mutual trust above all
-                    else. When you purchase a vehicle with us, you will meet the
-                    seller in person and be updated every step of the way.
-                    <br /><br />&nbsp;
-                    Transparency. Honesty. Open Auto.
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-16 bg-black"
-            style={{ transform: "translateZ(0)" }}
+        </TopSection>
+
+        <div
+          className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-16"
+          style={{ transform: "translateZ(0)" }}
+        >
+          <svg
+            className="absolute bottom-0 overflow-hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            version="1.1"
+            viewBox="0 0 2560 100"
+            x="0"
+            y="0"
           >
-            <svg
-              className="absolute bottom-0 overflow-hidden bg-black"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              version="1.1"
-              viewBox="0 0 2560 100"
-              x="0"
-              y="0"
-            >
-              <polygon
-                className="text-blueGray-900 fill-current"
-                points="2560 0 2560 100 0 100"
-              ></polygon>
-            </svg>
-          </div>
+            <polygon
+              className="text-blueGray-900 fill-current"
+              points="2560 0 2560 100 0 100"
+            ></polygon>
+          </svg>
         </div>
 
         <section className="pb-20 bg-darkBlue-900 -mt-24">
@@ -336,3 +322,36 @@ export default function Landing() {
     </>
   );
 }
+
+export const Heading = styled.h1` 
+  margin-top: 80px;
+  font-size: 30px;
+  font-weight: bold;
+`
+
+export const InfoParagraph = styled.h2`
+align-content: center;
+width: 800px;
+margin-top: 20px;
+font-size: 20px;
+  color: white;
+`
+export const Background = styled.div`
+position: absolute;
+background-position: center;
+background-size: cover;
+top: 0; 
+width: 100vw;
+height: 100%;
+background-image: url('https://res.cloudinary.com/gothenburg-university/image/upload/v1645822110/car_ohug26.jpg');
+`
+
+export const TopSection = styled.div`
+position: relative; 
+padding-top: 16px;
+padding-bottom: 32px; 
+display: flex; 
+align-content: center; 
+justify-content: center; 
+min-height: 60vh; 
+`

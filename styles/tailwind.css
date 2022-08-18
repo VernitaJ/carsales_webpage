@@ -45,7 +45,7 @@ Sections
 
 body {
   margin: 0;
-  background-color: rgba(2, 16, 48);
+  background-color: rgb(5, 23, 66);
 }
 
 /**
@@ -54,12 +54,6 @@ Improve consistency of default fonts in all browsers. (https://github.com/sindre
 
 body {
   font-family:
-    Roboto,
-    Helvetica,
-    system-ui,
-    -apple-system,
-    /* Firefox supports this but not yet `system-ui` */
-    'Segoe UI',
     Arial,
     sans-serif,
     'Apple Color Emoji',

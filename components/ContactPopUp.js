@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import styled from 'styled-components';
 
 const PopUp = () => {
 
     console.log("pipp");
     return (
-        <div className="popup">
+        <PopUpContainer>
             <Link href="/contact">
                 <Image
                     className="mx-auto m-5"
@@ -15,12 +16,14 @@ const PopUp = () => {
                     height={50}
                 />
             </Link>
-            <h2>
-                Have a question?
-            </h2>
-            <p>Contact us</p>
+            <span>Contact us - we'll respond within 24hrs</span>
 
-        </div >
+        </PopUpContainer >
     )
 }
 export default PopUp;
+
+const PopUpContainer = styled.div`
+position: fixed;
+right: 20px;
+`

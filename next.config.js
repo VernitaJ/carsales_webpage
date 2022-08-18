@@ -14,6 +14,15 @@ module.exports = {
     PROD_URL: "http://autolink.vercel.com",
   },
   reactStrictMode: true,
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
+  },
 };
 
 /*Drake's
