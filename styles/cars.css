@@ -140,22 +140,6 @@
   border-radius: 15px;
 }
 
-.email-container {
-  max-width: 90%;
-  background-color: white !important;
-  padding: 3%;
-  margin: auto;
-  border-radius: 15px;
-  margin-top: 6%;
-  margin-bottom: 10%;
-}
-
-@media (min-width: 640px) {
-  .email-container {
-    max-width: 50%;
-  }
-}
-
 .email-input {
   margin: 1%;
   display: flex;

@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs, { init } from "@emailjs/browser";
+import styled from 'styled-components'
 
 const Email = (carId) => {
   const [sent, setSent] = useState(false);
@@ -23,31 +24,53 @@ const Email = (carId) => {
   };
 
   return (
-    <div className="email-container">
-      {sent ? <div><p>Email successfully submitted. One of our employees will get in touch with within 24hrs.</p></div> :
+    <Container>
+      {sent ? <span>Email sent! One of our employees will get in touch within a few hours.</span> :
         <form ref={form} onSubmit={onSubmit}>
-          <div className="email-input">
+          <InputBlock>
             <label>Your name</label>
             <input type="text" name="from_name" placeholder="from name" />
-          </div>
-          <div className="email-input">
+          </InputBlock>
+          <InputBlock>
             <label>Contact No</label>
             <input type="text" name="from_contact" placeholder="your contact" />
-          </div>
-          <div className="email-input">
+          </InputBlock>
+          <InputBlock>
             <label>Message</label>
             <input type="text" name="message" placeholder="Your message" />
-          </div>
-          <div className="email-input">
-            <label>Your email</label>
+          </InputBlock>
+          <InputBlock>
+            <label>Email address</label>
             <input type="text" name="reply_to" placeholder="Your email" />
-          </div>
+          </InputBlock>
           <button className="email-submit" type="submit">
             Submit
           </button>
         </form>}
-    </div>
+    </Container>
   );
 };
 
 export default Email;
+
+const InputBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+`
+
+const Container = styled.div`
+@media (max-width: 540px) {
+    width: 350px;
+    margin-left: auto;
+}
+  max-width: 450px;
+  background-color: white !important;
+  padding: 25px;
+  margin-left: 50px;
+  border-radius: 15px;
+  margin-top: 6%;
+  margin-bottom: 10%;
+`

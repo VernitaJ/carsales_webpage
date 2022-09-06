@@ -14,7 +14,6 @@ export default function Navbar(props) {
                 <Image
                   src="/openauto.png"
                   alt="Logo"
-                  // layout="responsive"
                   width={120}
                   height={60}
                 />

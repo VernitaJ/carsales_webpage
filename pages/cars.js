@@ -12,6 +12,7 @@ import Door from "../public/CarDoor.svg"
 import Seats from "../public/CarSeat.svg"
 
 import { Carousel } from "react-responsive-carousel";
+import { InfoHeading } from ".";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -81,8 +82,23 @@ const Cars = ({ cars }) => {
     <CarPage>
       {/* <Sidebar> */}
       <Sidebar cars={cars} updateFilter={applyFilter} className="z-10 m-0" />
-      {showPopUp ? <div><PopUp /></div> : null}
-
+      <InfoContainer>
+        <InfoHeading>The <b>Blue Auto</b> promise</InfoHeading>
+        <List>
+          <ListItem>
+            1. Financing applications are sent to all our affiliate banks, so you get the best deal possible.
+          </ListItem>
+          <ListItem>
+            2. Predelivery inspection guaranteed, with a complimentary service, if required.
+          </ListItem>
+          <ListItem>
+            3. AA roadworthy certificate included in purchase.
+          </ListItem>
+          <ListItem>
+            4. Extended warranties of up to 2 years available on all vehicles.
+          </ListItem>
+        </List>
+      </InfoContainer>
       {filteredCars.length > 0 ? (
         <CarsContainer>
           {
@@ -92,35 +108,35 @@ const Cars = ({ cars }) => {
                 className=""
               >
                 <TopSection>
-                <CarImage >
-                  <Carousel dynamicHeight={false} showThumbs={false}>
-              {car.image.map((img, key) => (
-                <div key={key} >
-                  <img
-                    src={img.url} alt="carousel image" style={{width:'300px', height: 'auto'}}/>
-                </div>
-              ))}
-            </Carousel>
-                </CarImage>
-                <CarInfo>
-                  <CarHeading>
-                    {car.brand}&nbsp;
-                    {car.model}
-                  </CarHeading>
-                  <p>
-                    {car.year}
-                  </p>
-                  <Price>R{format(car.price)}</Price>
-                  <Text>
-                    {car.colour}
-                  </Text>
-                </CarInfo>
-                <InterestButton>
-                  Check Availability
-                </InterestButton>
+                  <CarImage >
+                    <Carousel dynamicHeight={false} showThumbs={false}>
+                      {car.image.map((img, key) => (
+                        <div key={key} >
+                          <img
+                            src={img.url} alt="carousel image" style={{ width: '300px', height: 'auto' }} />
+                        </div>
+                      ))}
+                    </Carousel>
+                  </CarImage>
+                  <CarInfo>
+                    <CarHeading>
+                      {car.brand}&nbsp;
+                      {car.model}
+                    </CarHeading>
+                    <p>
+                      {car.year}
+                    </p>
+                    <Price>R{format(car.price)}</Price>
+                    <Text>
+                      {car.colour}
+                    </Text>
+                  </CarInfo>
+                  <InterestButton>
+                    Send interest
+                  </InterestButton>
                 </TopSection>
                 <BottomTextInfo>
-                  <Transmission/>
+                  <Transmission />
                   Manual
                   <Door /><p>5 door</p>
                   <Seats /><p>5 seats</p>
@@ -141,37 +157,42 @@ const Cars = ({ cars }) => {
 export default Cars;
 
 const CarPage = styled.div`
-top: 0;
-padding: 20px;
-min-height: 100vh - 100px;
-background-color: white;
+  top: 0;
+  padding: 20px;
+  min-height: 100vh - 100px;
+  background-color: white;
 `
 
 const CarsContainer = styled.div`
-width: 50%;
-margin-left: 25%;
+  width: 50%;
+  margin-left: 25%;
+  @media (max-width: 800px) {
+    width: 90%;
+    margin-left: 0;
+    margin-top: 15px;
+  }
 `
 
 const CarBox = styled.div`
-margin-top: 5%;
-border: 1px solid darkblue;
-color: black;
-border-radius: 10px;
-display: flex;
-position: relative;
-flex-direction: column;
-justify-content: center;
-grid-template-columns: 1fr, 2fr;
+  margin-top: 5%;
+  border: 1px solid darkblue;
+  color: black;
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  grid-template-columns: 1fr, 2fr;
 `
 const TopSection = styled.div`
-position: relative;
-display: flex;
-gap: 30px;
+  position: relative;
+  display: flex;
+  gap: 30px;
 `
 
 const CarInfo = styled.div`
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `
 
 const CarImage = styled.div`
@@ -180,13 +201,13 @@ const CarImage = styled.div`
 `
 
 const CarHeading = styled.p`
-margin: 20px 0;
-font-size: 19px;
-font-weight: bold;
+  margin: 20px 0;
+  font-size: 19px;
+  font-weight: bold;
 `
 
 const Text = styled.p`
-font-size: 18px;
+  font-size: 18px;
 `
 
 const Price = styled.p`
@@ -195,9 +216,9 @@ const Price = styled.p`
 `
 
 const InterestButton = styled.button`
-position: absolute;
-padding: 8px;
-border-radius: 5px;
+  position: absolute;
+  padding: 8px;
+  border-radius: 5px;
   border: 1px solid darkblue;
   right: 30px;
   bottom: 100px;
@@ -221,3 +242,27 @@ const BottomTextInfo = styled.p`
   left: 20px;
   margin-bottom: 20px;
 `
+
+const InfoContainer = styled.div`
+  padding: 20px;
+  color: white;
+  width: 700px;
+  background-color: rgb(10,0,100);
+  margin-left: 25%;
+  @media (max-width: 800px) {
+    width: 90%;
+    margin-left: 0;
+    margin-top: 15px;
+  }
+`
+
+const List = styled.ol`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+`
+
+const ListItem = styled.li`
+
+`
+

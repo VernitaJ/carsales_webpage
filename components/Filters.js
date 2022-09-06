@@ -113,14 +113,13 @@ const Filter = (props) => {
           onSubmit={() => setTimeout(() => applyFilter(), 0)}
           className=""
           noValidate
-          style={{ color: "black" }}
+          style={{ color: "white" }}
         >
           <div className="columns text-center">
             <div className="column col-4 col-xs-12">
               <div className="form-group flex md:inline-block">
                 <div className="col-9 col-sm-12 p-4 md:p-1">
                   <label
-                    className="text-black font-semibold"
                     htmlFor="car-brand"
                   >
                     Brand
@@ -203,7 +202,7 @@ const Filter = (props) => {
           </div>
           <button
             type="submit"
-            className="btn bg-gray-400 rounded p-2 mt-6 ml-6 text-sm font-semibold"
+            className="btn bg-gray-400 text-black rounded p-2 mt-6 ml-6 text-sm font-semibold"
             onClick={applyFilter}
           >
             Apply filter
