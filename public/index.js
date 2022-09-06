@@ -16,7 +16,7 @@ export default function Home() {
     <div>
       <div className={styles.container}>
         <Head>
-          <title>Open Auto</title>
+          <title>Blue Auto</title>
           <meta name="description" content="Where buyer and seller meets" />
           <link rel="icon" href="/wheel.png" />
         </Head>
