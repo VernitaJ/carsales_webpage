@@ -16,7 +16,7 @@ const Contact = () => {
         <p>Alternatively, contact us using this form:</p>
       </TopSection>
         : <TopSection>
-          <Heading>We'll contact you with more details for this <b>{data.brand} {data.model}</b></Heading>
+          <Heading>We&apos;ll contact you with more details for this <b>{data.brand} {data.model}</b></Heading>
         </TopSection>}
       <BottomSection>
         <Email car={data ?? data} />
