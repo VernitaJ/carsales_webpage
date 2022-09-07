@@ -10,12 +10,14 @@ import Transmission from '../public/CarGear.svg'
 import Mileage from "../public/CarMileage.svg"
 import Door from "../public/CarDoor.svg"
 import Seats from "../public/CarSeat.svg"
+import { useRouter } from "next/router";
+
 
 import { Carousel } from "react-responsive-carousel";
 import { InfoHeading } from ".";
 
 export const getStaticProps = async () => {
-  const url = process.env.ENDPOINT;
+  const url = process.env.ENDPOINT
   const graphQLClient = new GraphQLClient(url, {
     headers: {
       Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
@@ -46,6 +48,7 @@ export const getStaticProps = async () => {
 };
 
 const Cars = ({ cars }) => {
+  const router = useRouter()
   const [showPopUp, setShowPopUp] = useState(false);
   const [colour, setColour] = useState("");
   const [brand, setBrand] = useState("");
@@ -70,6 +73,17 @@ const Cars = ({ cars }) => {
     return numArray.reverse().join("");
   }
 
+  const goToContact = (car) => {
+    localStorage.setItem("current_car", JSON.stringify(car))
+    router.push(
+      {
+        pathname: '/contact',
+        query: car
+      },
+      '/contact',
+    )
+  }
+
   useEffect(() => {
     setTimeout = () => {
       setShowPopUp(true)
@@ -80,10 +94,10 @@ const Cars = ({ cars }) => {
 
   return (
     <CarPage>
-      {/* <Sidebar> */}
-      <Sidebar cars={cars} updateFilter={applyFilter} className="z-10 m-0" />
+      <Sidebar cars={cars} updateFilter={applyFilter} className="z-10" />
+
       <InfoContainer>
-        <InfoHeading>The <b>Blue Auto</b> promise</InfoHeading>
+        <InfoHeading>The <b>Blue Auto</b> promise:</InfoHeading>
         <List>
           <ListItem>
             1. Financing applications are sent to all our affiliate banks, so you get the best deal possible.
@@ -131,9 +145,10 @@ const Cars = ({ cars }) => {
                       {car.colour}
                     </Text>
                   </CarInfo>
-                  <InterestButton>
+                  <InterestButton onClick={() => goToContact(car)}>
                     Send interest
                   </InterestButton>
+                  { }
                 </TopSection>
                 <BottomTextInfo>
                   <Transmission />
@@ -150,7 +165,7 @@ const Cars = ({ cars }) => {
         </div>
       )
       }
-    </CarPage>
+    </CarPage >
   );
 };
 
@@ -160,8 +175,10 @@ const CarPage = styled.div`
   top: 0;
   padding: 20px;
   min-height: 100vh - 100px;
-  background-color: white;
-`
+  background-size: 100% 100%;
+  background-position: 0px 0px;
+  background-image: linear-gradient(90deg, #070E4EFF 0%, rgb(0,0, 77) 20%, #FFFFFFFF 21%, #FFF 97%);
+  `
 
 const CarsContainer = styled.div`
   width: 50%;
@@ -247,7 +264,9 @@ const InfoContainer = styled.div`
   padding: 20px;
   color: white;
   width: 700px;
-  background-color: rgb(10,0,100);
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: rgb(10,0,80);
   margin-left: 25%;
   @media (max-width: 800px) {
     width: 90%;

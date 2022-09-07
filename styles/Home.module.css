@@ -37,14 +37,14 @@
 }
 
 .title {
-  font-family: sans-serif;
+  font-family: Roboto;
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
 }
 
 .title a {
-  font-family: sans-serif;
+  font-family: Roboto;
   color: #0070f3;
   text-decoration: none;
 }

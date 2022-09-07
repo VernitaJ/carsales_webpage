@@ -24,8 +24,7 @@ export default function Sidebar(props) {
 }
 
 const Container = styled.div`
-  background-color: darkblue;
-  margin-top: 20px;
+  background-color: rgb(0,0,77);
   padding: 20px;
   left: 0;
   display: block;
@@ -38,6 +37,8 @@ const Container = styled.div`
   padding-bottom: 40px;
   @media (max-width: 800px) {
     position: relative;
-    margin-bottom: 20px;
+    width: 90%;
+    margin: 0;
+    margin-bottom: 40px;
   }
 `

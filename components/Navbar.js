@@ -6,16 +6,16 @@ export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="top-0 relative z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white sm:bg-white-100">
-        <div className="container px-4 mx-auto flex flex-row items-center justify-between">
+      <nav className="top-0 sticky z-50 w-full flex flex-wrap items-center justify-between px-0 py-0 navbar-expand-lg bg-white sm:bg-white-600">
+        <div className="container px-0 mx-auto flex flex-row items-center justify-between">
           <div className="w-full relative flex justify-between md:w-auto lg:static lg:block lg:justify-start">
             <Link href="/" passHref>
               <a>
                 <Image
-                  src="/logowhite.png"
+                  src="/bluelogo.png"
                   alt="Logo"
                   width={320}
-                  height={80}
+                  height={60}
                 />
               </a>
             </Link>

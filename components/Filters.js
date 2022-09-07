@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
-import makeAnimated from "react-select/animated";
-
-import styles from "../styles/Filters.module.css";
+import styled from 'styled-components'
 
 function getSortOrderValue(sortOrder) {
   return sortOrder.replace(" ", "").toLowerCase();
@@ -35,11 +33,6 @@ const Filter = (props) => {
     console.log("brand", brand);
     if (brand.length > 0) {
       result = result.filter((car) => brand.includes(car.brand));
-      console.log("here");
-      // for (let i = 0; i < brand.length; i++) {
-      //   console.log(brand[i]);
-      //   result = result.filter((car) => car.brand == brand[i].value);
-      // }
       console.log("result", result);
     }
     if (model.length > 0) {
@@ -95,27 +88,24 @@ const Filter = (props) => {
   const { cars, updateFilter } = props;
   console.log("brand", brand, "model", model, "colour", colour);
   return (
-    <div className="mt-2" display="flex">
-      <button
+    <div>
+      <ClearButton
         data-cy="clear-button"
-        className="mr-0 ml-40 text-blac k"
         type="button"
         onClick={() => {
           handleClear();
         }}
       >
-        Clear
-      </button>
-      <p className="m-4 text-xl text-white">Refine your results</p>
+        Reset
+      </ClearButton>
+      <Heading>Refine your results</Heading>
 
-      <div className="">
+      <div>
         <form
           onSubmit={() => setTimeout(() => applyFilter(), 0)}
-          className=""
           noValidate
-          style={{ color: "white" }}
         >
-          <div className="columns text-center">
+          <div className="columns">
             <div className="column col-4 col-xs-12">
               <div className="form-group flex md:inline-block">
                 <div className="col-9 col-sm-12 p-4 md:p-1">
@@ -124,16 +114,14 @@ const Filter = (props) => {
                   >
                     Brand
                   </label>
-                  <Select
-                    className="dropdown"
-                    placeholder="Select Option"
+                  <SelectOption
                     value={brandList.filter((obj) => brand.includes(obj.value))}
+                    style={{ color: 'blue' }}
                     options={brandList} // set list of the data
                     onChange={(e) =>
                       setBrand(Array.isArray(e) ? e.map((x) => x.value) : [])
                     } // assign onChange function
                     isMulti
-                    isClearable
                   />
                 </div>
 
@@ -141,16 +129,13 @@ const Filter = (props) => {
                   <label className="form-label" htmlFor="price-from">
                     Models
                   </label>
-                  <Select
-                    className="dropdown"
-                    placeholder="Select Option"
+                  <SelectOption
                     value={modelList.filter((obj) => model.includes(obj.value))}
                     options={modelList}
                     onChange={(e) =>
                       setModel(Array.isArray(e) ? e.map((x) => x.value) : [])
                     } // assign onChange function
                     isMulti
-                    isClearable
                   />
                 </div>
 
@@ -158,9 +143,7 @@ const Filter = (props) => {
                   <label className="form-label" htmlFor="price-from">
                     Colours
                   </label>
-                  <Select
-                    className="dropdown"
-                    placeholder="Select Option"
+                  <SelectOption
                     value={colourList.filter((obj) =>
                       colour.includes(obj.value)
                     )}
@@ -169,7 +152,6 @@ const Filter = (props) => {
                       setColour(Array.isArray(e) ? e.map((x) => x.value) : [])
                     } // assign onChange function
                     isMulti
-                    isClearable
                   />
                 </div>
               </div>
@@ -200,13 +182,12 @@ const Filter = (props) => {
               </div> */}
             </div>
           </div>
-          <button
+          <SubmitButton
             type="submit"
-            className="btn bg-gray-400 text-black rounded p-2 mt-6 ml-6 text-sm font-semibold"
             onClick={applyFilter}
           >
-            Apply filter
-          </button>
+            Update
+          </SubmitButton>
         </form>
       </div>
     </div>
@@ -214,3 +195,28 @@ const Filter = (props) => {
 };
 
 export default Filter;
+
+const Heading = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  margin: 16px 3px;
+`
+
+const SubmitButton = styled.button`
+  width: fit-content;
+  padding: 5px 15px;
+  margin: 25px 3px 0;
+  border-radius: 3px;
+  background-color: rgba(20, 20, 230);
+  color: white;
+  font-weight: 500;
+`
+
+const SelectOption = styled(Select)`
+  color: rgba(0, 0, 77);
+`
+
+const ClearButton = styled.button`
+  float: right;
+  color: yellow;
+`

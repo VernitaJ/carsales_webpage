@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import emailjs, { init } from "@emailjs/browser";
 import styled from 'styled-components'
 
-const Email = (carId) => {
+const Email = (car) => {
   const [sent, setSent] = useState(false);
   const form = useRef();
   const onSubmit = (e) => {
@@ -35,13 +35,15 @@ const Email = (carId) => {
             <label>Contact No</label>
             <input type="text" name="from_contact" placeholder="your contact" />
           </InputBlock>
-          <InputBlock>
-            <label>Message</label>
-            <input type="text" name="message" placeholder="Your message" />
-          </InputBlock>
+          {!car ? (
+            <InputBlock>
+              <label>Message</label>
+              <input type="text" name="message" placeholder="Question or Comment" />
+            </InputBlock>) : form.text == car.id
+          }
           <InputBlock>
             <label>Email address</label>
-            <input type="text" name="reply_to" placeholder="Your email" />
+            <input type="text" name="reply_to" placeholder="your email address" />
           </InputBlock>
           <button className="email-submit" type="submit">
             Submit

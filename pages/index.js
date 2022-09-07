@@ -41,7 +41,7 @@ export default function Landing() {
             y="0"
           >
             <polygon
-              className="text-blueGray-900 fill-current"
+              className="text-blue-400 fill-current"
               points="2560 0 2560 100 0 100"
             ></polygon>
           </svg>
@@ -111,14 +111,13 @@ export default function Landing() {
                   <i className="fas fa-user-friends text-xl"></i>
                 </div>
                 <InfoHeading >
-                  Buying a vehicle with us is a breeze.
+                  Keeping it simple
                 </InfoHeading>
                 <p className="text-lg leading-relaxed mt-4 mb-4">
-                  Once you find the vehicle you love, we&apos;ll arrange a test drive.
+                  Once you find the vehicle you love, we&apos;ll arrange the rest. Within a week your new car could be in your driveway.
                 </p>
                 <p className="text-lg leading-relaxed mt-0 mb-4 ">
-                  We manage your financing application through one of the many financing bodies we&apos;re
-                  affiliated with, and your new vehicle will be dropped off as soon as the application is completed.</p>
+                  Easy. Affordable. Simple.</p>
                 <p className="text-xl font-semibold text-white mt-8">
                   <Link href="/cars" >
                     Check out the cars we have on offer here.

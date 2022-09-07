@@ -113,8 +113,6 @@
   .navbar-button {
     display: none;
   }
-
-  /* cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent visible block md:hidden outline-none focus:outline-none */
 }
 
 .nav-link {
@@ -152,8 +150,8 @@
   margin-top: 3vh;
   font-weight: bold;
   background-color: green !important;
-  border-radius: 15px;
-  padding: 5px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .page-container {
