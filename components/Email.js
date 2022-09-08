@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import emailjs, { init } from "@emailjs/browser";
 import styled from 'styled-components'
 
-const Email = (car) => {
+const Email = (car, removeCar) => {
   const [sent, setSent] = useState(false);
   const form = useRef();
   const onSubmit = (e) => {
@@ -21,6 +21,7 @@ const Email = (car) => {
       .catch((err) => {
         console.log("FAILED...", err);
       });
+    localStorage.clear()
   };
 
   return (
@@ -35,12 +36,10 @@ const Email = (car) => {
             <label>Contact No</label>
             <input type="text" name="from_contact" placeholder="your contact" />
           </InputBlock>
-          {!car ? (
-            <InputBlock>
-              <label>Message</label>
-              <input type="text" name="message" placeholder="Question or Comment" />
-            </InputBlock>) : form.text == car.id
-          }
+          <InputBlock>
+            <label>Message</label>
+            <input type="text" name="message" placeholder="Question or Comment" />
+          </InputBlock>
           <InputBlock>
             <label>Email address</label>
             <input type="text" name="reply_to" placeholder="your email address" />

@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { request, gql, GraphQLClient } from "graphql-request";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
-import PopUp from "../components/ContactPopUp";
-import Image from "next/image";
-import Link from "next/link";
 import styled from "styled-components";
 import Transmission from '../public/CarGear.svg'
 import Mileage from "../public/CarMileage.svg"
@@ -15,6 +12,7 @@ import { useRouter } from "next/router";
 
 import { Carousel } from "react-responsive-carousel";
 import { InfoHeading } from ".";
+import CarEmail from "../components/CarEmail";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT
@@ -54,6 +52,7 @@ const Cars = ({ cars }) => {
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState({ min: 0, max: 1000000 });
   const [filteredCars, setFilteredCars] = useState(cars);
+  const [selectedCar, setSelectedCar] = useState(null);
 
   const applyFilter = (filtered) => {
     setFilteredCars(filtered);
@@ -75,13 +74,8 @@ const Cars = ({ cars }) => {
 
   const goToContact = (car) => {
     localStorage.setItem("current_car", JSON.stringify(car))
-    router.push(
-      {
-        pathname: '/contact',
-        query: car
-      },
-      '/contact',
-    )
+    console.log(car)
+    setSelectedCar(car)
   }
 
   useEffect(() => {
@@ -91,6 +85,10 @@ const Cars = ({ cars }) => {
     }
   }, [])
 
+  const removeCar = () => {
+    console.log('made it')
+    setSelectedCar(null)
+  }
 
   return (
     <CarPage>
@@ -117,47 +115,51 @@ const Cars = ({ cars }) => {
         <CarsContainer>
           {
             filteredCars.map((car, key) => (
-              <CarBox
-                key={car.id}
-                className=""
-              >
-                <TopSection>
-                  <CarImage >
-                    <Carousel dynamicHeight={false} showThumbs={false}>
-                      {car.image.map((img, key) => (
-                        <div key={key} >
-                          <img
-                            src={img.url} alt="carousel image" style={{ width: '300px', height: 'auto' }} />
-                        </div>
-                      ))}
-                    </Carousel>
-                  </CarImage>
-                  <CarInfo>
-                    <CarHeading>
-                      {car.brand}&nbsp;
-                      {car.model}
-                    </CarHeading>
-                    <p>
-                      {car.year}
-                    </p>
-                    <Price>R{format(car.price)}</Price>
-                    <Text>
-                      {car.colour}
-                    </Text>
-                  </CarInfo>
-                  <InterestButton onClick={() => goToContact(car)}>
-                    Send interest
-                  </InterestButton>
-                  { }
-                </TopSection>
-                <BottomTextInfo>
-                  <Transmission />
-                  Manual
-                  <Door /><p>5 door</p>
-                  <Seats /><p>5 seats</p>
-                  <Mileage /><p>10,000km</p>
-                </BottomTextInfo>
-              </CarBox>
+              <>
+                {selectedCar == car ? <Modal><CarEmail removeCar={removeCar} /></Modal> : null}
+                <CarBox
+                  key={car.id}
+                  className=""
+                >
+
+                  <TopSection>
+                    <CarImage >
+                      <Carousel dynamicHeight={false} showThumbs={false}>
+                        {car.image.map((img, key) => (
+                          <div key={key} >
+                            <img
+                              src={img.url} alt="carousel image" style={{ width: '300px', height: 'auto' }} />
+                          </div>
+                        ))}
+                      </Carousel>
+                    </CarImage>
+                    <CarInfo>
+                      <CarHeading>
+                        {car.brand}&nbsp;
+                        {car.model}
+                      </CarHeading>
+                      <p>
+                        {car.year}
+                      </p>
+                      <Price>R{format(car.price)}</Price>
+                      <Text>
+                        {car.colour}
+                      </Text>
+                    </CarInfo>
+                    <InterestButton onClick={() => goToContact(car)}>
+                      Send interest
+                    </InterestButton>
+                    { }
+                  </TopSection>
+                  <BottomTextInfo>
+                    <Transmission />
+                    Manual
+                    <Door /><p>5 door</p>
+                    <Seats /><p>5 seats</p>
+                    <Mileage /><p>10,000km</p>
+                  </BottomTextInfo>
+                </CarBox>
+              </>
             ))}
         </CarsContainer>) : (
         <div className="z-50 mr-0 p-40 bg-transparent">
@@ -244,7 +246,7 @@ const InterestButton = styled.button`
     border:1px solid lightblue;
   }
 `
-const BottomTextInfo = styled.p`
+const BottomTextInfo = styled.span`
   position: relative;
   svg {
     margin-left: 20px;
@@ -285,3 +287,13 @@ const ListItem = styled.li`
 
 `
 
+const Modal = styled.div`
+  position: absolute;
+  right: 200px;
+  padding: 25px 30px;
+  height: 300px;
+  background-color: rgba(0,20,77);
+  z-index: 1000;
+  border-radius: 5px;
+  color: white;
+`

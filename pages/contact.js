@@ -1,25 +1,17 @@
 import React, { useEffect } from "react"
 import Email from "../components/Email"
 import styled from 'styled-components'
-import { useRouter } from "next/router"
 
 const Contact = () => {
-  const router = useRouter();
-  const car = router.query; // <-- terminalPayload sent in query parameter
-  const data = JSON.parse(localStorage.getItem("current_car"))
-
   return (
     <div>
-      {!car ? <TopSection>
+      <TopSection>
         <div>Mobile: 076-990-6274</div>
         <div>pedri@blueauto.co.za</div><br></br>
         <p>Alternatively, contact us using this form:</p>
       </TopSection>
-        : <TopSection>
-          <Heading>We&apos;ll contact you with more details for this <b>{data.brand} {data.model}</b></Heading>
-        </TopSection>}
       <BottomSection>
-        <Email car={data ?? data} />
+        <Email />
       </BottomSection>
     </div >
   )
@@ -28,7 +20,7 @@ const Contact = () => {
 export default Contact;
 
 const TopSection = styled.div`
-  margin-top: 50px;  
+  margin: 50px 0 0 100px;  
   color: white;
   font-weight: bold;
 `

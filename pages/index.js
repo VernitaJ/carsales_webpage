@@ -277,6 +277,9 @@ export default function Landing() {
                 <Image src="/absa.png" width={70} height={70}></Image>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
+                <Image src="/bmw.jpg" width={70} height={70}></Image>
+              </div>
+              <div className="w-full lg:w-3/12 px-4 text-center">
                 <Image src="/standardbank.png" width={200} height={70}></Image>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
