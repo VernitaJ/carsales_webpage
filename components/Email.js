@@ -60,6 +60,9 @@ const InputBlock = styled.div`
   align-items: center;
   gap: 16px;
   margin-bottom: 10px;
+  select {
+    width: 100px;
+  }
 `
 
 const Container = styled.div`

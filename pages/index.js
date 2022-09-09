@@ -274,13 +274,13 @@ export default function Landing() {
             </div>
             <div className="flex flex-wrap mt-12 justify-center">
               <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image src="/absa.png" width={70} height={70}></Image>
+                <Image src="/absa.png" width={340} height={100}></Image>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image src="/bmw.jpg" width={230} height={90}></Image>
+                <Image src="/bmw.png" width={200} height={190} style={{ marginTop: '-50px' }}></Image>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image src="/standardbank.png" width={200} height={70}></Image>
+                <Image src="/standardbank.png" width={260} height={180} style={{ marginTop: '-50px' }}></Image>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
                 <Image src="/wesbanklogo.png" width={200} height={70}></Image>

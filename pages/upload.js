@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useMutate } from "restful-react";
 import Image from "next/image";
+import SendCar from "../components/SendCar";
+import styled from 'styled-components'
 
 const Upload = () => {
   const [selectedImage, setSelectedImage] = useState();
@@ -35,7 +37,10 @@ const Upload = () => {
 
   return (
     <>
-      <form>
+      <Page>
+        <SendCar />
+      </Page>
+      {/* <form>
         <input
           onChange={handleChange}
           accept=".jpg, .png, .jpeg"
@@ -69,12 +74,22 @@ const Upload = () => {
             </a>
           </div>
         ))}
-      </div>
+      </div> */}
     </>
   );
 };
 
 export default Upload;
+
+const Page = styled.div`
+  top: 0;
+  padding: 20px;
+  min-height: 100vh - 100px;
+  background-size: 100% 100%;
+  background-position: 0px 0px;
+  // background-image: linear-gradient(90deg, #070E4EFF 0%, rgb(0,0, 77) 40%, #FFFFFFFF 46%, #FFF 97%);
+  background-image: url('/banner.jpg'), linear-gradient(#070E4EFF, #fff);
+`
 
 // import { useState } from "react";
 // import styles from "../styles/Upload.module.css";
