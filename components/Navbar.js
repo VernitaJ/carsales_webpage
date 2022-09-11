@@ -12,10 +12,10 @@ export default function Navbar(props) {
             <Link href="/" passHref>
               <a>
                 <Image
-                  src="/bluelogo.png"
+                  src="/blueauto_logo.png"
                   alt="Logo"
-                  width={320}
-                  height={60}
+                  width={300}
+                  height={51}
                 />
               </a>
             </Link>

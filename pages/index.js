@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Image from "next/image";
+import { BuyingContainer, SellingContainer, LinkContainer } from "./index.styled";
 
 export default function Landing() {
   const router = useRouter();
@@ -13,7 +14,7 @@ export default function Landing() {
           <Background>
             <span
               id="blackOverlay"
-              className="w-full h-full absolute opacity-80 bg-black"
+              className="w-full h-full absolute opacity-60 bg-black"
             ></span>
           </Background>
           <div style={{ display: 'flex', color: 'white', zIndex: '20', flexDirection: 'column', alignItems: 'center', maxWidth: '600px' }}>
@@ -49,44 +50,39 @@ export default function Landing() {
 
         <section className="pb-20 bg-lightBlue-900 -mt-24">
           <div className="container mx-auto -px-4 text-white">
-            <div className="flex flex-wrap">
-              <div className="lg:pt-0 md:w-6/12 px-12 text-center">
-                <div
-                  onClick={() => router.push("/cars")}
-                  className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
-                >
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-500">
-                      <i className="fas fa-award"></i>
-                    </div>
-                    <h6 className="text-3xl font-semibold text-blueGray-800">Buying</h6>
-                    <p className="text-xl mt-2 mb-4 text-blueGray-600">
-                      Find your new car at the best price - with financing
-                      available.
-                    </p>
-                  </div>
+            <LinkContainer>
+              <BuyingContainer
+                onClick={() => router.push("/cars")}
+              >
+                <div className="px-4 py-5 flex-auto">
+                  <p className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-500">
+                    <i className="fas fa-award"></i>
+                  </p>
+                  <h6 className="text-3xl font-semibold text-blueGray-800">Buying</h6>
+                  <p className="text-xl mt-2 mb-4 text-blueGray-600">
+                    Find your new car at the best price - with financing
+                    available.
+                  </p>
                 </div>
-              </div>
+              </BuyingContainer>
 
-              <div className="lg:pt-0 md:w-6/12 px-12 text-center">
-                <div
-                  onClick={() => router.push("/upload")}
-                  className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
-                >
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-500">
-                      <i className="fas fa-retweet"></i>
-                    </div>
-                    <h6 className="text-3xl font-semibold text-blueGray-800">Selling</h6>
-                    <p className="text-xl mt-2 mb-4 text-blueGray-600">
-                      Sell your car directly to its new owner with the profit in
-                      your pocket.
-                    </p>
-                  </div>
+              <SellingContainer
+                onClick={() => router.push("/upload")}
+              >
+                <div className="px-4 py-5 flex-auto">
+                  <p className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-500">
+                    <i className="fas fa-retweet"></i>
+                  </p>
+                  <h6 className="text-3xl font-semibold text-blueGray-800">Selling</h6>
+                  <p className="text-xl mt-2 mb-4 text-blueGray-600">
+                    Sell your car directly to its new owner with the profit in
+                    your pocket.
+                  </p>
                 </div>
-              </div>
+              </SellingContainer>
+            </LinkContainer>
 
-              {/* <div className="pt-6 w-full md:w-4/12 px-4 text-center">
+            {/* <div className="pt-6 w-full md:w-4/12 px-4 text-center">
                 <div
                   onClick={() => router.push("/financing")}
                   className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
@@ -103,62 +99,61 @@ export default function Landing() {
                   </div>
                 </div>
               </div> */}
+          </div>
+
+          <div className="flex flex-wrap items-center mt-32">
+            <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
+              <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                <i className="fas fa-user-friends text-xl"></i>
+              </div>
+              <InfoHeading >
+                At <b>Blue Auto, </b>we like keeping it simple
+              </InfoHeading>
+              <InfoParagraph className="text-lg leading-relaxed mt-4 mb-4">
+                Once you find the vehicle you love, we&apos;ll arrange the rest. Within a week your new car will be in your driveway.
+              </InfoParagraph>
+              <InfoParagraph className="text-lg leading-relaxed mt-0 mb-4 ">
+                Easy. Affordable. Simple.</InfoParagraph>
+              <InfoParagraph className="text-xl font-semibold text-white mt-8">
+                <Link href="/cars" >
+                  Check out the cars we have on offer here.
+                </Link>
+              </InfoParagraph>
             </div>
 
-            <div className="flex flex-wrap items-center mt-32">
-              <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
-                <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                  <i className="fas fa-user-friends text-xl"></i>
-                </div>
-                <InfoHeading >
-                  Keeping it simple
-                </InfoHeading>
-                <p className="text-lg leading-relaxed mt-4 mb-4">
-                  Once you find the vehicle you love, we&apos;ll arrange the rest. Within a week your new car could be in your driveway.
-                </p>
-                <p className="text-lg leading-relaxed mt-0 mb-4 ">
-                  Easy. Affordable. Simple.</p>
-                <p className="text-xl font-semibold text-white mt-8">
-                  <Link href="/cars" >
-                    Check out the cars we have on offer here.
-                  </Link>
-                </p>
-              </div>
-
-              <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mb-12">
-                <div className="relative flex flex-col min-w-0 break-words  w-full shadow-lg rounded-lg bg-blueGray-700">
-                  <img
-                    alt="..."
-                    src="/car.png"
-                    className="w-full align-middle rounded-t-lg"
-                  />
-                  <blockquote className="relative p-8 mb-4">
-                    <svg
-                      preserveAspectRatio="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 583 95"
-                      className="absolute left-0 w-full block h-95-px -top-94-px"
-                    >
-                      <polygon
-                        points="-30,95 583,95 583,65"
-                        className="text-blueGray-700 fill-current"
-                      ></polygon>
-                    </svg>
-                    <InfoHeading >
-                      Advice and assistance
-                    </InfoHeading>
-                    <AdviceParagraph>
-                      From information on car brands and models, to knowledge on financing and affordability -&nbsp;
-                      <b>Blue Auto</b> is here to help you! <Link href="/contact">Contact us today.</Link>
-                    </AdviceParagraph>
-                  </blockquote>
-                </div>
+            <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mb-12">
+              <div className="relative flex flex-col min-w-0 break-words  w-full shadow-lg rounded-lg bg-blueGray-700">
+                <img
+                  alt="..."
+                  src="/car.png"
+                  className="w-full align-middle rounded-t-lg"
+                />
+                <blockquote className="relative p-8 mb-4">
+                  <svg
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 583 95"
+                    className="absolute left-0 w-full block h-95-px -top-94-px"
+                  >
+                    <polygon
+                      points="-30,95 583,95 583,65"
+                      className="text-blueGray-700 fill-current"
+                    ></polygon>
+                  </svg>
+                  <InfoHeading >
+                    Advice and assistance
+                  </InfoHeading>
+                  <AdviceParagraph>
+                    From information on car brands and models, to knowledge on financing and affordability -&nbsp;
+                    <b>Blue Auto</b> is here to help you! <Link href="/contact">Contact us today.</Link>
+                  </AdviceParagraph>
+                </blockquote>
               </div>
             </div>
           </div>
         </section>
 
-        {/* <section className="relative py-20">
+        <section className="relative py-20">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
             style={{ transform: "translateZ(0)" }}
@@ -241,7 +236,7 @@ export default function Landing() {
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
 
         <section className="pb-20 relative block bg-blueGray-100">
           <div
@@ -267,31 +262,52 @@ export default function Landing() {
           <div className="container mx-auto px-4 lg:pt-24 lg:pb-24">
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 px-4">
-                <h2 className="text-4xl font-semibold text-blueGray-800">
-                  Financing providers
-                </h2>
+                <FinancingHeading className="text-4xl font-semibold text-blueGray-800 mb-12">
+                  Financing partners
+                </FinancingHeading>
               </div>
             </div>
-            <div className="flex flex-wrap mt-12 justify-center">
+
+            <FinancingImages >
+
               <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image src="/absa.png" width={340} height={100}></Image>
+                <Image src="/mfc.png" width={200} height={100}></Image>
               </div>
+
               <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image src="/bmw.png" width={200} height={190} style={{ marginTop: '-50px' }}></Image>
+                <Image src="/absa.png" width={100} height={100}></Image>
               </div>
+
               <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image src="/standardbank.png" width={260} height={180} style={{ marginTop: '-50px' }}></Image>
+                <Image src="/standardbank.png" width={1500} height={310}></Image>
               </div>
+
+              <div className="w-full lg:w-3/12 px-4 text-center">
+                <Image src="/bmw.png" layout="responsive" width={300} height={150}></Image>
+              </div>
+
               <div className="w-full lg:w-3/12 px-4 text-center">
                 <Image src="/wesbanklogo.png" width={200} height={70}></Image>
               </div>
-            </div>
+            </FinancingImages>
           </div>
         </section>
       </main >
     </>
   );
 }
+
+export const FinancingHeading = styled.h3`
+  margin-bottom: 30px;
+`
+
+export const FinancingImages = styled.div`
+  display: flex; 
+  flex-wrap: wrap; 
+  margin-top: 50px; 
+  justify-content: center; 
+  gap:50px;
+`
 
 export const Heading = styled.h1` 
   margin-top: 80px;
@@ -307,32 +323,34 @@ export const InfoParagraph = styled.h2`
   color: white; 
 `
 export const Background = styled.div`
-position: absolute;
-background-position: center;
-background-size: cover;
-top: 0; 
-width: 100vw;
-height: 100%;
-background-image: url('https://res.cloudinary.com/gothenburg-university/image/upload/v1645822110/car_ohug26.jpg');
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  top: 0; 
+  width: 100vw;
+  height: 100%;
+  background-image: url('https://res.cloudinary.com/gothenburg-university/image/upload/v1645822110/car_ohug26.jpg');
 `
 
 export const TopSection = styled.div`
-position: relative; 
-padding-top: 16px;
-padding-bottom: 32px; 
-display: flex; 
-align-content: center; 
-justify-content: center; 
-min-height: 50vh; 
+  position: relative; 
+  padding-top: 16px;
+  padding-bottom: 32px; 
+  display: flex; 
+  align-content: center; 
+  justify-content: center; 
+  min-height: 50vh; s
 `
 
 export const InfoHeading = styled.h3`
  font-size: 25px; 
  margin-bottom: 10px;
+ color: white;
  font-weight: bold; 
 `
 
 export const AdviceParagraph = styled.p`
   font-weight: 100;
+  color: white;
   font-size: 18px;
 `
