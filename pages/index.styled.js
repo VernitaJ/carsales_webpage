@@ -10,7 +10,8 @@ export const LinkContainer = styled.div`
 
 export const BuyingContainer = styled.div`
     position: relative; 
-    display: flex; 
+    display: flex;
+    padding: 0 20px;
     justify-content: center;
     text-align: center;
     flex-direction: column;
@@ -41,6 +42,7 @@ export const SellingContainer = styled.div`
     display: flex; 
     flex-direction: column; 
     justify-content: center;
+    padding: 0 20px;
     text-align: center;
     word-break: break; 
     background-color: white;
