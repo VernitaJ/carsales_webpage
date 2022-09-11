@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Image from "next/image";
-import { BuyingContainer, SellingContainer, LinkContainer } from "./index.styled";
+import { BuyingContainer, SellingContainer, LinkContainer } from "../styles/index.styled";
 
 export default function Landing() {
   const router = useRouter();
