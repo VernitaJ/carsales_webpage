@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useMutate } from "restful-react";
 import Image from "next/image";
 import SendCar from "../components/SendCar";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Upload = () => {
   const [selectedImage, setSelectedImage] = useState();
@@ -38,6 +38,13 @@ const Upload = () => {
   return (
     <>
       <Page>
+        <InfoParagraph>
+          Blue Auto sells your vehicle for you, without any overhead costs that
+          dealerships add. This means you get the largest benefit - with the
+          money in your pocket.
+          <br />
+          Your car. Your money. The way it should be.
+        </InfoParagraph>
         <SendCar />
       </Page>
       {/* <form>
@@ -88,9 +95,24 @@ const Page = styled.div`
   background-size: 100% 100%;
   background-position: 0px 0px;
   // background-image: linear-gradient(90deg, #070E4EFF 0%, rgb(0,0, 77) 40%, #FFFFFFFF 46%, #FFF 97%);
-  background-image: url('/banner.jpg'), linear-gradient(#070E4EFF, #fff);
-`
+  background-image: url("/banner.jpg"), linear-gradient(#070e4eff, #fff);
+`;
 
+export const InfoParagraph = styled.h2`
+  align-content: center;
+  max-width: 800px;
+  margin-top: 20px;
+  margin-left: 50px;
+  font-size: 20px;
+  color: white;
+`;
+
+const Heading = styled.h2`
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 50px;
+`;
 // import { useState } from "react";
 // import styles from "../styles/Upload.module.css";
 // const express =  require("express");

@@ -117,12 +117,14 @@ const InputBlock = styled.div`
   border: 1px solid lightGrey;
   input {
     border: none;
+    margin-left: 10px;
+    border-radius: 5px;
   }
   select {
     width: 200px;
     border-radius: 2px;
     border: 1px solid lightGrey;
-    padding: 3px;
+    padding: 5px;
     margin: 10px;
     option {
       hover: {
@@ -135,7 +137,7 @@ const InputBlock = styled.div`
 const Heading = styled.div`
   font-size: 18px;
   font-weight: bold;
-  color: rgb(0,20,100);
+  color: rgb(0,20,77);
   margin-left: 10px;
 `
 

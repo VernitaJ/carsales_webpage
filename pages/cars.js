@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 
 
 import { Carousel } from "react-responsive-carousel";
-import { InfoHeading } from ".";
+import { InfoHeading, InfoParagraph } from ".";
 import CarEmail from "../components/CarEmail";
 
 export const getStaticProps = async () => {
@@ -95,7 +95,8 @@ const Cars = ({ cars }) => {
       <Sidebar cars={cars} updateFilter={applyFilter} className="z-10" />
 
       <InfoContainer>
-        <InfoHeading>The <b>Blue Auto</b> promise:</InfoHeading>
+        <InfoHeading>Blue Auto</InfoHeading>
+        <h1>It&nbsp;s all about you</h1>
         <List>
           <ListItem>
             1. Financing applications are sent to all our affiliate banks, so you get the best deal possible.
@@ -185,6 +186,10 @@ const CarPage = styled.div`
 const CarsContainer = styled.div`
   width: 50%;
   margin-left: 25%;
+  @media (max-width: 1200px) {
+    width: 80%;
+    margin-top: 15px;
+  }
   @media (max-width: 800px) {
     width: 90%;
     margin-left: 0;
@@ -194,7 +199,9 @@ const CarsContainer = styled.div`
 
 const CarBox = styled.div`
   margin-top: 5%;
-  border: 1px solid darkblue;
+  webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   color: black;
   border-radius: 10px;
   display: flex;
@@ -203,6 +210,7 @@ const CarBox = styled.div`
   justify-content: center;
   grid-template-columns: 1fr, 2fr;
 `
+
 const TopSection = styled.div`
   position: relative;
   display: flex;
@@ -263,6 +271,7 @@ const BottomTextInfo = styled.span`
 `
 
 const InfoContainer = styled.div`
+font-style: Helvetica;
   padding: 20px;
   color: white;
   width: 700px;

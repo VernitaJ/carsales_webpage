@@ -67,17 +67,13 @@ export default function Home() {
         <input {...getInputProps()} />
         {isDragActive && loading === false && (
           <div>
-            <div>
-              ICON DROP
-            </div>
+            <div>ICON DROP</div>
             <p>Pode soltar seu arquivo!</p>
           </div>
         )}
         {isDragActive === false && loading === false && (
           <div>
-            <div>
-              ICON UPLOAD
-            </div>
+            <div>ICON UPLOAD</div>
             <p>Arraste seus arquivos aqui!</p>
             <p className={styles.or}>ou</p>
             <button className={styles.btnUpload}>Escolha seus arquivos</button>
@@ -105,9 +101,9 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.iconDelete}>
-              <button
-                onClick={() => handleRemoveFiles(file.public_id)}
-              >REMOVE</button>
+              <button onClick={() => handleRemoveFiles(file.public_id)}>
+                REMOVE
+              </button>
             </div>
           </li>
         ))}

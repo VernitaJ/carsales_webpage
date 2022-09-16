@@ -18,7 +18,7 @@ export default function Home() {
         <Head>
           <title>Blue Auto</title>
           <meta name="description" content="Where buyer and seller meets" />
-          <link rel="icon" href="/wheel.png" />
+          <link rel="icon" href="/favicon.png" />
         </Head>
 
         <main className={styles.main}>
