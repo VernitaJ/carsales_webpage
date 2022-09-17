@@ -220,7 +220,8 @@ export default function Landing() {
                   </div>
                   <h3 className="text-3xl font-semibold">Personal service</h3>
                   <p className="mt-4 text-lg leading-relaxed ">
-                    At Blue Auto we provide service every step of the way:
+                    At Blue Auto we provide personal service every step of the
+                    way:
                   </p>
                   <ul className="list-none mt-6">
                     <li className="py-2">
