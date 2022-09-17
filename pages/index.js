@@ -52,7 +52,7 @@ export default function Landing() {
             <Heading>
               At <b>Blue Auto</b> the seller gets more, and the buyer pays less.
             </Heading>
-            <Heading>It&nbsp;s all about you!</Heading>
+            <Heading>With us it&nbsp;s all about you!</Heading>
           </div>
         </TopSection>
 
@@ -218,11 +218,9 @@ export default function Landing() {
                   <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-blueGray-200">
                     <i className="fas fa-rocket text-xl"></i>
                   </div>
-                  <h3 className="text-3xl font-semibold">A growing company</h3>
+                  <h3 className="text-3xl font-semibold">Personal service</h3>
                   <p className="mt-4 text-lg leading-relaxed ">
-                    The extension comes with three pre-built pages to help you
-                    get started faster. You can change the text and images and
-                    you&apos;re good to go.
+                    At Blue Auto we provide service every step of the way:
                   </p>
                   <ul className="list-none mt-6">
                     <li className="py-2">
@@ -233,7 +231,7 @@ export default function Landing() {
                           </span>
                         </div>
                         <div>
-                          <h4>Carefully crafted components</h4>
+                          <h4>Valuations</h4>
                         </div>
                       </div>
                     </li>
@@ -245,7 +243,7 @@ export default function Landing() {
                           </span>
                         </div>
                         <div>
-                          <h4>Amazing page examples</h4>
+                          <h4>Predelivery inspections</h4>
                         </div>
                       </div>
                     </li>
@@ -257,7 +255,7 @@ export default function Landing() {
                           </span>
                         </div>
                         <div>
-                          <h4>Dynamic components</h4>
+                          <h4>Financing applications</h4>
                         </div>
                       </div>
                     </li>
