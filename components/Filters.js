@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 function getSortOrderValue(sortOrder) {
   return sortOrder.replace(" ", "").toLowerCase();
@@ -101,22 +101,15 @@ const Filter = (props) => {
       <Heading>Refine your results</Heading>
 
       <div>
-        <form
-          onSubmit={() => setTimeout(() => applyFilter(), 0)}
-          noValidate
-        >
+        <form onSubmit={() => setTimeout(() => applyFilter(), 0)} noValidate>
           <div className="columns">
             <div className="column col-4 col-xs-12">
               <div className="form-group flex md:inline-block">
                 <div className="col-9 col-sm-12 p-4 md:p-1">
-                  <label
-                    htmlFor="car-brand"
-                  >
-                    Brand
-                  </label>
+                  <label htmlFor="car-brand">Brand</label>
                   <SelectOption
                     value={brandList.filter((obj) => brand.includes(obj.value))}
-                    style={{ color: 'blue' }}
+                    style={{ color: "blue" }}
                     options={brandList} // set list of the data
                     onChange={(e) =>
                       setBrand(Array.isArray(e) ? e.map((x) => x.value) : [])
@@ -182,10 +175,7 @@ const Filter = (props) => {
               </div> */}
             </div>
           </div>
-          <SubmitButton
-            type="submit"
-            onClick={applyFilter}
-          >
+          <SubmitButton type="submit" onClick={applyFilter}>
             Update
           </SubmitButton>
         </form>
@@ -197,10 +187,10 @@ const Filter = (props) => {
 export default Filter;
 
 const Heading = styled.div`
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   margin: 16px 3px;
-`
+`;
 
 const SubmitButton = styled.button`
   width: fit-content;
@@ -210,13 +200,16 @@ const SubmitButton = styled.button`
   background-color: rgba(20, 20, 230);
   color: white;
   font-weight: 500;
-`
+`;
 
 const SelectOption = styled(Select)`
   color: rgba(0, 0, 77);
-`
+  height: 15px;
+  padding: 0px;
+`;
 
 const ClearButton = styled.button`
   float: right;
-  color: yellow;
-`
+  color: rgb(199, 199, 199);
+  font-size: 12px;
+`;

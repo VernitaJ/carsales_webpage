@@ -38,14 +38,25 @@ const Upload = () => {
   return (
     <>
       <Page>
-        <InfoParagraph>
-          Blue Auto sells your vehicle for you, without any overhead costs that
-          dealerships add. This means you get the largest benefit - with the
-          money in your pocket.
-          <br />
-          Your car. Your money. The way it should be.
-        </InfoParagraph>
         <SendCar />
+        <InfoParagraph>
+          <p>
+            Blue Auto sells your vehicle for you, without any overhead costs
+            that dealerships add.{" "}
+          </p>
+          <p>You get the largest benefit - with the money in your pocket.</p>
+          <p>Your car. Your money. The way it should be.</p>
+          <div>
+            <Image
+              src="/favicon_white.png"
+              width={60}
+              height={60}
+              style={{
+                filter: "drop-shadow(rgb(190,190,200) 0.5px 1px 2px)",
+              }}
+            />
+          </div>
+        </InfoParagraph>
       </Page>
       {/* <form>
         <input
@@ -89,22 +100,25 @@ const Upload = () => {
 export default Upload;
 
 const Page = styled.div`
+  display: flex;
   top: 0;
   padding: 20px;
   min-height: 100vh - 100px;
   background-size: 100% 100%;
   background-position: 0px 0px;
   // background-image: linear-gradient(90deg, #070E4EFF 0%, rgb(0,0, 77) 40%, #FFFFFFFF 46%, #FFF 97%);
-  background-image: url("/banner.jpg"), linear-gradient(#070e4eff, #fff);
+  background-image: url("/bg.jpg"), linear-gradient(#070e4eff, #fff);
 `;
 
-export const InfoParagraph = styled.h2`
-  align-content: center;
-  max-width: 800px;
-  margin-top: 20px;
+export const InfoParagraph = styled.h3`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+  margin-top: 70px;
   margin-left: 50px;
-  font-size: 20px;
-  color: white;
+  font-size: 18px;
+  color: white; ;
 `;
 
 const Heading = styled.h2`

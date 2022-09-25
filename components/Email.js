@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs, { init } from "@emailjs/browser";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Email = (car, removeCar) => {
   const [sent, setSent] = useState(false);
@@ -21,12 +21,16 @@ const Email = (car, removeCar) => {
       .catch((err) => {
         console.log("FAILED...", err);
       });
-    localStorage.clear()
+    localStorage.clear();
   };
 
   return (
     <Container>
-      {sent ? <span>Email sent! One of our employees will get in touch within a few hours.</span> :
+      {sent ? (
+        <span>
+          Email sent! One of our employees will get in touch within a few hours.
+        </span>
+      ) : (
         <form ref={form} onSubmit={onSubmit}>
           <InputBlock>
             <label>Your name</label>
@@ -38,16 +42,25 @@ const Email = (car, removeCar) => {
           </InputBlock>
           <InputBlock>
             <label>Message</label>
-            <input type="text" name="message" placeholder="Question or Comment" />
+            <input
+              type="text"
+              name="message"
+              placeholder="Question or Comment"
+            />
           </InputBlock>
           <InputBlock>
             <label>Email address</label>
-            <input type="text" name="reply_to" placeholder="your email address" />
+            <input
+              type="text"
+              name="reply_to"
+              placeholder="your email address"
+            />
           </InputBlock>
           <button className="email-submit" type="submit">
             Submit
           </button>
-        </form>}
+        </form>
+      )}
     </Container>
   );
 };
@@ -55,23 +68,25 @@ const Email = (car, removeCar) => {
 export default Email;
 
 const InputBlock = styled.div`
+  label {
+    color: white;
+  }
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
   margin-bottom: 10px;
-`
+`;
 
 const Container = styled.div`
-@media (max-width: 540px) {
-    width: 350px;
-    margin-left: auto;
-}
+  @media (max-width: 540px) {
+    max-width: 350px;
+    margin-left: 0;
+    padding: 0;
+  }
   max-width: 450px;
-  background-color: white !important;
-  padding: 25px;
-  margin-left: 50px;
+  padding: 0 25px;
   border-radius: 15px;
-  margin-top: 6%;
   margin-bottom: 10%;
-`
+`;

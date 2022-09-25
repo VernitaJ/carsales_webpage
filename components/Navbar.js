@@ -2,75 +2,131 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Navbar(props) {
+import styled from "styled-components";
+
+const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="top-0 sticky z-50 w-full flex flex-wrap items-center justify-between px-0 py-0 navbar-expand-lg bg-white sm:bg-white-600">
-        <div className="container px-0 mx-auto flex flex-row items-center justify-between">
-          <div className="w-full relative flex justify-between md:w-auto lg:static lg:block lg:justify-start">
-            <Link href="/" passHref>
-              <a>
-                <Image
-                  src="/blueauto_logo.png"
-                  alt="Logo"
-                  width={300}
-                  height={51}
-                />
-              </a>
-            </Link>
-            <button
-              className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent visible block md:hidden outline-none focus:outline-none"
-              type="button"
-              onClick={() => setNavbarOpen(!navbarOpen)}
-            >
-              <i className="text-darkBlue-900 fas fa-bars"></i>
-            </button>
-          </div>
-          <div
-            className={
-              "lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none" +
-              (navbarOpen ? " block rounded shadow-lg" : " hidden")
-            }
-            id="example-navbar-warning"
-          >
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="flex items-center">
-                <Link href="/">
-                  <a className="lg:text-darkBlue-900 font-semibold lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
-                    Home
-                  </a>
-                </Link>
-              </li>
+      <NavbarContainer>
+        <Link style={{ padding: "10px", marginLeft: "20px" }} href="/" passHref>
+          <LogoImage>
+            <Image
+              src="/blueauto_logo.png"
+              alt="Logo"
+              width={190}
+              height={32}
+            />
+          </LogoImage>
+        </Link>
+        <MenuDropdown onClick={() => setNavbarOpen(!navbarOpen)}>
+          <i className="text-darkBlue-900 fas fa-bars"></i>
+        </MenuDropdown>
+        <Menu $navbarOpen={navbarOpen}>
+          <NavList>
+            <li>
+              <Link href="/">Home</Link>
+            </li>
 
-              <li className="flex items-center">
-                <Link href="/about">
-                  <a className="lg:text-darkBlue-900 font-semibold lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
-                    About
-                  </a>
-                </Link>
-              </li>
+            <li>
+              <Link href="/about">About</Link>
+            </li>
 
-              <li className="flex items-center">
-                <Link href="/contact">
-                  <a className="lg:text-darkBlue-900 font-semibold lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
-                    Contact
-                  </a>
-                </Link>
-              </li>
-
-              {/* <li className="flex items-center">
-                <button
-                  className="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
-                  type="button"
-                >
-                  <i className="fas fa-arrow-alt-circle-down"></i> Login
-                </button>
-              </li> */}
-            </ul>
-          </div>
-        </div>
-      </nav>
+            <li>
+              <Link href="/contact">Contact</Link>
+            </li>
+          </NavList>
+        </Menu>
+      </NavbarContainer>
     </>
   );
-}
+};
+
+export default Navbar;
+// <a className="lg:text-darkBlue-900 font-semibold lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
+// className="absolute ml-auto align-end cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent visible block md:hidden outline-none focus:outline-none"
+
+export const NavbarContainer = styled.nav`
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  background-color: rgb(245, 245, 245) !important;
+  padding: 5px;
+`;
+
+const LogoImage = styled.div`
+  margin: 0 0 10px 10px;
+`;
+
+const NavList = styled.ul`
+  display: flex;
+  right: 0;
+  z-index: 2000;
+  font-size: 19px;
+  color: darkBlue;
+
+  @media (max-width: 750px) {
+    background-color: rgb(245, 245, 245);
+    width: 20vw;
+    padding: 20px 0;
+    z-index: 1000;
+    height: fit-content;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 20px;
+    position: absolute;
+    padding-top: 20px;
+  }
+
+  @media (max-width: 450px) {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+  }
+
+  li {
+    margin-left: 10px;
+    font-weight: 600;
+    :hover {
+      color: rgb(0, 0, 120);
+    }
+  }
+`;
+
+const Menu = styled.div`
+  display: block;
+  position: absolute;
+  color: white;
+  right: 80px;
+  align-self: center;
+  @media (max-width: 750px) {
+    display: ${(props) => (props.$navbarOpen ? "block" : "none")};
+    right: 0;
+    top: 40px;
+    font-size: 20px;
+  }
+`;
+
+const MenuDropdown = styled.button`
+  display: none;
+  position: absolute;
+  margin-left: auto;
+  right: 0;
+  z-index: 199;
+  outline: none;
+  align-self: end;
+  :focus {
+    outline: none;
+  }
+  cursor: pointer;
+  font-size: 25px;
+  line-height: 1;
+  padding: 3px;
+
+  @media (max-width: 750px) {
+    transition: display 2s;
+    display: block;
+  }
+`;

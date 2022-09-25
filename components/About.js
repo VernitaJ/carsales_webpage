@@ -1,27 +1,54 @@
 import styles from "../styles/About.module.css";
+import Image from "next/image";
+import styled from "styled-components";
 
 const About = () => {
   return (
-    <div className={styles.content}>
-      <h1>Established in 2021</h1>
-      <p className={styles.paragraph}>
-        AutoSurf was created with people in mind. It&apos;s clear that vehicle
-        garages take a large amount of the profit from selling cars, and the
-        buyer never gets to meet the seller.
-      </p>
-      <p className={styles.paragraph}>
-        This approach breaks the relationship that we used to have with each
-        other when we used to buy/sell vehicles, and at AutoScout we believe
-        this relationship is vital for ensuring trust in both parties. Sell your
-        car to a person you meet. Buy a car from an owner you know.
-      </p>
-      <p className={styles.paragraph}>
-        Car garages in South Africa take a large part of the profit from the sale of your car. Our clients, however, pay a set fee that will not change which includes all services we offer.
-        The seller wins, and the buyer wins. A lower price and more gain for everyone but the intermediary.
-      </p>
-      <img className={styles.about_image} src="https://res.cloudinary.com/vertigo/image/upload/v1649670501/pedri_ssxgtt.png"></img>
+    <div>
+      <div className={styles.content}>
+        <div>
+          <p className={styles.paragraph}>
+            Car owners spend up to 7 years of their lives paying for their cars,
+            then dealerships buy the vehicle for less than it&apos;s worth, with
+            the profit in their pockets. <b>We</b> are fixing that by giving the
+            benefit to the correct person - you.
+          </p>
+          <p className={styles.paragraph}>
+            Blue Auto was established in 2021, with a combined 24 years of
+            experience in car sales and services. Instead of buying your vehicle
+            from you, we sell it for you. The seller AND the buyer wins. A lower
+            price and more gain for everyone but the dealership.
+          </p>
+          <p className={styles.paragraph}>
+            <b>Blue Auto</b> is here to ensure your experience of buying/selling
+            your car runs smoothly. Even if you just need the right advice,
+            we&apos;re happy to help. Contact us today.
+          </p>
+        </div>
+        <div>
+          <img
+            className={styles.about_image}
+            src="https://res.cloudinary.com/vertigo/image/upload/v1649670501/pedri_ssxgtt.png"
+          ></img>
+          <BottomImage>
+            <Image
+              src="/blueauto_logo.png"
+              width={200}
+              height={35}
+              style={{
+                filter: "drop-shadow(rgb(190,190,200) 1px 1px 2px)",
+              }}
+            />
+          </BottomImage>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default About;
+
+const BottomImage = styled.div`
+  margin-top: 40px;
+  width: 100%;
+`;

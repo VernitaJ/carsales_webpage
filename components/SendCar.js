@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import emailjs, { init } from "@emailjs/browser";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const SendCar = (car, removeCar) => {
   const [sent, setSent] = useState(false);
@@ -25,27 +25,39 @@ const SendCar = (car, removeCar) => {
   };
 
   useEffect(() => {
-    sent ? setTimeout = () => {
-      setShowPopUp(true)
-        , 3000
-    } : null
-  }, [sent])
+    sent
+      ? (setTimeout = () => {
+          setShowPopUp(true), 3000;
+        })
+      : null;
+  }, [sent]);
 
   return (
     <Container>
-      {sent ? <span>Request sent! One of our employees will get in touch within a few hours.</span> :
+      {!sent ? (
+        <SentMessage>
+          Request sent! One of our employees will get in touch within a few
+          hours.
+        </SentMessage>
+      ) : (
         <Form ref={form} onSubmit={onSubmit}>
-          <Heading>
-            Car Detail
-          </Heading>
+          <Heading>Car Detail</Heading>
           <InputBlock>
             <div>
               <label>Car Brand</label>
-              <input type="text" name="brand" placeholder="i.e Audi, BMW, Toyota" />
+              <input
+                type="text"
+                name="brand"
+                placeholder="i.e Audi, BMW, Toyota"
+              />
             </div>
             <div>
               <label>Model</label>
-              <input type="text" name="model" placeholder="i.e A4, X4, Corolla" />
+              <input
+                type="text"
+                name="model"
+                placeholder="i.e A4, X4, Corolla"
+              />
             </div>
             <div>
               <label>Year</label>
@@ -76,9 +88,7 @@ const SendCar = (car, removeCar) => {
             </div>
           </InputBlock>
 
-          <Heading>
-            Contact Detail
-          </Heading>
+          <Heading>Contact Detail</Heading>
           <InputBlock>
             <div>
               <label>Name</label>
@@ -86,23 +96,29 @@ const SendCar = (car, removeCar) => {
             </div>
             <div>
               <label>Contact No</label>
-              <input type="text" name="from_contact" placeholder="mobile" />
+              <input type="mobile" name="from_contact" placeholder="mobile" />
             </div>
             <div>
               <label>Email address</label>
-              <input type="text" name="reply_to" placeholder="email address" />
+              <input type="email" name="reply_to" placeholder="email address" />
             </div>
           </InputBlock>
 
-          <Button type="submit">
-            Submit
-          </Button>
-        </Form>}
-    </Container >
+          <Button type="submit">Submit</Button>
+        </Form>
+      )}
+    </Container>
   );
 };
 
 export default SendCar;
+
+const SentMessage = styled.p`
+  display: inline-block;
+  transition: display 2s;
+  color: white;
+  width: 100%;
+`;
 
 const InputBlock = styled.div`
   align-items: center;
@@ -111,17 +127,28 @@ const InputBlock = styled.div`
   padding: 10px;
   label {
     margin-left: 10px;
+    border: none;
   }
   min-width: fit-content;
   margin: 15px;
+  color: white;
   border: 1px solid lightGrey;
+  background-color: rgba(0, 0, 40);
   input {
+    background-color: transparent;
+    padding: 3px;
+    focus-outline: none !important;
+    :focus {
+      border: none !important;
+      outline: none;
+    }
     border: none;
     margin-left: 10px;
-    border-radius: 5px;
   }
   select {
     width: 200px;
+
+    background-color: rgba(0, 0, 40);
     border-radius: 2px;
     border: 1px solid lightGrey;
     padding: 5px;
@@ -132,37 +159,37 @@ const InputBlock = styled.div`
       }
     }
   }
-`
+`;
 
 const Heading = styled.div`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  color: rgb(0,20,77);
-  margin-left: 10px;
-`
+  color: rgb(0, 0, 77);
+  margin-left: 15px;
+`;
 
 const Form = styled.form`
+background-color: white; !important;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   ${Heading}:nth-child(4) {
     margin-top: 30px;
   }
-`
+`;
 
 const Container = styled.div`
-@media (max-width: 540px) {
+  @media (max-width: 540px) {
     width: 350px;
     margin-left: auto;
-}
-  width: 80%;
-  background-color: white !important;
-  padding: 25px;
+  }
+  width: 60%;
+  padding: 10px 0;
   margin-left: 50px;
-  border-radius: 15px;
   margin-top: 6%;
   margin-bottom: 10%;
-`
+`;
 
 const Button = styled.button`
   background-color: green;
@@ -173,4 +200,4 @@ const Button = styled.button`
   padding: 10px 30px;
   margin: 30px 10px;
   border-radius: 5px;
-`
+`;

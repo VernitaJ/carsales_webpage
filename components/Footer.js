@@ -65,8 +65,8 @@ export default function Footer() {
 }
 
 const FooterContainer = styled.div`
-height: 300px;
-position: absolute;
-bottom: 0;
-  background-color: white;
-`
+  height: 300px;
+  position: absolute;
+  bottom: 0;
+  background-color: white; ;
+`;

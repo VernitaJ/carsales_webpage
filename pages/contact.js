@@ -1,39 +1,50 @@
-import React, { useEffect } from "react"
-import Email from "../components/Email"
-import styled from 'styled-components'
+import React, { useEffect } from "react";
+import Email from "../components/Email";
+import styled from "styled-components";
 
 const Contact = () => {
   return (
-    <div>
+    <Page>
       <TopSection>
         <div>Mobile: 076-990-6274</div>
-        <div>pedri@blueauto.co.za</div><br></br>
+        <div>pedri@blueauto.co.za</div>
+        <br></br>
         <p>Alternatively, contact us using this form:</p>
       </TopSection>
       <BottomSection>
         <Email />
       </BottomSection>
-    </div >
-  )
-}
+    </Page>
+  );
+};
 
 export default Contact;
 
+const Page = styled.div`
+  display: flex;
+  top: 0;
+  padding: 20px;
+  min-height: 100vh - 100px;
+  background-size: 100% 100%;
+  background-position: 0px 0px;
+  // background-image: linear-gradient(90deg, #070E4EFF 0%, rgb(0,0, 77) 40%, #FFFFFFFF 46%, #FFF 97%);
+  background-image: url("/bg.jpg"), linear-gradient(#070e4eff, #fff);
+`;
+
 const TopSection = styled.div`
-  margin: 50px 0 0 100px;  
   color: white;
+  margin: 60px 0 0 100px;
   font-weight: bold;
-`
+`;
 const BottomSection = styled.div`
   margin: 50px;
   p {
     color: white;
   }
-`
+`;
 
 const Heading = styled.div`
   font-size: 18px;
-  color: white;
   font-weight: 400;
   margin-left: 50px;
-`
+`;

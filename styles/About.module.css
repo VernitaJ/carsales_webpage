@@ -1,24 +1,20 @@
-.container {
-  width: 80%;
-  padding: 1%;
-}
 
 .content {
-  background-color: rgb(6, 31, 90);
+  display: flex;
+  gap: 120px;
   border-radius: 10px;
   font-style: bold;
-  color: white;
+  color: rgb(5, 23, 66);
   padding: 2%;
-  margin: 5% 10%;
+  margin: 0 10% 0;
 }
 
 .paragraph {
-  margin-top: 2%;
+  margin-top: 6%;
 }
 
 .about_image {
-  height: auto;
-  width: 50%;
-  max-width: 400px;
-  margin: 5% 5%;
+  margin-top: 20px;
+  height: 60%;
+  width: auto;
 }

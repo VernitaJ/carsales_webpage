@@ -45,6 +45,9 @@ Sections
 
 body {
   margin: 0;
+}
+
+main {
   background-color: rgb(5, 23, 66);
 }
 

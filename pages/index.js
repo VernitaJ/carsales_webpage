@@ -3,12 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Image from "next/image";
-import {
-  BuyingContainer,
-  SellingContainer,
-  LinkContainer,
-} from "../styles/index.styled";
-import Head from "next/head";
+import { LinkBox, LinkContainer } from "../styles/index.styled";
 
 export default function Landing() {
   const router = useRouter();
@@ -37,10 +32,10 @@ export default function Landing() {
           >
             <Image
               src="/favicon_white.png"
-              width={100}
-              height={100}
+              width={70}
+              height={70}
               style={{
-                filter: "drop-shadow(rgb(140, 140,140) 0px 1px 2px)",
+                filter: "drop-shadow(rgb(190,190,200) 1px 1px 2px)",
                 position: "relative",
               }}
             />
@@ -48,11 +43,13 @@ export default function Landing() {
               Blue Auto is the only dealership where the seller AND the buyer get the best prices.
             </InfoParagraph> */}
             {/* <InfoParagraph>Here at <b>Blue Auto</b> we look after both buyer and seller - so that the benefit goes to the people that deserve it, instead of dealerships.</InfoParagraph> */}
-
             <Heading>
-              At <b>Blue Auto</b> the seller gets more, and the buyer pays less.
+              <p>
+                At <b>Blue Auto</b> the seller gets more, and the buyer pays
+                less.
+              </p>
+              <p>With us - it&apos;s all about you!</p>
             </Heading>
-            <Heading>With us it&nbsp;s all about you!</Heading>
           </div>
         </TopSection>
 
@@ -76,41 +73,28 @@ export default function Landing() {
           </svg>
         </div>
 
-        <section className="pb-20 bg-lightBlue-900 -mt-24">
-          <div className="container mx-auto -px-4 text-white">
-            <LinkContainer>
-              <BuyingContainer onClick={() => router.push("/cars")}>
-                <div className="px-4 py-5 flex-auto">
-                  <p className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-500">
-                    <i className="fas fa-award"></i>
-                  </p>
-                  <h6 className="text-3xl font-semibold text-blueGray-800">
-                    Buying
-                  </h6>
-                  <p className="text-xl mt-2 mb-4 text-blueGray-600">
-                    Get more car for your money! Find your new car at the best
-                    price - with financing available.
-                  </p>
-                </div>
-              </BuyingContainer>
+        <section className="pb-20 bg-lightBlue-900 -mt-5">
+          <LinkContainer>
+            <LinkBox onClick={() => router.push("/cars")} $color="darkBlue">
+              <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-500">
+                <i className="text-white fas fa-award"></i>
+              </p>
+              <h4>Buying</h4>
+              <p>
+                Find your new car at the best price - with financing available.
+              </p>
+            </LinkBox>
 
-              <SellingContainer onClick={() => router.push("/upload")}>
-                <div className="px-4 py-5 flex-auto">
-                  <p className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-500">
-                    <i className="fas fa-retweet"></i>
-                  </p>
-                  <h6 className="text-3xl font-semibold text-blueGray-800">
-                    Selling
-                  </h6>
-                  <p className="text-xl mt-2 mb-4 text-blueGray-600">
-                    Get more money for your car! Sell your car directly to its
-                    new owner with the profit in your pocket.
-                  </p>
-                </div>
-              </SellingContainer>
-            </LinkContainer>
+            <LinkBox onClick={() => router.push("/upload")} $color="darkGreen">
+              <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-500">
+                <i className="text-white fas fa-retweet"></i>
+              </p>
+              <h4>Selling</h4>
+              <p>Sell your car directly to its new owner.</p>
+            </LinkBox>
+          </LinkContainer>
 
-            {/* <div className="pt-6 w-full md:w-4/12 px-4 text-center">
+          {/* <div className="pt-6 w-full md:w-4/12 px-4 text-center">
                 <div
                   onClick={() => router.push("/financing")}
                   className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
@@ -127,11 +111,10 @@ export default function Landing() {
                   </div>
                 </div>
               </div> */}
-          </div>
 
           <div className="flex flex-wrap items-center mt-32">
-            <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
-              <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+            <div className="w-full md:w-5/12 px-4 ml-10">
+              <div className="text-blueGray-500 ml-5 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
                 <i className="fas fa-user-friends text-xl"></i>
               </div>
               <InfoHeading>
@@ -151,9 +134,10 @@ export default function Landing() {
               </InfoParagraph>
             </div>
 
-            <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mb-12">
-              <div className="relative flex flex-col min-w-0 break-words  w-full shadow-lg rounded-lg bg-blueGray-700">
+            <div className="w-full lg:w-4/12 md:w-6/12 px-4 lg:mr-auto ml-auto mb-12">
+              <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-blue-900">
                 <img
+                  style={{ maxWidth: "300px" }}
                   alt="..."
                   src="/car.png"
                   className="w-full align-middle rounded-t-lg"
@@ -170,7 +154,7 @@ export default function Landing() {
                       className="text-blue-900 fill-current"
                     ></polygon>
                   </svg>
-                  <InfoHeading>Advice and assistance</InfoHeading>
+                  <BlockHeading>Advice and assistance</BlockHeading>
                   <AdviceParagraph>
                     From information on car brands and models, to knowledge on
                     financing and affordability -&nbsp;
@@ -294,33 +278,32 @@ export default function Landing() {
                 <FinancingHeading>
                   Blue Auto Financing partners
                 </FinancingHeading>
+                <p className="text-xl mb-10 text-blueGray-500">
+                  Through our financing options with these major banks, we'll
+                  find the best deal for you.
+                </p>
               </div>
             </div>
 
             <FinancingImages>
-              <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image src="/mfc.png" width={190} height={70}></Image>
+              <div className="lg:w-3/12 px-4 text-center">
+                <Image src="/mfc.png" width={160} height={60}></Image>
               </div>
 
-              <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image src="/absa.png" width={90} height={90} />
+              <div className="lg:w-3/12 mx-4 text-center -m-2">
+                <Image src="/bmw.png" width={150} height={75} />
               </div>
 
-              <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image src="/standardbank.png" width={750} height={155} />
+              <div className="lg:w-3/12 px-4 text-center -m-3">
+                <Image src="/wesbanklogo.png" width={190} height={65} />
               </div>
 
-              <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image
-                  src="/bmw.png"
-                  layout="responsive"
-                  width={150}
-                  height={75}
-                />
+              <div className="lg:w-3/12 px-4 text-center">
+                <Image src="/absa.png" width={70} height={70} />
               </div>
 
-              <div className="w-full lg:w-3/12 px-4 text-center">
-                <Image src="/wesbanklogo.png" width={190} height={75} />
+              <div className="lg:w-3/12 px-4 text-center -m-3">
+                <Image src="/standardbank.png" width={100} height={140} />
               </div>
             </FinancingImages>
             <svg
@@ -346,7 +329,7 @@ export const FinancingHeading = styled.h3`
   color: rgb(0, 0, 77);
   font-size: 35px;
   font-weight: bold;
-  filter: drop-shadow(rgb(140, 140, 140) 0px 1px 2px);
+  filter: drop-shadow(rgb(190, 190, 255) 0px 1px 1px);
 `;
 
 export const FinancingImages = styled.div`
@@ -357,9 +340,13 @@ export const FinancingImages = styled.div`
   gap: 50px;
 `;
 
-export const Heading = styled.h1`
-  margin-top: 10px;
+export const Heading = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 5px;
   font-size: 25px;
+  padding: 10px 20px;
   font-weight: bold;
 `;
 
@@ -367,9 +354,10 @@ export const InfoParagraph = styled.h2`
   align-content: center;
   max-width: 800px;
   margin: 20px;
-  font-size: 20px;
-  color: white;
+  font-size: 16px;
+  color: white; ;
 `;
+
 export const Background = styled.div`
   position: absolute;
   background-position: center;
@@ -380,7 +368,7 @@ export const Background = styled.div`
   background-image: url("https://res.cloudinary.com/gothenburg-university/image/upload/v1645822110/car_ohug26.jpg");
 `;
 
-export const TopSection = styled.div`
+export const TopSection = styled.section`
   position: relative; 
   padding-top: 16px;
   padding-bottom: 32px; 
@@ -391,13 +379,22 @@ export const TopSection = styled.div`
 `;
 
 export const InfoHeading = styled.h3`
-  font-size: 25px;
+  font-size: 18px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+`;
+
+export const BlockHeading = styled.h3`
+  font-size: 20px;
   margin-bottom: 10px;
   color: white;
   font-weight: bold;
 `;
 
 export const AdviceParagraph = styled.p`
+  font-size: 15px;
   font-weight: 100;
   color: white;
   font-size: 18px;
