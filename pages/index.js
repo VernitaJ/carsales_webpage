@@ -279,8 +279,8 @@ export default function Landing() {
                   Blue Auto Financing partners
                 </FinancingHeading>
                 <p className="text-xl mb-10 text-blueGray-500">
-                  Through our financing options with these major banks, we'll
-                  find the best deal for you.
+                  Through our financing options with these major banks,
+                  we&apos;ll find the best deal for you.
                 </p>
               </div>
             </div>
