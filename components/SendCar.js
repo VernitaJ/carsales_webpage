@@ -34,7 +34,7 @@ const SendCar = (car, removeCar) => {
 
   return (
     <Container>
-      {!sent ? (
+      {sent ? (
         <SentMessage>
           Request sent! One of our employees will get in touch within a few
           hours.
