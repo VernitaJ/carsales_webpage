@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Select from "react-select";
+import Multiselect from "multiselect-react-dropdown";
 import styled from "styled-components";
 
 function getSortOrderValue(sortOrder) {
@@ -30,7 +31,6 @@ const Filter = (props) => {
   const applyFilter = (event) => {
     event.preventDefault();
     let result = cars;
-    console.log("brand", brand);
     if (brand.length > 0) {
       result = result.filter((car) => brand.includes(car.brand));
       console.log("result", result);
@@ -51,7 +51,6 @@ const Filter = (props) => {
         result = result.sort((a, b) => a.price - b.price);
       }
     }
-    console.log(result);
     setFilteredCars(result);
     props.updateFilter(result);
   };
@@ -78,15 +77,38 @@ const Filter = (props) => {
         label: car.colour,
         value: car.colour,
       }));
-      setBrandList(brands);
-      setModelList(models);
-      setColourList(colours);
+      setBrandList(brands.filter((v, i, a) => a.indexOf(v) === i));
+      setModelList(models.filter((v, i, a) => a.indexOf(v) === i));
+      setColourList([
+        ...new Map(colours.map((item) => [item["value"], item])).values(),
+      ]);
     };
     handleFilterSetup();
   }, [filteredCars]);
 
+  const customStyles = useMemo(
+    () => ({
+      valueContainer: (provided, state) => ({
+        ...provided,
+        maxWidth: "100%",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
+        wrap: "nowrap",
+        overflow: "hidden",
+      }),
+      input: (provided, state) => ({
+        ...provided,
+        minWidth: "20%",
+        maxHeight: "15px",
+        wrap: "nowrap",
+      }),
+    }),
+    []
+  );
+
+  console.log(colourList);
+
   const { cars, updateFilter } = props;
-  console.log("brand", brand, "model", model, "colour", colour);
   return (
     <div>
       <ClearButton
@@ -104,8 +126,8 @@ const Filter = (props) => {
         <form onSubmit={() => setTimeout(() => applyFilter(), 0)} noValidate>
           <div className="columns">
             <div className="column col-4 col-xs-12">
-              <div className="form-group flex md:inline-block">
-                <div className="col-9 col-sm-12 p-4 md:p-1">
+              <FilterOptions>
+                <div>
                   <label htmlFor="car-brand">Brand</label>
                   <SelectOption
                     value={brandList.filter((obj) => brand.includes(obj.value))}
@@ -118,9 +140,9 @@ const Filter = (props) => {
                   />
                 </div>
 
-                <div className="col-9 col-sm-12 p-4 md:p-1">
+                <div>
                   <label className="form-label" htmlFor="price-from">
-                    Models
+                    Model
                   </label>
                   <SelectOption
                     value={modelList.filter((obj) => model.includes(obj.value))}
@@ -132,9 +154,9 @@ const Filter = (props) => {
                   />
                 </div>
 
-                <div className="col-9 col-sm-12 p-4 md:p-1">
+                <div>
                   <label className="form-label" htmlFor="price-from">
-                    Colours
+                    Colour
                   </label>
                   <SelectOption
                     value={colourList.filter((obj) =>
@@ -144,10 +166,14 @@ const Filter = (props) => {
                     onChange={(e) =>
                       setColour(Array.isArray(e) ? e.map((x) => x.value) : [])
                     } // assign onChange function
+                    styles={customStyles}
                     isMulti
                   />
                 </div>
-              </div>
+                <SubmitButton type="submit" onClick={applyFilter}>
+                  Update
+                </SubmitButton>
+              </FilterOptions>
               {/* <div className="column col-4 col-xs-12">
                 <div className="form-group">
                   <div className="col-3 col-sm-12">
@@ -175,9 +201,6 @@ const Filter = (props) => {
               </div> */}
             </div>
           </div>
-          <SubmitButton type="submit" onClick={applyFilter}>
-            Update
-          </SubmitButton>
         </form>
       </div>
     </div>
@@ -202,9 +225,18 @@ const SubmitButton = styled.button`
   font-weight: 500;
 `;
 
+const FilterOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  label {
+    margin-top: 20px;
+  }
+`;
+
 const SelectOption = styled(Select)`
   color: rgba(0, 0, 77);
-  height: 15px;
+  max-width: 100%;
   padding: 0px;
 `;
 

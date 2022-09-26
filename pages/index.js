@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
@@ -10,6 +11,11 @@ export default function Landing() {
   return (
     <>
       <main>
+        <Head>
+          <title>Blue Auto</title>
+          <meta name="description" content="It's all about you" />
+          <link rel="icon" href="/favicon.png" />
+        </Head>
         <TopSection>
           <Background>
             <span
@@ -90,7 +96,7 @@ export default function Landing() {
                 <i className="text-white fas fa-retweet"></i>
               </p>
               <h4>Selling</h4>
-              <p>Sell your car directly to its new owner.</p>
+              <p>Benefit the most from your vehicle. We'll sell it for you.</p>
             </LinkBox>
           </LinkContainer>
 
@@ -211,20 +217,20 @@ export default function Landing() {
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full  bg-blueGray-100 mr-3">
-                            <i className="fas fa-fingerprint"></i>
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-200 mr-3">
+                            <i className="fa fa-fingerprint"></i>
                           </span>
                         </div>
                         <div>
-                          <h4>Valuations</h4>
+                          <h4>Free valuations</h4>
                         </div>
                       </div>
                     </li>
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full bg-blueGray-100 mr-3">
-                            <i className="fab fa-html5"></i>
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-200 mr-3">
+                            <i className="fa fa-cogs"></i>
                           </span>
                         </div>
                         <div>
@@ -235,7 +241,7 @@ export default function Landing() {
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-100 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-200 mr-3">
                             <i className="far fa-paper-plane"></i>
                           </span>
                         </div>

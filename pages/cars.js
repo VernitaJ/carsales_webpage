@@ -8,6 +8,7 @@ import Mileage from "../public/CarMileage.svg";
 import Door from "../public/CarDoor.svg";
 import Seats from "../public/CarSeat.svg";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 import { Carousel } from "react-responsive-carousel";
 import CarEmail from "../components/CarEmail";
@@ -93,17 +94,19 @@ const Cars = ({ cars }) => {
 
       <InfoContainer>
         <Heading>
-          <b>Blue Auto</b> <br />
-          With us it&apos;s all about you.
+          <span>
+            <Image src="/favicon.png" width={70} height={70} />
+          </span>
+          <p>It&apos;s all about you.</p>
+          <br />
         </Heading>
         <List>
           <ListItem>
-            Financing applications are sent to all our affiliate banks, so you
-            get the best deal possible.
+            Predelivery inspection provided before the delivery of your vehicle.
           </ListItem>
           <ListItem>
-            Predelivery inspection guaranteed, with a complimentary service, if
-            required.
+            Financing applications are sent to all our affiliate banks, so you
+            get the best deal possible.
           </ListItem>
           <ListItem>AA roadworthy certificate included in purchase.</ListItem>
           <ListItem>
@@ -273,8 +276,15 @@ const InterestButton = styled.button`
 `;
 
 const Heading = styled.div`
+  gap: 10px;
+  align-items: flex-end;
+  display: flex;
+  font-weight: bold;
   font-size: 16px;
   margin-bottom: 10px;
+  p {
+    margin-bottom: 12px;
+  }
 `;
 
 const BottomTextInfo = styled.span`
@@ -296,9 +306,9 @@ const BottomTextInfo = styled.span`
 const InfoContainer = styled.div`
   margin-top: 20px;
   position: absolute;
-  right: 30px;
+  right: 80px;
   position: fixed;
-  font-size: 12px;
+  font-size: 13px;
   font-family: Helvetica;
   color: rgb(10, 0, 80);
   width: 20%;

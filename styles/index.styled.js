@@ -6,7 +6,7 @@ export const LinkContainer = styled.div`
   display: flex;
   flex-wrap: no-wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 80px;
   p {
     color: black;
   }
