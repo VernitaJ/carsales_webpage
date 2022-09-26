@@ -65,7 +65,7 @@ const NavList = styled.ul`
   right: 0;
   z-index: 2000;
   font-size: 19px;
-  color: darkBlue;
+  color: rgb(0, 0, 90);
 
   @media (max-width: 750px) {
     background-color: rgb(245, 245, 245);
@@ -90,7 +90,7 @@ const NavList = styled.ul`
     margin-left: 10px;
     font-weight: 600;
     :hover {
-      color: rgb(0, 0, 120);
+      color: rgb(90, 90, 190);
     }
   }
 `;

@@ -87,7 +87,8 @@ export default function Landing() {
               </p>
               <h4>Buying</h4>
               <p>
-                Find your new car at the best price - with financing available.
+                Find your new car at the best price. <br />
+                With financing available.
               </p>
             </LinkBox>
 
@@ -96,7 +97,10 @@ export default function Landing() {
                 <i className="text-white fas fa-retweet"></i>
               </p>
               <h4>Selling</h4>
-              <p>Benefit the most from your vehicle. We'll sell it for you.</p>
+              <p>
+                Benefit the most from your vehicle. <br />
+                We'll sell it for you.
+              </p>
             </LinkBox>
           </LinkContainer>
 

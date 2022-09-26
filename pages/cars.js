@@ -149,8 +149,6 @@ const Cars = ({ cars }) => {
                       Send interest
                     </InterestButton>
                   </CarInfo>
-
-                  {}
                 </TopSection>
                 <BottomTextInfo>
                   <Transmission />
@@ -190,6 +188,10 @@ const CarPage = styled.div`
     #ffffffff 21%,
     #fff 97%
   );
+  @media (min-width: 768px) {
+    position: relative;
+    text-align: center;
+  }
 `;
 
 const CarsContainer = styled.div`
@@ -200,8 +202,7 @@ const CarsContainer = styled.div`
     margin-top: 15px;
   }
   @media (max-width: 800px) {
-    width: 70%;
-    margin-left: 0;
+    width: 80%;
     margin-top: 15px;
   }
 `;
@@ -223,6 +224,7 @@ const CarBox = styled.div`
   grid-template-columns: 1fr, 2fr;
   @media (max-width: 800px) {
     background-color: white;
+    width: 90%;
   }
 `;
 
@@ -233,12 +235,24 @@ const TopSection = styled.div`
   @media (max-width: 800px) {
     flex-direction: column;
     gap: 0px;
+    p {
+      line-height: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    flex-wrap: wrap;
+    margin: 0 0 15px 25px;
   }
 `;
 
 const CarInfo = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 800px) {
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-end;
+  }
 `;
 
 const CarImage = styled.div`
@@ -263,7 +277,7 @@ const Price = styled.p`
 
 const InterestButton = styled.button`
   border-radius: 5px;
-  height: 30px;
+  max-height: 30px;
   margin-top: 10px;
   width: fit-content;
   padding: 2px;
@@ -301,6 +315,9 @@ const BottomTextInfo = styled.span`
   font-size: 14px;
   left: 20px;
   margin-bottom: 20px;
+  @media (min-width: 640px) {
+    display: none;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -318,9 +335,8 @@ const InfoContainer = styled.div`
     width: 90%;
     background-color: rgb(255, 255, 255, 0.8);
     position: relative;
-    display: block;
     padding: 10px;
-    margin: 14px 20px;
+    right: 0;
   }
 `;
 

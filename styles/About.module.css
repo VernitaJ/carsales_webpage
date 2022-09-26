@@ -7,6 +7,10 @@
   color: rgb(5, 23, 66);
   padding: 2%;
   margin: 0 10% 0;
+  @media screen (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .paragraph {
