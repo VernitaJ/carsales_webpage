@@ -34,8 +34,8 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>OpenAuto</title>
-          <link rel="icon" href="/wheellight.png" />
+          <title>BlueAuto</title>
+          <link rel="icon" href="/favicon.png" />
         </Head>
         <Layout position="relative" minHeight="100vh">
           <Navbar transparent />

@@ -228,6 +228,7 @@ const SubmitButton = styled.button`
 const FilterOptions = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: left;
   gap: 40px;
   label {
     margin-top: 20px;

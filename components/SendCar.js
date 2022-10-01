@@ -63,8 +63,6 @@ const SendCar = (car, removeCar) => {
               <label>Year</label>
               <input type="text" name="year" placeholder="" />
             </div>
-          </InputBlock>
-          <InputBlock>
             <div>
               <label>Mileage</label>
               <input type="text" name="mileage" placeholder="In kilometers" />
@@ -72,16 +70,17 @@ const SendCar = (car, removeCar) => {
             <div>
               <label>Fuel Type</label>
               <select name="fuel" id="fuel">
+                <option value="0">Select...</option>
                 <option value="Diesel">Diesel</option>
                 <option value="Petrol">Petrol</option>
                 <option value="Hybrid">Hybrid</option>
                 <option value="Electric">Electric</option>
               </select>
             </div>
-
             <div>
               <label>Transmission</label>
               <select name="gear_type" id="gear_type">
+                <option value="0">Select...</option>
                 <option value="Automatic">Automatic</option>
                 <option value="Manual">Manual</option>
               </select>
@@ -117,46 +116,56 @@ const SentMessage = styled.p`
   display: inline-block;
   transition: display 2s;
   color: white;
-  width: 100%;
+  width: 60%;
 `;
 
 const InputBlock = styled.div`
-  align-items: center;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 20px;
   padding: 10px;
   label {
     margin-left: 10px;
     border: none;
   }
-  min-width: fit-content;
+  div {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   margin: 15px;
   color: white;
-  border: 1px solid lightGrey;
-  background-color: rgba(0, 0, 40);
   input {
+    padding: 5px;
+    width: 250px;
+    margin: 5px;
     background-color: transparent;
-    padding: 3px;
+    border: 1px solid white;
     focus-outline: none !important;
-    :focus {
-      border: none !important;
-      outline: none;
-    }
-    border: none;
-    margin-left: 10px;
   }
   select {
-    width: 200px;
-
-    background-color: rgba(0, 0, 40);
+    width: 255px;
+    background-color: transparent;
     border-radius: 2px;
-    border: 1px solid lightGrey;
     padding: 5px;
-    margin: 10px;
     option {
-      hover: {
+      background-color: rgb(0, 0, 40);
+      padding: 10px;
+      margin: 10px;
+      :hover {
         color: red;
       }
+    }
+  }
+  option {
+    background-color: rgb(0, 0, 40);
+    padding: 10px;
+    margin: 10px;
+    :hover {
+      color: red;
     }
   }
 `;
@@ -164,12 +173,11 @@ const InputBlock = styled.div`
 const Heading = styled.div`
   font-size: 16px;
   font-weight: bold;
-  color: rgb(0, 0, 77);
-  margin-left: 15px;
+  color: rgba(255, 255, 255);
+  margin: 20px 0 0 15px;
 `;
 
 const Form = styled.form`
-background-color: white; !important;
   font-size: 14px;
   display: flex;
   flex-direction: column;
@@ -184,10 +192,8 @@ const Container = styled.div`
     width: 350px;
     margin-left: auto;
   }
-  width: 60%;
-  padding: 10px 0;
-  margin-left: 50px;
-  margin-top: 6%;
+  margin-left: 150px;
+  margin-top: 20px;
   margin-bottom: 10%;
 `;
 

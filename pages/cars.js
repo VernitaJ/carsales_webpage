@@ -125,41 +125,35 @@ const Cars = ({ cars }) => {
               ) : null}
               <CarBox key={car.id} className="">
                 <TopSection>
-                  <CarImage>
-                    <Carousel dynamicHeight={false} showThumbs={false}>
-                      {car.image.map((img, key) => (
-                        <div key={key}>
-                          <img
-                            src={img.url}
-                            alt="carousel image"
-                            style={{ maxWidth: "300px", height: "auto" }}
-                          />
-                        </div>
-                      ))}
-                    </Carousel>
-                  </CarImage>
                   <CarInfo>
                     <CarHeading>
                       {car.brand}&nbsp;
                       {car.model}
                     </CarHeading>
-                    <p>{car.year}</p>
-                    <Price>R{format(car.price)}</Price>
+                    <CarImage>
+                      <Carousel dynamicHeight={false} showThumbs={false}>
+                        {car.image.map((img, key) => (
+                          <div key={key}>
+                            <img
+                              src={img.url}
+                              alt="carousel image"
+                              style={{ maxWidth: "300px", height: "auto" }}
+                            />
+                          </div>
+                        ))}
+                      </Carousel>
+                      <BottomTextInfo>
+                        <Price>{car.year}</Price>
+                        <Price>R{format(car.price)}</Price>
+                        <Price>10,000km</Price>
+                      </BottomTextInfo>
+                    </CarImage>
+
                     <InterestButton onClick={() => goToContact(car)}>
                       Send interest
                     </InterestButton>
                   </CarInfo>
                 </TopSection>
-                <BottomTextInfo>
-                  <Transmission />
-                  Manual
-                  <Door />
-                  <p>5 door</p>
-                  <Seats />
-                  <p>5 seats</p>
-                  <Mileage />
-                  <p>10,000km</p>
-                </BottomTextInfo>
               </CarBox>
             </>
           ))}
@@ -176,6 +170,7 @@ const Cars = ({ cars }) => {
 export default Cars;
 
 const CarPage = styled.div`
+  min-height: 100vh;
   top: 0;
   padding: 20px;
   min-height: 100vh - 100px;
@@ -271,19 +266,18 @@ const Text = styled.p`
 `;
 
 const Price = styled.p`
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
 `;
 
 const InterestButton = styled.button`
   border-radius: 5px;
-  max-height: 30px;
-  margin-top: 10px;
   width: fit-content;
   padding: 2px;
   border: 1px solid gray;
-  right: 30px;
+  margin-left: auto;
   font-size: 12px;
+  margin-bottom: 10px;
   :hover {
     box-shadow: 0.5px 0.5px 0px 0.5px rgba(0, 20, 40, 0.5);
   }
@@ -303,21 +297,22 @@ const Heading = styled.div`
 
 const BottomTextInfo = styled.span`
   position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
   svg {
     margin-left: 20px;
     margin-right: 5px;
     height: 25px;
     max-width: 25px;
   }
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   font-size: 14px;
-  left: 20px;
-  margin-bottom: 20px;
-  @media (min-width: 640px) {
-    display: none;
-  }
+  // @media (max-width: 640px) {
+  //   display: none;
+  // }
 `;
 
 const InfoContainer = styled.div`

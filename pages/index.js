@@ -212,8 +212,9 @@ export default function Landing() {
                     From information on car brands and models, to knowledge on
                     financing and affordability -&nbsp;
                     <br />
-                    <b>Blue Auto</b> is here to help you!{" "}
-                    <Link href="/contact">Contact us today.</Link>
+                    <b>Blue Auto</b> is here to help you!
+                    <br />
+                    <Link href="/contact">Contact us</Link> today.
                   </AdviceParagraph>
                 </blockquote>
               </div>
@@ -329,7 +330,7 @@ export default function Landing() {
               preserveAspectRatio="none"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 583 95"
-              className="absolute left-0 w-full block h-110-px top-94-px"
+              className="absolute left-0 w-full block h-110-px"
             >
               <polygon
                 points="0,95 593,95 583,65"
@@ -421,6 +422,9 @@ export const AdviceParagraph = styled.p`
   font-weight: 100;
   color: white;
   font-size: 18px;
+  a {
+    text-decoration: underline;
+  }
 `;
 
 export const LinkButtons = styled.div`

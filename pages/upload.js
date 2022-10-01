@@ -52,7 +52,7 @@ const Upload = () => {
               width={60}
               height={60}
               style={{
-                filter: "drop-shadow(rgb(190,190,200) 0.5px 1px 2px)",
+                filter: "drop-shadow(rgb(190,190,200) 0.5px 1px 0.5px)",
               }}
             />
           </div>
@@ -100,25 +100,36 @@ const Upload = () => {
 export default Upload;
 
 const Page = styled.div`
+  min-height: 100vh;
   display: flex;
+  gap: 140px;
   top: 0;
   padding: 20px;
-  min-height: 100vh - 100px;
-  background-size: 100% 100%;
-  background-position: 0px 0px;
-  // background-image: linear-gradient(90deg, #070E4EFF 0%, rgb(0,0, 77) 40%, #FFFFFFFF 46%, #FFF 97%);
-  background-image: url("/bg.jpg"), linear-gradient(#070e4eff, #fff);
+  background: rgb(0, 0, 77); /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(0, 0, 77),
+    rgb(0, 0, 50),
+    rgb(0, 0, 77)
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgb(0, 0, 77),
+    rgb(0, 0, 50),
+    rgb(0, 0, 77)
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 `;
 
 export const InfoParagraph = styled.h3`
   display: flex;
+  position: fixed;
   flex-direction: column;
   gap: 20px;
   max-width: 300px;
   margin-top: 70px;
-  margin-left: 50px;
   font-size: 18px;
-  color: white; ;
+  color: white;
+  right: 100px;
 `;
 
 const Heading = styled.h2`

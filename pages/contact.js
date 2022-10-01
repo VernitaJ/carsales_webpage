@@ -21,6 +21,7 @@ const Contact = () => {
 export default Contact;
 
 const Page = styled.div`
+  min-height: 100vh;
   display: flex;
   top: 0;
   padding: 20px;
