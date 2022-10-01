@@ -4,46 +4,28 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Image from "next/image";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
 import { LinkBox, LinkContainer } from "../styles/index.styled";
 
 export default function Landing() {
   const router = useRouter();
   return (
     <>
-      <MainContainer>
+      <main>
         <Head>
           <title>Blue Auto</title>
           <meta name="description" content="It's all about you" />
           <link rel="icon" href="/favicon.png" />
         </Head>
-        <Background>
-          <Carousel
-            autoPlay={true}
-            showThumbs={false}
-            infiniteLoop={true}
-            interval={8000}
-            showArrows={false}
-            showIndicators={false}
-            showStatus={false}
-            slidesToShow={3}
-          >
-            <div>
-              <img src="/car.jpg" />
-            </div>
-            <div>
-              <img src="/car2.jpg" />
-            </div>
-            <div>
-              <img src="/car3.jpg" />
-            </div>
-          </Carousel>
-        </Background>
-
         <TopSection>
+          <Background>
+            <span
+              id="blackOverlay"
+              className="w-full h-full absolute opacity-40 bg-black"
+            ></span>
+          </Background>
           <div
             style={{
+              font: "sans",
               display: "flex",
               color: "white",
               zIndex: "20",
@@ -63,6 +45,9 @@ export default function Landing() {
                 position: "relative",
               }}
             />
+            {/* <InfoParagraph>
+              Blue Auto is the only dealership where the seller AND the buyer get the best prices.
+            </InfoParagraph> */}
             {/* <InfoParagraph>Here at <b>Blue Auto</b> we look after both buyer and seller - so that the benefit goes to the people that deserve it, instead of dealerships.</InfoParagraph> */}
             <Heading>
               <p>
@@ -71,16 +56,9 @@ export default function Landing() {
               </p>
               <p>With us - it&apos;s all about you!</p>
             </Heading>
-            <LinkButtons>
-              <LinkButton onClick={() => router.push("/cars")}>
-                Shop cars
-              </LinkButton>
-              <LinkButton onClick={() => router.push("/upload")}>
-                Sell your car
-              </LinkButton>
-            </LinkButtons>
           </div>
         </TopSection>
+
         <div
           className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-16"
           style={{ transform: "translateZ(0)" }}
@@ -101,14 +79,14 @@ export default function Landing() {
           </svg>
         </div>
 
-        <section className="pb-20 bg-lightBlue-900">
+        <section className="pb-20 bg-lightBlue-900 -mt-5">
           <LinkContainer>
             <LinkBox onClick={() => router.push("/cars")} $color="darkBlue">
               <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-500">
                 <i className="text-white fas fa-award"></i>
               </p>
               <h4>Buying</h4>
-              <p className="text-xl mt-2 mb-4 text-blueGray-500">
+              <p>
                 Find your new car at the best price. <br />
                 With financing available.
               </p>
@@ -119,80 +97,59 @@ export default function Landing() {
                 <i className="text-white fas fa-retweet"></i>
               </p>
               <h4>Selling</h4>
-              <p className="text-xl mt-2 mb-4 text-blueGray-500">
+              <p>
                 Benefit the most from your vehicle. <br />
                 We&apos;ll sell it for you.
               </p>
             </LinkBox>
-            <LinkBox onClick={() => router.push("/upload")} $color="darkGreen">
-              <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-500">
-                <i className="text-white fas fa-fingerprint"></i>
-              </p>
-              <h4>Financing</h4>
-              <p className="text-xl mt-2 mb-4 text-blueGray-500">
-                Supported by all major South African banks, to find you the best
-                deal around.
-              </p>
-            </LinkBox>
           </LinkContainer>
 
-          <div className="flex flex-wrap items-center gap-0 mt-32">
-            <div className="w-full md:w-5/12 ml-auto px-4">
-              <div className="md:pr-12 text-white">
-                <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-blueGray-200">
-                  <i className="fas fa-rocket text-xl"></i>
+          {/* <div className="pt-6 w-full md:w-4/12 px-4 text-center">
+                <div
+                  onClick={() => router.push("/financing")}
+                  className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+                >
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
+                      <i className="fas fa-fingerprint"></i>
+                    </div>
+                    <h6 className="text-3xl font-semibold">Financing</h6>
+                    <p className="text-xl mt-2 mb-4 text-blueGray-500">
+                      With support by all major South African banks, you&apos;ll
+                      be sure to drive away with a smile.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-3xl font-semibold">Personal service</h3>
-                <p className="mt-4 text-lg leading-relaxed ">
-                  At Blue Auto we provide personal service every step of the
-                  way:
-                </p>
-                <ul className="list-none mt-6">
-                  <li className="py-2">
-                    <div className="flex items-center">
-                      <div>
-                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-200 mr-3">
-                          <i className="fa fa-fingerprint"></i>
-                        </span>
-                      </div>
-                      <div>
-                        <h4>Free valuations</h4>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="py-2">
-                    <div className="flex items-center">
-                      <div>
-                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-200 mr-3">
-                          <i className="fa fa-cogs"></i>
-                        </span>
-                      </div>
-                      <div>
-                        <h4>Predelivery inspections</h4>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="py-2">
-                    <div className="flex items-center">
-                      <div>
-                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-200 mr-3">
-                          <i className="far fa-paper-plane"></i>
-                        </span>
-                      </div>
-                      <div>
-                        <h4>Financing applications</h4>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
+              </div> */}
+
+          <div className="flex flex-wrap items-center mt-32">
+            <div className="w-full md:w-5/12 px-4 ml-10">
+              <div className="text-blueGray-500 ml-5 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                <i className="fas fa-user-friends text-xl"></i>
               </div>
+              <InfoHeading>
+                At <b>Blue Auto, </b>we like keeping it simple
+              </InfoHeading>
+              <InfoParagraph className="text-lg leading-relaxed mt-4 mb-4">
+                Once you find the vehicle you love, we&apos;ll arrange the rest.
+                Within a week your new car will be in your driveway.
+              </InfoParagraph>
+              <InfoParagraph className="text-lg leading-relaxed mt-0 mb-4 ">
+                Easy. Affordable. Simple.
+              </InfoParagraph>
+              <InfoParagraph className="text-xl font-semibold text-white mt-8">
+                <Link href="/cars">
+                  Check out the cars we have on offer here.
+                </Link>
+              </InfoParagraph>
             </div>
-            <div className="w-full lg:w-4/12 md:w-6/12 px-4 lg:mr-auto mb-12">
+
+            <div className="w-full lg:w-4/12 md:w-6/12 px-4 lg:mr-auto ml-auto mb-12">
               <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-blue-900">
                 <img
-                  style={{ maxWidth: "400px" }}
+                  style={{ maxWidth: "300px" }}
                   alt="..."
-                  src="/call.jpg"
+                  src="/car.png"
                   className="w-full align-middle rounded-t-lg"
                 />
                 <blockquote className="relative p-8 mb-4">
@@ -211,7 +168,6 @@ export default function Landing() {
                   <AdviceParagraph>
                     From information on car brands and models, to knowledge on
                     financing and affordability -&nbsp;
-                    <br />
                     <b>Blue Auto</b> is here to help you!{" "}
                     <Link href="/contact">Contact us today.</Link>
                   </AdviceParagraph>
@@ -221,7 +177,7 @@ export default function Landing() {
           </div>
         </section>
 
-        {/* <section className="relative py-20">
+        <section className="relative py-20">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
             style={{ transform: "translateZ(0)" }}
@@ -244,33 +200,68 @@ export default function Landing() {
 
           <div className="container mx-auto px-4">
             <div className="items-center flex flex-wrap">
-              <div className="w-full lg:w-4/12 md:w-6/12 px-10 lg:mr-auto ml-auto">
-                <div className="relative flex flex-col min-w-0 break-words w-full rounded-lg bg-darkblue">
-                  <img
-                    alt="..."
-                    src="/keys.jpg"
-                    className="w-full align-middle rounded-t-lg"
-                  />
-                  <blockquote className="relative p-8 mb-4">
-                    <svg
-                      preserveAspectRatio="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 583 95"
-                      className="absolute left-0 w-full block h-95-px -top-94-px"
-                    >
-                      <polygon
-                        points="-30,95 583,95 583,65"
-                        className="text-blue-900 fill-current"
-                      ></polygon>
-                    </svg>
-                  </blockquote>
+              <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
+                <img
+                  alt="car"
+                  className="max-w-full rounded-lg shadow-lg"
+                  src="/car2.png"
+                />
+              </div>
+              <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
+                <div className="md:pr-12 text-white">
+                  <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-blueGray-200">
+                    <i className="fas fa-rocket text-xl"></i>
+                  </div>
+                  <h3 className="text-3xl font-semibold">Personal service</h3>
+                  <p className="mt-4 text-lg leading-relaxed ">
+                    At Blue Auto we provide personal service every step of the
+                    way:
+                  </p>
+                  <ul className="list-none mt-6">
+                    <li className="py-2">
+                      <div className="flex items-center">
+                        <div>
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-200 mr-3">
+                            <i className="fa fa-fingerprint"></i>
+                          </span>
+                        </div>
+                        <div>
+                          <h4>Free valuations</h4>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="py-2">
+                      <div className="flex items-center">
+                        <div>
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-200 mr-3">
+                            <i className="fa fa-cogs"></i>
+                          </span>
+                        </div>
+                        <div>
+                          <h4>Predelivery inspections</h4>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="py-2">
+                      <div className="flex items-center">
+                        <div>
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-200 mr-3">
+                            <i className="far fa-paper-plane"></i>
+                          </span>
+                        </div>
+                        <div>
+                          <h4>Financing applications</h4>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
 
-        <section className="pb-20 relative block bg-white">
+        <section className="pb-20 relative block bg-blueGray-100">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
             style={{ transform: "translateZ(0)" }}
@@ -285,13 +276,13 @@ export default function Landing() {
               y="0"
             >
               <polygon
-                className="text-white fill-current"
+                className="text-blueGray-100 fill-current"
                 points="2560 0 2560 100 0 100"
               ></polygon>
             </svg>
           </div>
 
-          <div className="container mx-auto px-0 lg:pt-3 lg:pb-0">
+          <div className="container mx-auto px-4 lg:pt-24 lg:pb-24">
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 mt-10">
                 <FinancingHeading>
@@ -338,15 +329,13 @@ export default function Landing() {
             </svg>
           </div>
         </section>
-      </MainContainer>
+      </main>
     </>
   );
 }
 
-export const MainContainer = styled.main``;
-
 export const FinancingHeading = styled.h3`
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   color: rgb(0, 0, 77);
   font-size: 35px;
   font-weight: bold;
@@ -355,12 +344,10 @@ export const FinancingHeading = styled.h3`
 
 export const FinancingImages = styled.div`
   display: flex;
-  flex-wrap: nowrap;
-  margin-top: 20px;
-  gap: 20px;
-  @media (max-width: 800px) {
-    flex-wrap: wrap;
-  }
+  flex-wrap: wrap;
+  margin-top: 50px;
+  justify-content: center;
+  gap: 50px;
 `;
 
 export const Heading = styled.div`
@@ -382,23 +369,23 @@ export const InfoParagraph = styled.h2`
 `;
 
 export const Background = styled.div`
-  max-height: 220px;
-  img {
-    display: block;
-    max-height: 80vh;
-    width: auto;
-    object-fit: cover;
-  }
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  background-image: url("https://res.cloudinary.com/gothenburg-university/image/upload/v1645822110/car_ohug26.jpg");
 `;
 
 export const TopSection = styled.section`
-  position: relative;
+  position: relative; 
   padding-top: 16px;
-  padding-bottom: 32px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  min-height: 80vh;
+  padding-bottom: 32px; 
+  display: flex; 
+  align-content: center; 
+  justify-content: center; 
+  min-height: 50vh; s
 `;
 
 export const InfoHeading = styled.h3`
@@ -421,21 +408,4 @@ export const AdviceParagraph = styled.p`
   font-weight: 100;
   color: white;
   font-size: 18px;
-`;
-
-export const LinkButtons = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 60px;
-  color: rgb(0, 0, 77);
-`;
-
-export const LinkButton = styled.button`
-  background-color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 30px;
-  width: 200px;
 `;

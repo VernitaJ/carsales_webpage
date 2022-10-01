@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const LinkContainer = styled.div`
   position: relative;
-  margin-top: 100px;
   display: flex;
   flex-wrap: no-wrap;
   justify-content: center;
-  gap: 100px;
+  gap: 30px;
   p {
     color: black;
   }
@@ -18,7 +17,6 @@ export const LinkContainer = styled.div`
     flex-wrap: wrap;
     gap: 20px;
   }
-  margin: 20px;
 `;
 
 export const LinkBox = styled.div`
@@ -30,8 +28,7 @@ export const LinkBox = styled.div`
   text-align: center;
   word-break: break;
   background-color: rgb(255,255,255);
-  min-width: 300px;
-  max-width: 420px;
+  width: 30%;
   margin-bottom: 10px;
   border: 1px solid darkblue;
   border-radius: 5px;

@@ -48,17 +48,14 @@ export default Navbar;
 
 export const NavbarContainer = styled.nav`
   width: 100%;
-  height: 40px;
+  padding: 10px 20px;
   display: flex;
   align-content: center;
   justify-content: space-between;
   background-color: rgb(245, 245, 245) !important;
-  padding: 5px;
 `;
 
-const LogoImage = styled.div`
-  margin: 0 0 10px 10px;
-`;
+const LogoImage = styled.div``;
 
 const NavList = styled.ul`
   display: flex;
@@ -82,6 +79,7 @@ const NavList = styled.ul`
 
   @media (max-width: 450px) {
     width: 100vw;
+    transition: width 2s, height 2s;
     height: 100vh;
     align-items: center;
   }
@@ -111,22 +109,17 @@ const Menu = styled.div`
 
 const MenuDropdown = styled.button`
   display: none;
-  position: absolute;
-  margin-left: auto;
   right: 0;
   z-index: 199;
   outline: none;
-  align-self: end;
+  align-self: center;
   :focus {
     outline: none;
   }
   cursor: pointer;
   font-size: 25px;
   line-height: 1;
-  padding: 3px;
-
   @media (max-width: 750px) {
-    transition: display 2s;
     display: block;
   }
 `;
