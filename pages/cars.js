@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { request, gql, GraphQLClient } from "graphql-request";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+//import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
 import styled from "styled-components";
 import Transmission from "../public/CarGear.svg";
@@ -9,8 +9,11 @@ import Door from "../public/CarDoor.svg";
 import Seats from "../public/CarSeat.svg";
 import { useRouter } from "next/router";
 import Image from "next/image";
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+
+//import { Carousel } from "react-responsive-carousel";
+
 import CarEmail from "../components/CarEmail";
 
 export const getStaticProps = async () => {
@@ -131,15 +134,23 @@ const Cars = ({ cars }) => {
                       {car.model}
                     </CarHeading>
                     <CarImage>
-                      <Carousel dynamicHeight={false} showThumbs={false}>
+                      <Carousel
+                        dynamicHeight={false}
+                        showThumbs={false}
+                        showStatus={false}
+                      >
                         {car.image.map((img, key) => (
-                          <div key={key}>
-                            <img
-                              src={img.url}
-                              alt="carousel image"
-                              style={{ maxWidth: "300px", height: "auto" }}
-                            />
-                          </div>
+                          <img
+                            key={key}
+                            src={img.url}
+                            alt="carousel image"
+                            style={{
+                              maxWidth: "400px",
+                              height: "auto",
+                              paddingLeft: "20px",
+                              marginRight: "auto",
+                            }}
+                          />
                         ))}
                       </Carousel>
                       <BottomTextInfo>
@@ -203,13 +214,13 @@ const CarsContainer = styled.div`
 `;
 
 const CarBox = styled.div`
-  padding-right: 20px;
   margin-top: 5%;
   webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
     0 0 40px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
     0 0 40px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  width: 90%;
   color: black;
   border-radius: 10px;
   display: flex;
@@ -244,15 +255,14 @@ const CarInfo = styled.div`
   display: flex;
   flex-direction: column;
   @media (max-width: 800px) {
-    flex-direction: row;
-    gap: 20px;
-    align-items: flex-end;
+    gap: 10px;
+    align-items: center;
   }
 `;
 
 const CarImage = styled.div`
   min-width: 300px;
-  margin: 0px 20px 30px 0px;
+  margin: 0px 20px 5px 0px;
 `;
 
 const CarHeading = styled.p`
@@ -276,8 +286,9 @@ const InterestButton = styled.button`
   padding: 2px;
   border: 1px solid gray;
   margin-left: auto;
+  margin-right: 20px;
   font-size: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   :hover {
     box-shadow: 0.5px 0.5px 0px 0.5px rgba(0, 20, 40, 0.5);
   }

@@ -1,8 +1,12 @@
 import styles from "../styles/About.module.css";
+import { useRouter } from "next/router";
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 
 const About = () => {
+  const router = useRouter();
+
   return (
     <Container>
       <div>
@@ -15,14 +19,16 @@ const About = () => {
         <p className={styles.paragraph}>
           Blue Auto was established in 2021, with a combined 24 years of
           experience in car sales and services. Instead of buying your vehicle
-          from you, we sell it for you. The seller AND the buyer wins. A lower
-          price and more gain for everyone but the dealership.
+          from you, we sell it for you. The seller AND the buyer wins.
         </p>
         <p className={styles.paragraph}>
           <b>Blue Auto</b> is here to ensure your experience of buying/selling
           your car runs smoothly. Even if you just need the right advice,
-          we&apos;re happy to help. Contact us today.
+          we&apos;re happy to help.
         </p>
+        <Link href="/contact" onClick={() => router.push("/contact")}>
+          Contact us today.
+        </Link>
       </div>
       <BottomSection>
         <img
@@ -63,6 +69,12 @@ const Container = styled.div`
     flex-direction: column;
     gap: 20px;
     align-items: center;
+  }
+  a {
+    text-decoration: underline;
+    :hover {
+      text-decoration: none;
+    }
   }
 `;
 

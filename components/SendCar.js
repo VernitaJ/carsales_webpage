@@ -1,23 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 import emailjs, { init } from "@emailjs/browser";
+import { useRouter } from "next/router";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
 
-const SendCar = (car, removeCar) => {
+const SendCar = () => {
+  const router = useRouter();
   const [sent, setSent] = useState(false);
-  const form = useRef();
+  const { register, handleSubmit, formState } = useForm();
+  const { errors, isDirty, isValid } = formState;
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (formData) => {
+    const form = document.querySelector("#contact-form");
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAIL_ID,
         process.env.NEXT_PUBLIC_CAR_EMAIL_TEMPLATE,
-        form.current,
+        form,
         process.env.NEXT_PUBLIC_EMAIL_USER
       )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
         setSent(true);
+        form.reset();
       })
       .catch((err) => {
         console.log("FAILED...", err);
@@ -27,10 +32,18 @@ const SendCar = (car, removeCar) => {
   useEffect(() => {
     sent
       ? (setTimeout = () => {
-          setShowPopUp(true), 3000;
+          router.push("/"), 4000;
         })
       : null;
   }, [sent]);
+
+  const getErrorMessage = (err) => {
+    if (err == "required") {
+      return "Required field";
+    } else if (err == "pattern") {
+      return "Incorrect format, please check your input";
+    }
+  };
 
   return (
     <Container>
@@ -40,67 +53,143 @@ const SendCar = (car, removeCar) => {
           hours.
         </SentMessage>
       ) : (
-        <Form ref={form} onSubmit={onSubmit}>
+        <Form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
           <Heading>Car Detail</Heading>
           <InputBlock>
-            <div>
-              <label>Car Brand</label>
-              <input
-                type="text"
-                name="brand"
-                placeholder="i.e Audi, BMW, Toyota"
-              />
-            </div>
-            <div>
-              <label>Model</label>
-              <input
-                type="text"
-                name="model"
-                placeholder="i.e A4, X4, Corolla"
-              />
-            </div>
-            <div>
-              <label>Year</label>
-              <input type="text" name="year" placeholder="" />
-            </div>
-            <div>
-              <label>Mileage</label>
-              <input type="text" name="mileage" placeholder="In kilometers" />
-            </div>
-            <div>
-              <label>Fuel Type</label>
-              <select name="fuel" id="fuel">
-                <option value="0">Select...</option>
-                <option value="Diesel">Diesel</option>
-                <option value="Petrol">Petrol</option>
-                <option value="Hybrid">Hybrid</option>
-                <option value="Electric">Electric</option>
-              </select>
-            </div>
-            <div>
-              <label>Transmission</label>
-              <select name="gear_type" id="gear_type">
-                <option value="0">Select...</option>
-                <option value="Automatic">Automatic</option>
-                <option value="Manual">Manual</option>
-              </select>
-            </div>
+            <Item>
+              <div>
+                <label>Car Brand</label>
+                <input
+                  {...register("brand", {
+                    required: true,
+                    maxLength: 20,
+                    pattern: /[A-Za-z]/,
+                  })}
+                  placeholder="Toyota"
+                />
+              </div>
+              <caption>{getErrorMessage(errors?.brand?.type)}</caption>
+            </Item>
+            <Item>
+              <div>
+                <label>Model</label>
+                <input
+                  {...register("model", {
+                    required: false,
+                    maxLength: 20,
+                    pattern: /[A-Za-z0-9]/,
+                  })}
+                  placeholder="Hilux"
+                />
+              </div>
+              <caption>{getErrorMessage(errors?.model?.type)}</caption>
+            </Item>
+            <Item>
+              <div>
+                <label>Year</label>
+                <input
+                  {...register("year", {
+                    required: true,
+                    max: 2022,
+                    maxLength: 4,
+                    minLength: 4,
+                    pattern: /[0-9]/,
+                  })}
+                  placeholder=""
+                />
+              </div>
+              <caption>{getErrorMessage(errors?.year?.type)}</caption>
+            </Item>
+            <Item>
+              <div>
+                <label>Mileage</label>
+                <input
+                  {...register("mileage", {
+                    required: true,
+                    max: 300000,
+                    pattern: /[0-9]/,
+                  })}
+                  placeholder="In kilometers"
+                />
+              </div>
+              <caption>{getErrorMessage(errors?.mileage?.type)}</caption>
+            </Item>
+            <Item>
+              <div>
+                <label>Fuel Type</label>
+                <select {...register("fuel", { required: true })} id="fuel">
+                  <option value="0">Select...</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Hybrid">Hybrid</option>
+                  <option value="Electric">Electric</option>
+                </select>
+              </div>
+              <caption>{getErrorMessage(errors?.fuel?.type)}</caption>
+            </Item>
+            <Item>
+              <div>
+                <label>Transmission</label>
+                <select
+                  {...register("gear_type", { required: true })}
+                  id="gear_type"
+                >
+                  <option value="0">Select...</option>
+                  <option value="Automatic">Automatic</option>
+                  <option value="Manual">Manual</option>
+                </select>
+              </div>
+              <caption>{getErrorMessage(errors?.gear_type?.type)}</caption>
+            </Item>
           </InputBlock>
 
           <Heading>Contact Detail</Heading>
           <InputBlock>
-            <div>
-              <label>Name</label>
-              <input type="text" name="from_name" placeholder="name" />
-            </div>
-            <div>
-              <label>Contact No</label>
-              <input type="mobile" name="from_contact" placeholder="mobile" />
-            </div>
-            <div>
-              <label>Email address</label>
-              <input type="email" name="reply_to" placeholder="email address" />
-            </div>
+            <Item>
+              <div>
+                <label>Name</label>
+                <input
+                  {...register("from_name", {
+                    required: true,
+                    minLength: 4,
+                    maxLength: 40,
+                    pattern: /[A-Za-z-]/,
+                  })}
+                  placeholder="name"
+                />
+              </div>
+              <caption>{getErrorMessage(errors?.from_name?.type)}</caption>
+            </Item>
+            <Item>
+              <div>
+                <label>Contact No</label>
+                <input
+                  {...register("from_contact", {
+                    required: true,
+                    minLength: 10,
+                    maxLength: 14,
+                    pattern: /[0-9+]/,
+                  })}
+                  placeholder="0612342700"
+                />
+              </div>
+              <caption>{getErrorMessage(errors?.from_contact?.type)}</caption>
+            </Item>
+            <Item>
+              <div>
+                <label>Email address</label>
+                <input
+                  {...register("reply_to", {
+                    required: true,
+                    minLength: 10,
+                    pattern:
+                      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                  })}
+                  placeholder="email address"
+                />
+              </div>
+              <caption>{getErrorMessage(errors?.reply_to?.type)}</caption>
+            </Item>
           </InputBlock>
 
           <Button type="submit">Submit</Button>
@@ -123,18 +212,27 @@ const InputBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 20px;
   padding: 10px;
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
   label {
     margin-left: 10px;
     border: none;
+    @media (max-width: 768px) {
+      margin-left: 0;
+    }
   }
   div {
     width: 400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 768px) {
+      width: 320px;
+    }
   }
   margin: 15px;
   color: white;
@@ -145,12 +243,18 @@ const InputBlock = styled.div`
     background-color: transparent;
     border: 1px solid white;
     focus-outline: none !important;
+    @media (max-width: 768px) {
+      width: 200px;
+    }
   }
   select {
     width: 255px;
     background-color: transparent;
     border-radius: 2px;
     padding: 5px;
+    @media (max-width: 768px) {
+      width: 200px;
+    }
     option {
       background-color: rgb(0, 0, 40);
       padding: 10px;
@@ -167,6 +271,19 @@ const InputBlock = styled.div`
     :hover {
       color: red;
     }
+  }
+`;
+
+const Item = styled.div`
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  caption {
+    font-size: 12px;
+    color: orange;
+    align-self: flex-end;
+    margin-right: 5px;
   }
 `;
 
@@ -188,11 +305,12 @@ const Form = styled.form`
 `;
 
 const Container = styled.div`
-  @media (max-width: 540px) {
-    width: 350px;
+  @media (max-width: 800px) {
+    width: 90%;
     margin-left: auto;
   }
-  margin-left: 150px;
+  margin-left: 15%;
+  margin-right: auto;
   margin-top: 20px;
   margin-bottom: 10%;
 `;

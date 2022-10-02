@@ -102,9 +102,13 @@ export default Upload;
 const Page = styled.div`
   min-height: 100vh;
   display: flex;
-  gap: 140px;
+  gap: 40px;
   top: 0;
   padding: 20px;
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    gap: 5px;
+  }
   background: rgb(0, 0, 77); /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -130,6 +134,14 @@ export const InfoParagraph = styled.h3`
   font-size: 18px;
   color: white;
   right: 100px;
+  @media (max-width: 1000px) {
+    position: relative;
+    min-width: 90%;
+    margin-top: 0;
+    right: 0;
+    gap: 0px;
+    align-self: center;
+  }
 `;
 
 const Heading = styled.h2`
