@@ -10,14 +10,7 @@ const Navbar = () => {
     <>
       <NavbarContainer>
         <Link style={{ padding: "10px", marginLeft: "20px" }} href="/" passHref>
-          <LogoImage>
-            <Image
-              src="/blueauto_logo.png"
-              alt="Logo"
-              width={190}
-              height={32}
-            />
-          </LogoImage>
+          <Image src="/blueauto_logo.png" alt="Logo" width={190} height={32} />
         </Link>
         <MenuDropdown onClick={() => setNavbarOpen(!navbarOpen)}>
           <i className="text-darkBlue-900 fas fa-bars"></i>
@@ -55,8 +48,6 @@ export const NavbarContainer = styled.nav`
   background-color: rgb(245, 245, 245) !important;
 `;
 
-const LogoImage = styled.div``;
-
 const NavList = styled.ul`
   display: flex;
   right: 0;
@@ -79,7 +70,7 @@ const NavList = styled.ul`
 
   @media (max-width: 450px) {
     width: 100vw;
-    transition: width 2s, height 2s;
+    transition:
     height: 100vh;
     align-items: center;
   }

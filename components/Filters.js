@@ -2,6 +2,8 @@ import { useState, useEffect, useMemo } from "react";
 import Select from "react-select";
 import Multiselect from "multiselect-react-dropdown";
 import styled from "styled-components";
+import Slider from "react-rangeslider";
+import "react-rangeslider/lib/index.css";
 
 function getSortOrderValue(sortOrder) {
   return sortOrder.replace(" ", "").toLowerCase();
@@ -21,12 +23,19 @@ const Filter = (props) => {
   const [brand, setBrand] = useState([]);
   const [model, setModel] = useState([]);
   const [colour, setColour] = useState([]);
+  //const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(2000000);
   const [sortOrder, setSortOrder] = useState();
   const [sortOrders, setSortOrders] = useState([
     "Highest First",
     "Lowest First",
   ]);
   const [filteredCars, setFilteredCars] = useState(props.cars);
+  const horizontalLabels = {
+    0: "2mil",
+    50: "1mil",
+    100: "100k",
+  };
 
   const applyFilter = (event) => {
     event.preventDefault();
@@ -40,6 +49,17 @@ const Filter = (props) => {
     }
     if (colour.length > 0) {
       result = result.filter((car) => colour.includes(car.colour));
+    }
+    // if (minPrice > 0) {
+    //   result = result.filter((car) => {
+    //     minPrice <= car.price;
+    //   });
+    //   console.log(minPrice, result);
+    // }
+    if (maxPrice < 2000000) {
+      console.log(result, " and ", maxPrice);
+      result = result.filter((car) => car.price <= maxPrice);
+      console.log(result);
     }
     if (sortOrder) {
       if (sortOrder === "highestfirst") {
@@ -61,6 +81,7 @@ const Filter = (props) => {
     setBrand([]);
     setModel([]);
     setColour([]);
+    setMaxPrice(2000000);
   };
 
   useEffect(() => {
@@ -105,22 +126,22 @@ const Filter = (props) => {
     }),
     []
   );
-
-  console.log(colourList);
-
   const { cars, updateFilter } = props;
+
   return (
-    <div>
-      <ClearButton
-        data-cy="clear-button"
-        type="button"
-        onClick={() => {
-          handleClear();
-        }}
-      >
-        Reset
-      </ClearButton>
-      <Heading>Refine your results</Heading>
+    <Container>
+      <Heading>
+        <p>Refine your results</p>
+        <ClearButton
+          data-cy="clear-button"
+          type="button"
+          onClick={() => {
+            handleClear();
+          }}
+        >
+          Reset
+        </ClearButton>
+      </Heading>
 
       <div>
         <form onSubmit={() => setTimeout(() => applyFilter(), 0)} noValidate>
@@ -170,6 +191,39 @@ const Filter = (props) => {
                     isMulti
                   />
                 </div>
+                <div className="slider">
+                  <span>Max Price: </span>
+                  <span style={{ marginLeft: "10px" }}>
+                    {new Intl.NumberFormat().format(maxPrice)}
+                  </span>
+                  <Slidy
+                    min={100000}
+                    max={2000000}
+                    step={100000}
+                    onChange={(e) => setMaxPrice(e)}
+                    value={maxPrice}
+                    tooltip={false}
+                    labels={horizontalLabels}
+                  />
+                </div>
+                {/* <div>
+                  <label className="form-label" htmlFor="price-from">
+                    Price
+                  </label>
+                  <Prices>
+                    <slider></slider>
+                    <input
+                      type="number"
+                      value={minPrice}
+                      onChange={(e) => setMinPrice(e.value)}
+                    />
+                    <input
+                      type="number"
+                      value={maxPrice}
+                      onChange={(e) => setMaxPrice(e.value)}
+                    />
+                  </Prices>
+                </div> */}
                 <SubmitButton type="submit" onClick={applyFilter}>
                   Update
                 </SubmitButton>
@@ -203,16 +257,49 @@ const Filter = (props) => {
           </div>
         </form>
       </div>
-    </div>
+    </Container>
   );
 };
 
 export default Filter;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
 const Heading = styled.div`
-  font-size: 15px;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
   font-weight: 600;
-  margin: 16px 3px;
+  margin: 20px 0;
+`;
+
+const Slidy = styled(Slider)`
+  &.rangeslider-horizontal .rangeslider__fill {
+    margin-bottom: 20px;
+    background-color: dodgerBlue !important;
+  }
+  &.rangeslider-horizontal .rangeslider__handle {
+    background-color: dodgerBlue !important;
+    .rangeslider__handle-label {
+      background: dodgerBlue !important;
+    }
+  }
+  ul {
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+  li {
+    position: unset !important;
+  }
+  ul {
+    margin-left: 20px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -220,9 +307,14 @@ const SubmitButton = styled.button`
   padding: 5px 15px;
   margin: 25px 3px 0;
   border-radius: 3px;
-  background-color: rgba(20, 20, 230);
-  color: white;
-  font-weight: 500;
+  background-color: #ff5f1f;
+  color: rgb(0, 0, 40);
+  font-weight: 600;
+`;
+
+const Prices = styled.div`
+  display: flex !important;
+  color: black;
 `;
 
 const FilterOptions = styled.div`
@@ -244,5 +336,5 @@ const SelectOption = styled(Select)`
 const ClearButton = styled.button`
   float: right;
   color: rgb(199, 199, 199);
-  font-size: 12px;
+  font-size: 13px;
 `;

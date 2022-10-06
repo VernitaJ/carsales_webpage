@@ -23,7 +23,7 @@ export default function Landing() {
             autoPlay={true}
             showThumbs={false}
             infiniteLoop={true}
-            interval={8000}
+            interval={6000}
             showArrows={false}
             showIndicators={false}
             showStatus={false}
@@ -42,44 +42,33 @@ export default function Landing() {
         </Background>
 
         <TopSection>
-          <div
+          <Image
+            src="/favicon_white.png"
+            width={70}
+            height={70}
             style={{
-              display: "flex",
-              color: "white",
-              zIndex: "20",
-              flexDirection: "column",
-              alignItems: "center",
-              maxWidth: "800px",
-              gap: "20px",
-              marginTop: "30px",
+              filter: "drop-shadow(rgb(190,190,200) 1px 1px 2px)",
+              position: "relative",
             }}
-          >
-            <Image
-              src="/favicon_white.png"
-              width={70}
-              height={70}
-              style={{
-                filter: "drop-shadow(rgb(190,190,200) 1px 1px 2px)",
-                position: "relative",
-              }}
-            />
-            {/* <InfoParagraph>Here at <b>Blue Auto</b> we look after both buyer and seller - so that the benefit goes to the people that deserve it, instead of dealerships.</InfoParagraph> */}
-            <Heading>
-              <p>
-                At <b>Blue Auto</b> the seller gets more, and the buyer pays
-                less.
-              </p>
-              <p>With us - it&apos;s all about you!</p>
-            </Heading>
-            <LinkButtons>
-              <LinkButton onClick={() => router.push("/cars")}>
-                Shop cars
-              </LinkButton>
-              <LinkButton onClick={() => router.push("/upload")}>
-                Sell your car
-              </LinkButton>
-            </LinkButtons>
-          </div>
+          />
+          {/* <InfoParagraph>Here at <b>Blue Auto</b> we look after both buyer and seller - so that the benefit goes to the people that deserve it, instead of dealerships.</InfoParagraph> */}
+          <Heading>
+            <p>
+              At <b>Blue Auto</b> the seller gets more, and the buyer pays less.
+            </p>
+            <p>With us - it&apos;s all about you!</p>
+          </Heading>
+          <LinkButtons>
+            <LinkButton color="white" onClick={() => router.push("/cars")}>
+              Shop cars
+            </LinkButton>
+            <LinkButton
+              color="rgb(192, 192, 192)"
+              onClick={() => router.push("/upload")}
+            >
+              Sell your car
+            </LinkButton>
+          </LinkButtons>
         </TopSection>
         <div
           className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-16"
@@ -103,7 +92,7 @@ export default function Landing() {
 
         <section className="pb-20 bg-lightBlue-900">
           <LinkContainer>
-            <LinkBox onClick={() => router.push("/cars")} $color="darkBlue">
+            <LinkBox>
               <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-500">
                 <i className="text-white fas fa-award"></i>
               </p>
@@ -114,7 +103,7 @@ export default function Landing() {
               </p>
             </LinkBox>
 
-            <LinkBox onClick={() => router.push("/upload")} $color="darkGreen">
+            <LinkBox>
               <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-500">
                 <i className="text-white fas fa-retweet"></i>
               </p>
@@ -393,14 +382,25 @@ export const Background = styled.div`
 `;
 
 export const TopSection = styled.section`
-  position: relative;
-  padding-top: 16px;
-  padding-bottom: 32px;
   display: flex;
-  align-content: center;
+  position: relative;
+  color: white;
+  z-index: 20;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  min-height: 80vh;
+  height: 80vh;
+  width: 100%;
+  gap: 8px;
+  @media (max-width: 568px) {
+    gap: 2px;
+    height: 30vw;
+    padding: 0;
+    margin-bottom: 60px;
+  }
 `;
+
+export const TopBlock = styled.div``;
 
 export const InfoHeading = styled.h3`
   font-size: 18px;
@@ -424,6 +424,9 @@ export const AdviceParagraph = styled.p`
   font-size: 18px;
   a {
     text-decoration: underline;
+    :hover {
+      text-decoration: none;
+    }
   }
 `;
 
@@ -431,15 +434,33 @@ export const LinkButtons = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+
+  line-height: 30px;
   gap: 60px;
   color: rgb(0, 0, 77);
+  @media (max-width: 568px) {
+    gap: 5px;
+  }
 `;
 
 export const LinkButton = styled.button`
-  background-color: white;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   padding: 10px 30px;
   width: 200px;
+  background-color: ${(props) => props.color};
+  cursor: pointer;
+  :hover {
+    box-shadow: 0 1px 4px 0 rgba(120, 120, 255, 0.8),
+      0 2px 2px 0 rgba(0, 0, 0, 0.19);
+    transition: box-shadow 0.5s, background-color 0.4s;
+    color: black;
+    background-color: rgb(0, 0, 77);
+    color: white;
+    font-size: 16px;
+  }
+  @media (max-width: 568px) {
+    width: 160px;
+  }
 `;

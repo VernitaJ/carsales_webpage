@@ -4,7 +4,7 @@ module.exports = {
   },
   resolve: {
     fallback: {
-      "fs": false
+      fs: false,
     },
   },
   env: {

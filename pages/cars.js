@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { request, gql, GraphQLClient } from "graphql-request";
-//import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
 import styled from "styled-components";
-import Transmission from "../public/CarGear.svg";
-import Mileage from "../public/CarMileage.svg";
-import Door from "../public/CarDoor.svg";
-import Seats from "../public/CarSeat.svg";
+// import Transmission from "../public/CarGear.svg";
+// import Mileage from "../public/CarMileage.svg";
+// import Door from "../public/CarDoor.svg";
+// import Seats from "../public/CarSeat.svg";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -48,10 +47,7 @@ export const getStaticProps = async () => {
 };
 
 const Cars = ({ cars }) => {
-  const router = useRouter();
   const [showPopUp, setShowPopUp] = useState(false);
-  const [colour, setColour] = useState("");
-  const [brand, setBrand] = useState("");
   const [price, setPrice] = useState({ min: 0, max: 1000000 });
   const [filteredCars, setFilteredCars] = useState(cars);
   const [selectedCar, setSelectedCar] = useState(null);
@@ -138,6 +134,7 @@ const Cars = ({ cars }) => {
                         dynamicHeight={false}
                         showThumbs={false}
                         showStatus={false}
+                        swipeable={true}
                       >
                         {car.image.map((img, key) => (
                           <img
@@ -154,9 +151,9 @@ const Cars = ({ cars }) => {
                         ))}
                       </Carousel>
                       <BottomTextInfo>
-                        <Price>{car.year}</Price>
+                        <Year>{car.year}</Year>
                         <Price>R{format(car.price)}</Price>
-                        <Price>10,000km</Price>
+                        <Mileage>10,000km</Mileage>
                       </BottomTextInfo>
                     </CarImage>
 
@@ -187,13 +184,13 @@ const CarPage = styled.div`
   min-height: 100vh - 100px;
   background-size: 100% 100%;
   background-position: 0px 0px;
-  background-image: linear-gradient(
-    90deg,
-    #070e4eff 0%,
-    rgb(0, 0, 77) 20%,
-    #ffffffff 21%,
-    #fff 97%
-  );
+  // background-image: linear-gradient(
+  //   90deg,
+  //   #070e4eff 0%,
+  //   rgb(0, 0, 77) 20%,
+  //   #ffffffff 21%,
+  //   #fff 97%
+  // );
   @media (min-width: 768px) {
     position: relative;
     text-align: center;
@@ -210,6 +207,8 @@ const CarsContainer = styled.div`
   @media (max-width: 800px) {
     width: 80%;
     margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
@@ -238,6 +237,9 @@ const TopSection = styled.div`
   position: relative;
   display: flex;
   gap: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   @media (max-width: 800px) {
     flex-direction: column;
     gap: 0px;
@@ -247,7 +249,7 @@ const TopSection = styled.div`
       padding: 0;
     }
     flex-wrap: wrap;
-    margin: 0 0 15px 25px;
+    margin: 5px;
   }
 `;
 
@@ -261,7 +263,7 @@ const CarInfo = styled.div`
 `;
 
 const CarImage = styled.div`
-  min-width: 300px;
+  width: 100%;
   margin: 0px 20px 5px 0px;
 `;
 
@@ -276,8 +278,17 @@ const Text = styled.p`
 `;
 
 const Price = styled.p`
-  font-size: 18px;
+  font-size: 17px;
+  color: rgb(0, 0, 40);
   font-weight: bold;
+`;
+
+const Year = styled.p`
+  font-size: 15px;
+`;
+
+const Mileage = styled.p`
+  font-size: 15px;
 `;
 
 const InterestButton = styled.button`
@@ -310,20 +321,18 @@ const BottomTextInfo = styled.span`
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10%;
   svg {
     margin-left: 20px;
     margin-right: 5px;
     height: 25px;
     max-width: 25px;
   }
-  width: 100%;
-  display: flex;
-  align-items: center;
+  @media (max-width: 768px) {
+    gap: ;
+  }
+  margin: auto;
   font-size: 14px;
-  // @media (max-width: 640px) {
-  //   display: none;
-  // }
 `;
 
 const InfoContainer = styled.div`
