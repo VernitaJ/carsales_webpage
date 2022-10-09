@@ -134,13 +134,16 @@ export const InfoParagraph = styled.h3`
   font-size: 18px;
   color: white;
   right: 100px;
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     position: relative;
-    min-width: 90%;
+    min-width: 80%;
     margin-top: 0;
     right: 0;
     gap: 0px;
     align-self: center;
+  }
+  @media (max-width: 550px) {
+    display: none;
   }
 `;
 

@@ -7,37 +7,33 @@ import styled from "styled-components";
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
-    <>
-      <NavbarContainer>
-        <Link style={{ padding: "10px", marginLeft: "20px" }} href="/" passHref>
-          <Image src="/blueauto_logo.png" alt="Logo" width={190} height={32} />
-        </Link>
-        <MenuDropdown onClick={() => setNavbarOpen(!navbarOpen)}>
-          <i className="text-darkBlue-900 fas fa-bars"></i>
-        </MenuDropdown>
-        <Menu $navbarOpen={navbarOpen}>
-          <NavList>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
+    <NavbarContainer>
+      <Link style={{ padding: "10px", marginLeft: "20px" }} href="/">
+        <Image src="/blueauto_logo.png" alt="Logo" width={190} height={32} />
+      </Link>
+      <MenuDropdown onClick={() => setNavbarOpen(!navbarOpen)}>
+        <i className="text-darkBlue-900 fas fa-bars"></i>
+      </MenuDropdown>
+      <Menu $navbarOpen={navbarOpen}>
+        <NavList>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
 
-            <li>
-              <Link href="/about">About</Link>
-            </li>
+          <li>
+            <Link href="/about">About</Link>
+          </li>
 
-            <li>
-              <Link href="/contact">Contact</Link>
-            </li>
-          </NavList>
-        </Menu>
-      </NavbarContainer>
-    </>
+          <li>
+            <Link href="/contact">Contact</Link>
+          </li>
+        </NavList>
+      </Menu>
+    </NavbarContainer>
   );
 };
 
 export default Navbar;
-// <a className="lg:text-darkBlue-900 font-semibold lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xl uppercase ">
-// className="absolute ml-auto align-end cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent visible block md:hidden outline-none focus:outline-none"
 
 export const NavbarContainer = styled.nav`
   width: 100%;

@@ -30,13 +30,13 @@ export default function Landing() {
             slidesToShow={3}
           >
             <div>
-              <img src="/car.jpg" />
+              <img src="/car.webp" />
             </div>
             <div>
-              <img src="/car2.jpg" />
+              <img src="/car2.webp" />
             </div>
             <div>
-              <img src="/car3.jpg" />
+              <img src="/car3.webp" />
             </div>
           </Carousel>
         </Background>
@@ -181,7 +181,7 @@ export default function Landing() {
                 <img
                   style={{ maxWidth: "400px" }}
                   alt="..."
-                  src="/call.jpg"
+                  src="/call.webp"
                   className="w-full align-middle rounded-t-lg"
                 />
                 <blockquote className="relative p-8 mb-4">
@@ -440,6 +440,7 @@ export const LinkButtons = styled.div`
   color: rgb(0, 0, 77);
   @media (max-width: 568px) {
     gap: 5px;
+    margin-bottom: 30px;
   }
 `;
 

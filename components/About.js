@@ -13,8 +13,8 @@ const About = () => {
         <p className={styles.paragraph}>
           Car owners spend up to 7 years of their lives paying for their cars,
           then dealerships buy the vehicle for less than it&apos;s worth, with
-          the profit in their pockets. <b>We</b> are fixing that by giving the
-          benefit to the correct person - you.
+          the profit in their pockets. <b>We</b> are fixing this cycle by giving
+          the benefit to the correct person - you.
         </p>
         <p className={styles.paragraph}>
           Blue Auto was established in 2021, with a combined 24 years of
@@ -31,10 +31,7 @@ const About = () => {
         </Link>
       </div>
       <BottomSection>
-        <img
-          className={styles.about_image}
-          src="https://res.cloudinary.com/vertigo/image/upload/v1649670501/pedri_ssxgtt.png"
-        ></img>
+        <img className={styles.about_image} src="/keys.webp"></img>
         <BottomImage>
           <Image
             src="/blueauto_logo.png"

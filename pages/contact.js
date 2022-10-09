@@ -6,10 +6,11 @@ const Contact = () => {
   return (
     <Page>
       <TopSection>
+        <Heading>Contact us:</Heading>
         <div>Mobile: 076-990-6274</div>
         <div>pedri@blueauto.co.za</div>
         <br></br>
-        <p>Alternatively, contact us using this form:</p>
+        <p>Alternatively, submit a contact request:</p>
       </TopSection>
       <BottomSection>
         <Email />
@@ -21,31 +22,51 @@ const Contact = () => {
 export default Contact;
 
 const Page = styled.div`
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
-  padding: 20px;
-  min-height: 100vh - 100px;
-  background-size: 100% 100%;
-  background-position: 0px 0px;
-  // background-image: linear-gradient(90deg, #070E4EFF 0%, rgb(0,0, 77) 40%, #FFFFFFFF 46%, #FFF 97%);
-  background-image: url("/bg.jpg"), linear-gradient(#070e4eff, #fff);
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+  background: rgb(0, 0, 77); /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(0, 0, 77),
+    rgb(0, 0, 50),
+    rgb(0, 0, 77)
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgb(0, 0, 77),
+    rgb(0, 0, 50),
+    rgb(0, 0, 77)
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 `;
 
 const TopSection = styled.div`
   color: white;
-  margin: 60px 0 0 100px;
+  height: 300px;
   font-weight: bold;
+  @media (max-width: 568px) {
+    margin: unset;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 const BottomSection = styled.div`
-  margin: 50px;
-  p {
-    color: white;
+  @media (max-width: 568px) {
+    margin: unset;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
 const Heading = styled.div`
-  font-size: 18px;
+  font-size: 24px;
+  margin-bottom: 25px;
   font-weight: 400;
-  margin-left: 50px;
 `;

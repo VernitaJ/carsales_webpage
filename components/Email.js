@@ -31,35 +31,38 @@ const Email = (car, removeCar) => {
           Email sent! One of our employees will get in touch within a few hours.
         </span>
       ) : (
-        <form ref={form} onSubmit={onSubmit}>
+        <Form ref={form} onSubmit={onSubmit}>
           <InputBlock>
-            <label>Your name</label>
-            <input type="text" name="from_name" placeholder="from name" />
+            <label>Name</label>
+            <input type="text" name="from_name" placeholder="Full name" />
           </InputBlock>
           <InputBlock>
             <label>Contact No</label>
-            <input type="text" name="from_contact" placeholder="your contact" />
+            <input
+              type="number"
+              name="from_contact"
+              placeholder="Mobile or work"
+            />
+          </InputBlock>
+
+          <InputBlock>
+            <label>Email address</label>
+            <input type="Email" name="reply_to" placeholder="@123" />
           </InputBlock>
           <InputBlock>
-            <label>Message</label>
-            <input
+            <label>Message (optional)</label>
+            <textarea
               type="text"
               name="message"
               placeholder="Question or Comment"
-            />
-          </InputBlock>
-          <InputBlock>
-            <label>Email address</label>
-            <input
-              type="text"
-              name="reply_to"
-              placeholder="your email address"
+              rows="4"
+              cols="50"
             />
           </InputBlock>
           <button className="email-submit" type="submit">
             Submit
           </button>
-        </form>
+        </Form>
       )}
     </Container>
   );
@@ -67,13 +70,28 @@ const Email = (car, removeCar) => {
 
 export default Email;
 
+const Form = styled.form`
+  background-color: rgba(235, 235, 235);
+  padding: 40px 30px;
+  width: 700px;
+  border-radius: 5px;
+  @media (max-width: 568px) {
+    width: 350px;
+  }
+`;
+
 const InputBlock = styled.div`
   label {
-    color: white;
+    width: 100px;
   }
-  color: black;
+  input {
+    width: 300px;
+  }
+  textarea {
+    resize: none;
+  }
+  color: slate;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 16px;
   margin-bottom: 10px;
