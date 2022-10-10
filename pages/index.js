@@ -7,6 +7,7 @@ import Image from "next/image";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { LinkBox, LinkContainer } from "../styles/index.styled";
+import Slide1 from "../public/car.webp";
 
 export default function Landing() {
   const router = useRouter();
@@ -29,15 +30,27 @@ export default function Landing() {
             showStatus={false}
             slidesToShow={3}
           >
-            <div>
-              <img src="/car.webp" />
-            </div>
-            <div>
-              <img src="/car2.webp" />
-            </div>
-            <div>
-              <img src="/car3.webp" />
-            </div>
+            <img
+              src="/car.webp"
+              layout="fill"
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+            />
+            <img
+              src="/car2.webp"
+              layout="fill"
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+            />
+            <img
+              src="/car3.webp"
+              layout="fill"
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+            />
           </Carousel>
         </Background>
 
@@ -176,7 +189,7 @@ export default function Landing() {
                 </ul>
               </div>
             </div>
-            <div className="w-full lg:w-4/12 md:w-6/12 px-4 lg:mr-auto mb-12">
+            <div className="w-full lg:w-4/12 md:w-6/12 px-4 lg:mr-auto mb-12 mt-12">
               <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-blue-900">
                 <img
                   style={{ maxWidth: "400px" }}
@@ -287,7 +300,7 @@ export default function Landing() {
                 <FinancingHeading>
                   Blue Auto Financing partners
                 </FinancingHeading>
-                <p className="text-xl mb-10 text-blueGray-500">
+                <p className="text-xl mb-10 text-blueGray-500 pr-10 pl-10">
                   Through our financing options with these major banks,
                   we&apos;ll find the best deal for you.
                 </p>
@@ -295,7 +308,7 @@ export default function Landing() {
             </div>
 
             <FinancingImages>
-              <div className="lg:w-3/12 px-4 text-center">
+              <div className="lg:w-3/12 px-4 text-center sm:w-6/12">
                 <Image src="/mfc.png" width={160} height={60}></Image>
               </div>
 
@@ -350,6 +363,11 @@ export const FinancingImages = styled.div`
   gap: 20px;
   @media (max-width: 800px) {
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    div {
+      width: 35%;
+    }
   }
 `;
 

@@ -13,6 +13,7 @@ export const LinkContainer = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     gap: 40px;
+    margin-top: 130px;
   }
   @media screen and (max-width: 560px) {
     gap: 20px;
