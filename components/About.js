@@ -9,7 +9,7 @@ const About = () => {
 
   return (
     <Container>
-      <div>
+      <Text>
         <p className={styles.paragraph}>
           Car owners spend up to 7 years of their lives paying for their cars,
           then dealerships buy the vehicle for less than it&apos;s worth, with
@@ -29,9 +29,15 @@ const About = () => {
         <Link href="/contact" onClick={() => router.push("/contact")}>
           Contact us today.
         </Link>
-      </div>
+      </Text>
       <BottomSection>
-        <img className={styles.about_image} src="/keys.webp"></img>
+        <Image
+          className={styles.about_image}
+          src="/keys.webp"
+          layout="responsive"
+          width={800}
+          height={500}
+        ></Image>
         <BottomImage>
           <Image
             src="/blueauto_logo.png"
@@ -54,8 +60,16 @@ const BottomImage = styled.div`
   width: 100%;
 `;
 
+const Text = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 50px;
+`;
+
 const Container = styled.div`
   display: flex;
+  width: 60%;
   gap: 120px;
   border-radius: 10px;
   font-style: bold;
@@ -77,6 +91,9 @@ const Container = styled.div`
 
 const BottomSection = styled.div`
   display: flex;
+  margin-top: 50px;
+  width: 900px;
+  justify-content: center;
   flex-direction: column;
   @media (max-width: 768px) {
     flex-direction: column-reverse;
