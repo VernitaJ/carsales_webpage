@@ -77,7 +77,7 @@ export default function Landing() {
           </Heading>
           <LinkButtons>
             <LinkButton color="white" onClick={() => router.push("/cars")}>
-              Buy a car
+              Browse cars
             </LinkButton>
             <LinkButton color="blue" onClick={() => router.push("/upload")}>
               Sell your car
@@ -405,6 +405,8 @@ export const Background = styled.div`
 `;
 
 export const TopSection = styled.section`
+  font-family: Helvetica, sans-serif;
+  letter-spacing: 1px;
   display: flex;
   position: relative;
   color: white;
@@ -412,7 +414,7 @@ export const TopSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 70vh;
   width: 100%;
   gap: 8px;
   @media (max-width: 568px) {
@@ -456,7 +458,7 @@ export const AdviceParagraph = styled.p`
 export const LinkButtons = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 15px;
 
   line-height: 30px;
   gap: 60px;
@@ -476,6 +478,7 @@ export const LinkButton = styled.button`
   border-radius: 5px;
   padding: 10px 30px;
   width: 200px;
+  font-size: 18px;
   background-color: ${(props) => props.color};
   cursor: pointer;
   :hover {
@@ -485,7 +488,6 @@ export const LinkButton = styled.button`
     color: black;
     background-color: rgb(0, 0, 77);
     color: white;
-    font-size: 16px;
   }
   @media (max-width: 568px) {
     width: 160px;
