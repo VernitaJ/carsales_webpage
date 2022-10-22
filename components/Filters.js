@@ -280,12 +280,12 @@ const Heading = styled.div`
 const Slidy = styled(Slider)`
   &.rangeslider-horizontal .rangeslider__fill {
     margin-bottom: 20px;
-    background-color: dodgerBlue !important;
+    background-color: #ff5f1f !important;
   }
   &.rangeslider-horizontal .rangeslider__handle {
-    background-color: dodgerBlue !important;
+    background-color: #ff5f1f !important;
     .rangeslider__handle-label {
-      background: dodgerBlue !important;
+      background: #ff5f1f !important;
     }
   }
   ul {
@@ -307,7 +307,7 @@ const SubmitButton = styled.button`
   padding: 5px 15px;
   margin: 25px 3px 0;
   border-radius: 3px;
-  background-color: #ff5f1f;
+  background-color: rgb(190, 190, 255);
   color: rgb(0, 0, 40);
   font-weight: 600;
 `;

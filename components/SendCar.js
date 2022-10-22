@@ -40,7 +40,7 @@ const SendCar = () => {
           router.push("/"), 4000;
         })
       : null;
-  }, [sent]);
+  }, [sent, router]);
 
   const getErrorMessage = (err) => {
     if (err == "required") {
@@ -54,6 +54,12 @@ const SendCar = () => {
 
   return (
     <Container>
+      <PageHeading>
+        <h1>Sell your car</h1>
+        Fill out the fields below and one of our team will be in touch by phone
+        or email. We&apos;ll give you advice on the best way to take images and
+        explain how the selling process works - completely commitment free.
+      </PageHeading>
       {sent ? (
         <SentMessage>
           Request sent! One of our employees will get in touch within a few
@@ -217,8 +223,21 @@ const SendCar = () => {
                 </ErrorMessage>
               </Item>
             </InputBlock>
+            <InputBlock>
+              <label>Message (optional)</label>
+              <textarea
+                {...register("message", {
+                  required: false,
+                })}
+                type="text"
+                name="message"
+                placeholder="Question or Comment"
+                rows="4"
+                cols="50"
+              />
+            </InputBlock>
 
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Send Request</Button>
             <GoogleReCaptcha
               onVerify={(token) => {
                 setToken(token);
@@ -232,6 +251,17 @@ const SendCar = () => {
 };
 
 export default SendCar;
+
+const PageHeading = styled.h4`
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  font-size: 16px;
+  color: rgb(250, 250, 250);
+  margin: 10px 0 30px;
+`;
 
 const SentMessage = styled.p`
   display: inline-block;
@@ -264,7 +294,7 @@ const InputBlock = styled.div`
     justify-content: space-between;
     align-items: center;
     @media (max-width: 768px) {
-      width: 320px;
+      width: 100%;
     }
   }
   margin: 15px;
@@ -277,7 +307,7 @@ const InputBlock = styled.div`
     border: 1px solid slategray;
     focus-outline: none !important;
     @media (max-width: 768px) {
-      width: 200px;
+      width: 60%;
     }
   }
   select {
@@ -286,7 +316,7 @@ const InputBlock = styled.div`
     border-radius: 2px;
     padding: 5px;
     @media (max-width: 768px) {
-      width: 200px;
+      width: 60%;
     }
     option {
       background-color: rgb(200, 200, 200);
@@ -297,6 +327,7 @@ const InputBlock = styled.div`
   }
   option {
     background-color: rgb(0, 0, 40);
+    border: none;
     padding: 10px;
     margin: 10px;
     :hover {
@@ -328,7 +359,7 @@ const Heading = styled.div`
 
 const Form = styled.form`
   background-color: rgba(235, 235, 235);
-  padding: 20px 60px;
+  padding: 5%;
   margin: 20px 0;
   font-size: 14px;
   display: flex;
@@ -337,14 +368,33 @@ const Form = styled.form`
   ${Heading}:nth-child(4) {
     margin-top: 30px;
   }
+  @media (max-width: 568px) {
+    margin: 0;
+    padding: 5px;
+    padding-left: 20px;
+  }
+  @media (max-width: 420px) {
+    padding: 0;
+  }
+  textarea {
+    margin-left: 10px;
+    width: 70%;
+    @media (max-width: 420px) {
+      width: 90%;
+    }
+  }
 `;
 
 const Container = styled.div`
-  @media (max-width: 800px) {
-    width: 90%;
-    margin-left: auto;
+  @media (max-width: 1100px) {
+    width: 95%;
   }
-  margin-left: 15%;
+  @media (max-width: 568px) {
+    margin-left: 0;
+    width: 99%;
+  }
+  width: 50%;
+  margin-left: 5%;
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: 10%;

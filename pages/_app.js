@@ -44,6 +44,7 @@ export default class MyApp extends App {
               <Component {...pageProps} height="100vh" paddingBottom="50px" />
             )}
           </div>
+          <Footer />
         </Layout>
       </React.Fragment>
     );

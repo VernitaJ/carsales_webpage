@@ -48,6 +48,7 @@ const Upload = () => {
           <p>Your car. Your money. The way it should be.</p>
           <div>
             <Image
+              alt="blue auto favicon"
               src="/favicon_white.png"
               width={60}
               height={60}
@@ -108,6 +109,7 @@ const Page = styled.div`
   @media (max-width: 1100px) {
     flex-direction: column;
     gap: 5px;
+    padding: 15px;
   }
   background: rgb(0, 0, 77); /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -129,7 +131,7 @@ export const InfoParagraph = styled.h3`
   position: fixed;
   flex-direction: column;
   gap: 20px;
-  max-width: 300px;
+  width: 30%;
   margin-top: 70px;
   font-size: 18px;
   color: white;

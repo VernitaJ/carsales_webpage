@@ -9,19 +9,26 @@ export default function Sidebar(props) {
   const router = useRouter();
   return (
     <Container>
-      <button
+      <ToggleButton
         className="cursor-pointer text-white opacity-50 md:hidden px-3 py-1 text-l leading-none bg-transparent rounded border border-solid border-transparent"
         type="button"
         onClick={() => setCollapseShow(!collapseShow)}
       >
         <i className="fas fa-bars"></i>
-      </button>
+      </ToggleButton>
       {collapseShow ? (
         <Filters cars={props.cars} updateFilter={props.updateFilter} />
       ) : null}
     </Container>
   );
 }
+
+const ToggleButton = styled.button`
+  display: hidden;
+  @media (max-width: 900px) {
+    display: inline-block;
+  }
+`;
 
 const Container = styled.div`
   background-color: rgb(0, 0, 77);
@@ -30,13 +37,13 @@ const Container = styled.div`
   left: 0;
   display: block;
   position: fixed;
-  top: 100px;
+  top: 60px;
   width: 20%;
   border-radius: 10px;
   color: white;
   overflow: hidden;
   padding-bottom: 40px;
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     padding: 20px 10px;
     position: relative;
     width: 98%;

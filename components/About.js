@@ -9,7 +9,8 @@ const About = () => {
 
   return (
     <Container>
-      <div>
+      <Text>
+        <h1>About us</h1>
         <p className={styles.paragraph}>
           Car owners spend up to 7 years of their lives paying for their cars,
           then dealerships buy the vehicle for less than it&apos;s worth, with
@@ -29,11 +30,19 @@ const About = () => {
         <Link href="/contact" onClick={() => router.push("/contact")}>
           Contact us today.
         </Link>
-      </div>
+      </Text>
       <BottomSection>
-        <img className={styles.about_image} src="/keys.webp"></img>
+        <Image
+          alt="car keys handed over to buyer"
+          className={styles.about_image}
+          src="/keys.webp"
+          layout="responsive"
+          width={800}
+          height={500}
+        ></Image>
         <BottomImage>
           <Image
+            alt="blue auto logo"
             src="/blueauto_logo.png"
             width={200}
             height={35}
@@ -54,7 +63,27 @@ const BottomImage = styled.div`
   width: 100%;
 `;
 
+const Text = styled.div`
+  h1 {
+    font-size: 42px;
+    font-weight: bold;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  margin-top: 50px;
+  @media (max-width: 768px) {
+    width: 95%;
+    h1 {
+      font-size: 30px;
+      gap: 10px;
+    }
+  }
+`;
+
 const Container = styled.div`
+  height: 80vh;
   display: flex;
   gap: 120px;
   border-radius: 10px;
@@ -76,10 +105,14 @@ const Container = styled.div`
 `;
 
 const BottomSection = styled.div`
+  width: 30%;
   display: flex;
+  margin-top: 50px;
+  justify-content: center;
   flex-direction: column;
   @media (max-width: 768px) {
     flex-direction: column-reverse;
     align-items: center;
+    width: 100%;
   }
 `;

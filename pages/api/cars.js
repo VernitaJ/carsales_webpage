@@ -25,7 +25,7 @@ export default async ({ body }, res) => {
 
     res.status(201).json(createCar);
   } catch ({ message, error }) {
-    console.log("failed on post", error)
+    console.log("failed on post", error);
     res.status(400).json({ message });
   }
 };

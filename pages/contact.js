@@ -6,9 +6,9 @@ const Contact = () => {
   return (
     <Page>
       <TopSection>
-        <Heading>Contact us:</Heading>
+        <Heading>Contact us</Heading>
         <div>Mobile: 076-990-6274</div>
-        <div>pedri@blueauto.co.za</div>
+        <div>admin@blueauto.co.za</div>
         <br></br>
         <p>Alternatively, submit a contact request:</p>
       </TopSection>
@@ -24,7 +24,7 @@ export default Contact;
 const Page = styled.div`
   min-height: 90vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   top: 0;
   @media (max-width: 768px) {
@@ -49,17 +49,17 @@ const TopSection = styled.div`
   color: white;
   height: 300px;
   font-weight: bold;
+  margin: 0 0 0 200px;
   @media (max-width: 568px) {
     margin: unset;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto 30px 30px;
+    height: fit-content;
   }
 `;
 const BottomSection = styled.div`
   @media (max-width: 568px) {
     margin: unset;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -68,5 +68,8 @@ const BottomSection = styled.div`
 const Heading = styled.div`
   font-size: 24px;
   margin-bottom: 25px;
-  font-weight: 400;
+  font-weight: 600;
+  @media (min-width: 1000px) {
+    font-size: 34px;
+  }
 `;
