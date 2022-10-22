@@ -74,12 +74,17 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <p className="text-white ml-auto">
-              Blue Auto, registered in 2021, is a small business located in
-              Pretoria South Africa.
-            </p>
           </div>
         </div>
+        <InfoText>
+          <p className="text-white ml-5 pb-5">
+            Blue Auto, registered in 2021, is a small business located in
+            Pretoria South Africa.
+          </p>
+          <p className="text-white mr-5 pb-5">
+            South Africa - Registration number: 123US2U3TS
+          </p>
+        </InfoText>
       </Container>
     </>
   );
@@ -92,4 +97,11 @@ const Container = styled.footer`
     color: rgb(30 58 138);
     border-color: rgb(30 58 138);
   }
+`;
+
+const InfoText = styled.div`
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;

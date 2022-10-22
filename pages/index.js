@@ -309,38 +309,38 @@ export default function Landing() {
             </div>
 
             <FinancingImages>
-              <div className="lg:w-3/12 px-4 text-center sm:w-6/12">
+              <div className="lg:w-3/12 px-4 m-3 text-center sm:w-6/12">
                 <Image
                   alt="motor financing company logo"
                   src="/mfc.png"
-                  width={160}
-                  height={60}
+                  width={180}
+                  height={70}
                 ></Image>
               </div>
 
               <div className="lg:w-3/12 mx-4 text-center -m-2">
-                <Image alt="bmw logo" src="/bmw.png" width={180} height={95} />
+                <Image alt="bmw logo" src="/bmw.png" width={200} height={100} />
               </div>
 
-              <div className="lg:w-3/12 px-4 text-center -m-3">
+              <div className="lg:w-3/12 px-4 text-center -m-6">
                 <Image
                   alt="wesbank logo"
                   src="/wesbanklogo.png"
                   width={190}
-                  height={65}
+                  height={120}
                 />
               </div>
 
-              <div className="lg:w-3/12 px-4 text-center">
-                <Image alt="absa logo" src="/absa.png" width={70} height={70} />
+              <div className="lg:w-3/12 pl-4 text-center">
+                <Image alt="absa logo" src="/absa.png" width={80} height={80} />
               </div>
 
-              <div className="lg:w-3/12 px-4 text-center -m-3">
+              <div className="lg:w-3/12 pr-4 text-center -m-3">
                 <Image
                   alt="standard bank logo"
                   src="/standardbank.png"
-                  width={100}
-                  height={140}
+                  width={120}
+                  height={160}
                 />
               </div>
             </FinancingImages>
@@ -406,7 +406,7 @@ export const Background = styled.div`
 
 export const TopSection = styled.section`
   font-family: Helvetica, sans-serif;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   display: flex;
   position: relative;
   color: white;

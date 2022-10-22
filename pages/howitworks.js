@@ -54,7 +54,7 @@ const HowItWorks = () => {
 export default HowItWorks;
 
 const Page = styled.div`
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
