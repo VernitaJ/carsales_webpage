@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { request, gql, GraphQLClient } from "graphql-request";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
 import styled from "styled-components";
+import Link from "next/link";
 import Transmission from "../public/CarGear.svg";
-import Mileage from "../public/CarMileage.svg";
+import MileageIcon from "../public/CarMileage.svg";
 import Door from "../public/CarDoor.svg";
 import Seats from "../public/CarSeat.svg";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import Image from "next/image";
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import { InfoHeading } from ".";
+
+//import { Carousel } from "react-responsive-carousel";
+
 import CarEmail from "../components/CarEmail";
 
 export const getStaticProps = async () => {
@@ -47,10 +48,8 @@ export const getStaticProps = async () => {
 };
 
 const Cars = ({ cars }) => {
-  const router = useRouter();
+  const { router, params } = useRouter();
   const [showPopUp, setShowPopUp] = useState(false);
-  const [colour, setColour] = useState("");
-  const [brand, setBrand] = useState("");
   const [price, setPrice] = useState({ min: 0, max: 1000000 });
   const [filteredCars, setFilteredCars] = useState(cars);
   const [selectedCar, setSelectedCar] = useState(null);
@@ -73,6 +72,12 @@ const Cars = ({ cars }) => {
     return numArray.reverse().join("");
   };
 
+  const goToContact = (car) => {
+    localStorage.setItem("current_car", JSON.stringify(car));
+    console.log(car);
+    setSelectedCar(car);
+  };
+
   useEffect(() => {
     setTimeout = () => {
       setShowPopUp(true), 3000;
@@ -86,6 +91,7 @@ const Cars = ({ cars }) => {
   return (
     <CarPage>
       <Sidebar cars={cars} updateFilter={applyFilter} className="z-10" />
+
       <InfoContainer>
         <Heading>
           <span>
@@ -117,23 +123,25 @@ const Cars = ({ cars }) => {
                   <CarEmail removeCar={removeCar} />
                 </Modal>
               ) : null}
-              <CarBox key={car.id} className="">
-                <TopSection>
-                  <CarImage>
-                    <Carousel dynamicHeight={false} showThumbs={false}>
-                      {car.image.map((img, key) => (
-                        <div key={key}>
-                          <img
-                            src={img.url}
-                            alt="carousel image"
-                            style={{ width: "300px", height: "auto" }}
-                          />
-                        </div>
-                      ))}
-                    </Carousel>
-                  </CarImage>
 
-                  <Link href={`/car/${car.slug}`}>
+              {/* onClick={() => router.push(`/car/${car.slug}`)} */}
+
+              <Link href={`/car/${car.slug}`}>
+                <CarBox key={car.id} className="">
+                  <TopSection>
+                    <CarImage>
+                      <Carousel dynamicHeight={false} showThumbs={false}>
+                        {car.image.map((img, key) => (
+                          <div key={key}>
+                            <img
+                              src={img.url}
+                              alt="carousel image"
+                              style={{ width: "300px", height: "auto" }}
+                            />
+                          </div>
+                        ))}
+                      </Carousel>
+                    </CarImage>
                     <CarInfo>
                       <CarHeading>
                         {car.brand}&nbsp;
@@ -142,29 +150,24 @@ const Cars = ({ cars }) => {
                       <p>{car.year}</p>
                       <Price>R{format(car.price)}</Price>
                       <Text>{car.colour}</Text>
-
-                      <BottomTextInfo>
-                        <div>
-                          <Transmission />
-                          Manual
-                        </div>
-                        <div>
-                          <Door />
-                          <p>5 door</p>
-                        </div>
-                        <div>
-                          <Seats />
-                          <p>5 seats</p>
-                        </div>
-                        <div>
-                          <Mileage />
-                          <p>10,000km</p>
-                        </div>
-                      </BottomTextInfo>
                     </CarInfo>
-                  </Link>
-                </TopSection>
-              </CarBox>
+                    <InterestButton onClick={() => goToContact(car)}>
+                      Send interest
+                    </InterestButton>
+                    {}
+                  </TopSection>
+                  <BottomTextInfo>
+                    <Transmission />
+                    Manual
+                    <Door />
+                    <p>5 door</p>
+                    <Seats />
+                    <p>5 seats</p>
+                    <Mileage />
+                    <p>10,000km</p>
+                  </BottomTextInfo>
+                </CarBox>
+              </Link>
             </>
           ))}
         </CarsContainer>
@@ -180,19 +183,130 @@ const Cars = ({ cars }) => {
 export default Cars;
 
 const CarPage = styled.div`
+  min-height: 100vh;
   top: 0;
   padding: 20px;
   min-height: 100vh - 100px;
-  margin-bottom: 100px;
+  background-size: 100% 100%;
+  background-position: 0px 0px;
+  // background-image: linear-gradient(
+  //   90deg,
+  //   #070e4eff 0%,
+  //   rgb(0, 0, 77) 20%,
+  //   #ffffffff 21%,
+  //   #fff 97%
+  // );
+  @media (min-width: 768px) {
+    position: relative;
+    text-align: center;
+  }
 `;
 
 const CarsContainer = styled.div`
-  width: 50%;
+  width: 40%;
   margin-left: 25%;
-  @media (max-width: 800px) {
-    width: 90%;
-    margin-left: 0;
+  @media (max-width: 1200px) {
+    width: 50%;
     margin-top: 15px;
+  }
+  @media (max-width: 800px) {
+    width: 80%;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+const CarBox = styled.div`
+  margin-top: 5%;
+  webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  width: 90%;
+  color: black;
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  grid-template-columns: 1fr, 2fr;
+  @media (max-width: 800px) {
+    background-color: white;
+    width: 90%;
+  }
+`;
+
+const TopSection = styled.div`
+  position: relative;
+  display: flex;
+  gap: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    gap: 0px;
+    p {
+      line-height: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    flex-wrap: wrap;
+    margin: 5px;
+  }
+`;
+
+const CarInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 800px) {
+    gap: 10px;
+    align-items: center;
+  }
+`;
+
+const CarImage = styled.div`
+  width: 100%;
+  margin: 0px 20px 5px 0px;
+`;
+
+const CarHeading = styled.p`
+  margin: 10px 5px 5px 0;
+  font-size: 19px;
+  font-weight: bold;
+`;
+
+const Text = styled.p`
+  font-size: 18px;
+`;
+
+const Price = styled.p`
+  font-size: 17px;
+  color: rgb(0, 0, 40);
+  font-weight: bold;
+`;
+
+const Year = styled.p`
+  font-size: 15px;
+`;
+
+const Mileage = styled.p`
+  font-size: 15px;
+`;
+
+const InterestButton = styled.button`
+  border-radius: 5px;
+  width: fit-content;
+  padding: 2px;
+  border: 1px solid gray;
+  margin-left: auto;
+  margin-right: 20px;
+  font-size: 12px;
+  margin-bottom: 15px;
+  :hover {
+    box-shadow: 0.5px 0.5px 0px 0.5px rgba(0, 20, 40, 0.5);
   }
 `;
 
@@ -208,88 +322,22 @@ const Heading = styled.div`
   }
 `;
 
-const CarBox = styled.div`
-  margin-top: 5%;
-  border: 1px solid rgb(230, 230, 255);
-  color: black;
-  border-radius: 10px;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: center;
-  grid-template-columns: 1fr, 2fr;
-`;
-
-const TopSection = styled.div`
-  position: relative;
-  display: flex;
-  gap: 30px;
-  @media (max-width: 900px) {
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
-  }
-`;
-
-const CarInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-`;
-
-const CarImage = styled.div`
-  width: 300px;
-  margin: 0px 20px 30px 0px;
-`;
-
-const CarHeading = styled.p`
-  margin: 20px 0;
-  font-size: 19px;
-  font-weight: bold;
-  @media (max-width: 900px) {
-    margin: 0;
-  }
-`;
-
-const Text = styled.p`
-  font-size: 18px;
-`;
-
-const Price = styled.p`
-  font-size: 22px;
-  font-weight: bold;
-`;
-
-const InterestButton = styled.button`
-  position: absolute;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid darkblue;
-  right: 30px;
-  bottom: 100px;
-  :hover {
-    box-shadow: 2px 2px 2px 1px rgba(0, 20, 100, 0.9);
-    border: 1px solid lightblue;
-  }
-`;
 const BottomTextInfo = styled.span`
   position: relative;
-  margin-top: 10px;
-  align-items: center;
-  div {
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: center;
+  gap: 10%;
   svg {
+    margin-left: 20px;
+    margin-right: 5px;
     height: 25px;
     max-width: 25px;
   }
-  gap: 20px;
-  max-width: 400px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  @media (max-width: 768px) {
+    gap: ;
+  }
+  margin: auto;
   font-size: 14px;
-  margin-bottom: 20px;
 `;
 
 const InfoContainer = styled.div`
@@ -297,27 +345,24 @@ const InfoContainer = styled.div`
   position: absolute;
   right: 80px;
   position: fixed;
-  font-size: 16px;
+  font-size: 13px;
   font-family: Helvetica;
   color: rgb(10, 0, 80);
   width: 20%;
   border: 1px solid white;
   border-radius: 5px;
-  @media (max-width: 900px) {
+  @media (max-width: 800px) {
     width: 90%;
     background-color: rgb(255, 255, 255, 0.8);
     position: relative;
     padding: 10px;
     right: 0;
   }
-  @media (max-width: 568px) {
-    display: none;
-  }
 `;
 
-const List = styled.ol`
+const List = styled.div`
   display: flex;
-  justify-content: space-around;
+  gap: 10px;
   flex-direction: column;
 `;
 
@@ -331,5 +376,5 @@ const Modal = styled.div`
   background-color: rgba(0, 20, 77);
   z-index: 1000;
   border-radius: 5px;
-  color: white;
+  color: white; ;
 `;

@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <Page>
       <TopSection>
-        <Heading>Contact us:</Heading>
+        <Heading>Contact</Heading>
         <div>Mobile: 076-990-6274</div>
         <div>pedri@blueauto.co.za</div>
         <br></br>

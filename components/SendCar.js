@@ -54,6 +54,12 @@ const SendCar = () => {
 
   return (
     <Container>
+      <PageHeading>
+        <h1>Sell your car</h1>
+        Fill out the fields below and one of our team will be in touch by phone
+        or email. We&apos;ll give you advice on the best way to take images and
+        explain how the selling process works - completely commitment free.
+      </PageHeading>
       {sent ? (
         <SentMessage>
           Request sent! One of our employees will get in touch within a few
@@ -218,7 +224,7 @@ const SendCar = () => {
               </Item>
             </InputBlock>
 
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Send Request</Button>
             <GoogleReCaptcha
               onVerify={(token) => {
                 setToken(token);
@@ -232,6 +238,17 @@ const SendCar = () => {
 };
 
 export default SendCar;
+
+const PageHeading = styled.h4`
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  font-size: 16px;
+  color: rgb(250, 250, 250);
+  margin: 10px 0 30px;
+`;
 
 const SentMessage = styled.p`
   display: inline-block;
@@ -337,12 +354,24 @@ const Form = styled.form`
   ${Heading}:nth-child(4) {
     margin-top: 30px;
   }
+  @media (max-width: 568px) {
+    margin: 0;
+    padding: 5px;
+    padding-left: 20px;
+  }
+  @media (max-width: 420px) {
+    padding: 0;
+  }
 `;
 
 const Container = styled.div`
   @media (max-width: 800px) {
     width: 90%;
     margin-left: auto;
+  }
+  @media (max-width: 568px) {
+    margin-left: 0;
+    width: 98%;
   }
   margin-left: 15%;
   margin-right: auto;

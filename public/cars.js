@@ -8,8 +8,8 @@ import Mileage from "../public/CarMileage.svg";
 import Door from "../public/CarDoor.svg";
 import Seats from "../public/CarSeat.svg";
 import { useRouter } from "next/router";
+z;
 import Link from "next/link";
-import Image from "next/image";
 
 import { Carousel } from "react-responsive-carousel";
 import { InfoHeading } from ".";
@@ -73,6 +73,12 @@ const Cars = ({ cars }) => {
     return numArray.reverse().join("");
   };
 
+  const goToContact = (car) => {
+    localStorage.setItem("current_car", JSON.stringify(car));
+    console.log(car);
+    setSelectedCar(car);
+  };
+
   useEffect(() => {
     setTimeout = () => {
       setShowPopUp(true), 3000;
@@ -80,31 +86,32 @@ const Cars = ({ cars }) => {
   }, []);
 
   const removeCar = () => {
+    console.log("made it");
     setSelectedCar(null);
   };
 
   return (
     <CarPage>
       <Sidebar cars={cars} updateFilter={applyFilter} className="z-10" />
+
       <InfoContainer>
-        <Heading>
-          <span>
-            <Image src="/favicon.png" width={70} height={70} />
-          </span>
-          <p>It&apos;s all about you.</p>
-          <br />
-        </Heading>
+        <InfoHeading>
+          The <b>Blue Auto</b> promise:
+        </InfoHeading>
         <List>
           <ListItem>
-            Predelivery inspection provided before the delivery of your vehicle.
+            1. Financing applications are sent to all our affiliate banks, so
+            you get the best deal possible.
           </ListItem>
           <ListItem>
-            Financing applications are sent to all our affiliate banks, so you
-            get the best deal possible.
+            2. Predelivery inspection guaranteed, with a complimentary service,
+            if required.
           </ListItem>
-          <ListItem>AA roadworthy certificate included in purchase.</ListItem>
           <ListItem>
-            Extended warranties of up to 2 years available on all vehicles.
+            3. AA roadworthy certificate included in purchase.
+          </ListItem>
+          <ListItem>
+            4. Extended warranties of up to 2 years available on all vehicles.
           </ListItem>
         </List>
       </InfoContainer>
@@ -117,23 +124,25 @@ const Cars = ({ cars }) => {
                   <CarEmail removeCar={removeCar} />
                 </Modal>
               ) : null}
-              <CarBox key={car.id} className="">
-                <TopSection>
-                  <CarImage>
-                    <Carousel dynamicHeight={false} showThumbs={false}>
-                      {car.image.map((img, key) => (
-                        <div key={key}>
-                          <img
-                            src={img.url}
-                            alt="carousel image"
-                            style={{ width: "300px", height: "auto" }}
-                          />
-                        </div>
-                      ))}
-                    </Carousel>
-                  </CarImage>
-
-                  <Link href={`/car/${car.slug}`}>
+              <Link
+                href="/car/${car.slug}"
+                onClick={() => router.push(`/car/${car.slug}`)}
+              >
+                <CarBox key={car.id} className="">
+                  <TopSection>
+                    <CarImage>
+                      <Carousel dynamicHeight={false} showThumbs={false}>
+                        {car.image.map((img, key) => (
+                          <div key={key}>
+                            <img
+                              src={img.url}
+                              alt="carousel image"
+                              style={{ width: "300px", height: "auto" }}
+                            />
+                          </div>
+                        ))}
+                      </Carousel>
+                    </CarImage>
                     <CarInfo>
                       <CarHeading>
                         {car.brand}&nbsp;
@@ -162,9 +171,9 @@ const Cars = ({ cars }) => {
                         </div>
                       </BottomTextInfo>
                     </CarInfo>
-                  </Link>
-                </TopSection>
-              </CarBox>
+                  </TopSection>
+                </CarBox>
+              </Link>
             </>
           ))}
         </CarsContainer>
@@ -183,7 +192,6 @@ const CarPage = styled.div`
   top: 0;
   padding: 20px;
   min-height: 100vh - 100px;
-  margin-bottom: 100px;
 `;
 
 const CarsContainer = styled.div`
@@ -193,18 +201,6 @@ const CarsContainer = styled.div`
     width: 90%;
     margin-left: 0;
     margin-top: 15px;
-  }
-`;
-
-const Heading = styled.div`
-  gap: 10px;
-  align-items: flex-end;
-  display: flex;
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 10px;
-  p {
-    margin-bottom: 12px;
   }
 `;
 
@@ -223,18 +219,13 @@ const CarBox = styled.div`
 const TopSection = styled.div`
   position: relative;
   display: flex;
+  display-direction: column;
   gap: 30px;
-  @media (max-width: 900px) {
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
-  }
 `;
 
 const CarInfo = styled.div`
   display: flex;
   flex-direction: column;
-  cursor: pointer;
 `;
 
 const CarImage = styled.div`
@@ -246,9 +237,6 @@ const CarHeading = styled.p`
   margin: 20px 0;
   font-size: 19px;
   font-weight: bold;
-  @media (max-width: 900px) {
-    margin: 0;
-  }
 `;
 
 const Text = styled.p`
@@ -293,25 +281,17 @@ const BottomTextInfo = styled.span`
 `;
 
 const InfoContainer = styled.div`
-  margin-top: 20px;
-  position: absolute;
-  right: 80px;
-  position: fixed;
-  font-size: 16px;
-  font-family: Helvetica;
-  color: rgb(10, 0, 80);
-  width: 20%;
+  padding: 20px;
+  color: white;
+  width: 700px;
   border: 1px solid white;
   border-radius: 5px;
-  @media (max-width: 900px) {
+  background-color: rgb(10, 0, 80);
+  margin-left: 25%;
+  @media (max-width: 800px) {
     width: 90%;
-    background-color: rgb(255, 255, 255, 0.8);
-    position: relative;
-    padding: 10px;
-    right: 0;
-  }
-  @media (max-width: 568px) {
-    display: none;
+    margin-left: 0;
+    margin-top: 15px;
   }
 `;
 

@@ -17,6 +17,14 @@ const Navbar = () => {
       <Menu $navbarOpen={navbarOpen}>
         <NavList>
           <li>
+            <Link href="/cars">Buy Car</Link>
+          </li>
+
+          <li>
+            <Link href="/upload">Sell Car</Link>
+          </li>
+
+          <li>
             <Link href="/">Home</Link>
           </li>
 
