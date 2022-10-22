@@ -73,12 +73,9 @@ export default function Landing() {
           </Heading>
           <LinkButtons>
             <LinkButton color="white" onClick={() => router.push("/cars")}>
-              Shop cars
+              Buy a car
             </LinkButton>
-            <LinkButton
-              color="rgb(192, 192, 192)"
-              onClick={() => router.push("/upload")}
-            >
+            <LinkButton color="blue" onClick={() => router.push("/upload")}>
               Sell your car
             </LinkButton>
           </LinkButtons>
@@ -110,9 +107,9 @@ export default function Landing() {
                 <i className="text-white fas fa-award"></i>
               </p>
               <h4>Buying</h4>
-              <p className="text-xl mt-2 mb-4 text-blueGray-500">
-                Find your new car at the best price. <br />
-                With financing available.
+              <p>
+                Find your new car at the best price with transparency, security,
+                and accredited financing opportunities.
               </p>
             </LinkBox>
 
@@ -121,26 +118,26 @@ export default function Landing() {
                 <i className="text-white fas fa-retweet"></i>
               </p>
               <h4>Selling</h4>
-              <p className="text-xl mt-2 mb-4 text-blueGray-500">
-                Benefit the most from your vehicle. <br />
-                We&apos;ll sell it for you.
+              <p>
+                Benefit the most from your vehicle. We&apos;ll sell it for you
+                and handle all the administrative tasks.
               </p>
             </LinkBox>
             <LinkBox onClick={() => router.push("/upload")} $color="darkGreen">
-              <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-500">
+              <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-yellow-500">
                 <i className="text-white fas fa-fingerprint"></i>
               </p>
               <h4>Financing</h4>
-              <p className="text-xl mt-2 mb-4 text-blueGray-500">
-                Supported by all major South African banks, to find you the best
-                deal around.
+              <p>
+                Supported by all major South African banks, so that we can find
+                you the best deal around.
               </p>
             </LinkBox>
           </LinkContainer>
 
           <div className="flex flex-wrap items-center gap-0 mt-32">
             <div className="w-full md:w-5/12 ml-auto px-4">
-              <div className="md:pr-12 text-white">
+              <div className="md:pr-12 text-white pl-5">
                 <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-blueGray-200">
                   <i className="fas fa-rocket text-xl"></i>
                 </div>
@@ -313,7 +310,7 @@ export default function Landing() {
               </div>
 
               <div className="lg:w-3/12 mx-4 text-center -m-2">
-                <Image src="/bmw.png" width={150} height={75} />
+                <Image src="/bmw.png" width={180} height={95} />
               </div>
 
               <div className="lg:w-3/12 px-4 text-center -m-3">
@@ -328,17 +325,6 @@ export default function Landing() {
                 <Image src="/standardbank.png" width={100} height={140} />
               </div>
             </FinancingImages>
-            <svg
-              preserveAspectRatio="none"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 583 95"
-              className="absolute left-0 w-full block h-110-px"
-            >
-              <polygon
-                points="0,95 593,95 583,65"
-                style={{ fill: "rgb(0,0,77)" }}
-              ></polygon>
-            </svg>
           </div>
         </section>
       </MainContainer>
@@ -460,6 +446,9 @@ export const LinkButtons = styled.div`
     gap: 5px;
     margin-bottom: 30px;
   }
+  button:nth-child(2) {
+    color: white;
+  }
 `;
 
 export const LinkButton = styled.button`
@@ -473,7 +462,7 @@ export const LinkButton = styled.button`
   :hover {
     box-shadow: 0 1px 4px 0 rgba(120, 120, 255, 0.8),
       0 2px 2px 0 rgba(0, 0, 0, 0.19);
-    transition: box-shadow 0.5s, background-color 0.4s;
+    transition: box-shadow 0.1s, background-color 0.4s;
     color: black;
     background-color: rgb(0, 0, 77);
     color: white;

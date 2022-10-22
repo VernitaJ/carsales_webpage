@@ -129,7 +129,7 @@ export const InfoParagraph = styled.h3`
   position: fixed;
   flex-direction: column;
   gap: 20px;
-  max-width: 500px;
+  width: 30%;
   margin-top: 70px;
   font-size: 18px;
   color: white;

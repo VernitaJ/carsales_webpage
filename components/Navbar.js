@@ -29,6 +29,10 @@ const Navbar = () => {
           </li>
 
           <li>
+            <Link href="/howitworks">How it works</Link>
+          </li>
+
+          <li>
             <Link href="/about">About</Link>
           </li>
 
@@ -58,18 +62,22 @@ const NavList = styled.ul`
   z-index: 2000;
   font-size: 19px;
   color: rgb(0, 0, 90);
+  gap: 20px;
 
   @media (max-width: 750px) {
     background-color: rgb(245, 245, 245);
-    width: 20vw;
-    padding: 20px 0;
+    width: 40vw;
+    padding: 20px 0 30px 30px;
     z-index: 1000;
     height: fit-content;
     flex-direction: column;
     gap: 20px;
     margin-left: 20px;
     position: absolute;
-    padding-top: 20px;
+    padding-top: 40px;
+    li {
+      margin: 10px 0;
+    }
   }
 
   @media (max-width: 450px) {
@@ -78,12 +86,17 @@ const NavList = styled.ul`
     height: 100vh;
     align-items: center;
   }
-
+  li:nth-child(-n+2) {
+    color: orange;
+  }
   li {
-    margin-left: 10px;
     font-weight: 600;
+    word-spacing: 0px;
+    letter-spacing: -1px;
     :hover {
-      color: rgb(90, 90, 190);
+      transition: color 0.2s;
+      color: rgb(70,70,160);
+      color: #fb8500;
     }
   }
 `;

@@ -23,7 +23,7 @@ export const LinkContainer = styled.div`
 export const LinkBox = styled.div`
   display: flex;
   padding: 20px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   text-align: center;
@@ -40,12 +40,24 @@ export const LinkBox = styled.div`
     transition: background-color 0.9s;
     margin-bottom: 10px;
   }
+  p:nth-child(3) {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji';;
+    margin: 10px 50px;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(70, 70, 70);
+    @media (max-width: 768px) {
+      margin: 0;
+      font-size: 17px;
+    }
+  }
   h4 {
-    font-size: 19px;
+    font-size: 22px;
     line-height: 22px;
     font-weight: 600;
-    color: rgb(0, 0, 60);
+    color: rgb(40, 40, 90);
     padding: 0;
+    margin: 10px;
   }
   @media screen and (max-width: 768px) {
     margin-right: auto;

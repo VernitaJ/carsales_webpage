@@ -81,6 +81,7 @@ const Text = styled.div`
 `;
 
 const Container = styled.div`
+  height: 80vh;
   display: flex;
   gap: 120px;
   border-radius: 10px;

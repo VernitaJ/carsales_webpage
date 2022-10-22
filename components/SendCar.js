@@ -223,6 +223,19 @@ const SendCar = () => {
                 </ErrorMessage>
               </Item>
             </InputBlock>
+            <InputBlock>
+              <label>Message (optional)</label>
+              <textarea
+                {...register("message", {
+                  required: false,
+                })}
+                type="text"
+                name="message"
+                placeholder="Question or Comment"
+                rows="4"
+                cols="50"
+              />
+            </InputBlock>
 
             <Button type="submit">Send Request</Button>
             <GoogleReCaptcha
@@ -314,6 +327,7 @@ const InputBlock = styled.div`
   }
   option {
     background-color: rgb(0, 0, 40);
+    border: none;
     padding: 10px;
     margin: 10px;
     :hover {
@@ -345,7 +359,7 @@ const Heading = styled.div`
 
 const Form = styled.form`
   background-color: rgba(235, 235, 235);
-  padding: 20px 60px;
+  padding: 5%;
   margin: 20px 0;
   font-size: 14px;
   display: flex;
@@ -362,18 +376,21 @@ const Form = styled.form`
   @media (max-width: 420px) {
     padding: 0;
   }
+  textarea {
+    width: 70%;
+  }
 `;
 
 const Container = styled.div`
   @media (max-width: 800px) {
     width: 90%;
-    margin-left: auto;
   }
   @media (max-width: 568px) {
     margin-left: 0;
     width: 98%;
   }
-  margin-left: 15%;
+  width: 50%;
+  margin-left: 5%;
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: 10%;

@@ -37,7 +37,7 @@ const Container = styled.div`
   left: 0;
   display: block;
   position: fixed;
-  top: 100px;
+  top: 60px;
   width: 20%;
   border-radius: 10px;
   color: white;

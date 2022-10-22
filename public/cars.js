@@ -8,7 +8,6 @@ import Mileage from "../public/CarMileage.svg";
 import Door from "../public/CarDoor.svg";
 import Seats from "../public/CarSeat.svg";
 import { useRouter } from "next/router";
-z;
 import Link from "next/link";
 
 import { Carousel } from "react-responsive-carousel";
@@ -205,6 +204,7 @@ const CarsContainer = styled.div`
 `;
 
 const CarBox = styled.div`
+  background-color: rgb(240, 240, 240);
   margin-top: 5%;
   border: 1px solid rgb(230, 230, 255);
   color: black;

@@ -95,12 +95,10 @@ const Cars = ({ cars }) => {
           <br />
         </Heading>
         <List>
+          <ListItem>Predelivery inspection provided before delivery.</ListItem>
           <ListItem>
-            Predelivery inspection provided before the delivery of your vehicle.
-          </ListItem>
-          <ListItem>
-            Financing applications are sent to all our affiliate banks, so you
-            get the best deal possible.
+            Financing applications to all our affiliate banks, so you get the
+            best deal possible.
           </ListItem>
           <ListItem>AA roadworthy certificate included in purchase.</ListItem>
           <ListItem>
@@ -141,7 +139,7 @@ const Cars = ({ cars }) => {
                       </CarHeading>
                       <p>{car.year}</p>
                       <Price>R{format(car.price)}</Price>
-                      <Text>{car.colour}</Text>
+                      <Text>{car.location}</Text>
 
                       <BottomTextInfo>
                         <div>
@@ -182,12 +180,12 @@ export default Cars;
 const CarPage = styled.div`
   top: 0;
   padding: 20px;
-  min-height: 100vh - 100px;
-  margin-bottom: 100px;
+  min-height: 100vh + 400px;
+  margin-bottom: 200px;
 `;
 
 const CarsContainer = styled.div`
-  width: 50%;
+  width: 45%;
   margin-left: 25%;
   @media (max-width: 800px) {
     width: 90%;
@@ -209,8 +207,9 @@ const Heading = styled.div`
 `;
 
 const CarBox = styled.div`
+  background-color: rgb(240, 240, 240);
   margin-top: 5%;
-  border: 1px solid rgb(230, 230, 255);
+  border: 1px solid rgb(200, 200, 255);
   color: black;
   border-radius: 10px;
   display: flex;
@@ -218,6 +217,11 @@ const CarBox = styled.div`
   flex-direction: column;
   justify-content: center;
   grid-template-columns: 1fr, 2fr;
+  webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 `;
 
 const TopSection = styled.div`
@@ -321,7 +325,10 @@ const List = styled.ol`
   flex-direction: column;
 `;
 
-const ListItem = styled.li``;
+const ListItem = styled.li`
+  font-size: 20px;
+  margin-bottom: 15px;
+`;
 
 const Modal = styled.div`
   position: absolute;

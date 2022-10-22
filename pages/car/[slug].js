@@ -120,6 +120,7 @@ const Car = ({ car }) => {
 export default Car;
 
 const Container = styled.div`
+  height: 100vh;
   background-image: rgb(0, 0, 77);
   width: 70vw;
   margin-top: 5%;
