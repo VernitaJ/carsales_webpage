@@ -42,9 +42,9 @@ export default function Footer() {
                         About Us
                       </Link>
                     </li>
-                    <li>
+                    <li className="text-blueGray-100 hover:text-white font-semibold block pb-6 text-sm">
                       <Link
-                        className="text-blueGray-100 hover:text-white font-semibold block pb-2 text-sm"
+                        className="text-blueGray-100 hover:text-white font-semibold block pb-6 text-sm"
                         href="/cars"
                       >
                         Cars
@@ -104,4 +104,12 @@ const InfoText = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 568px) {
+    flex-direction: column;
+    p {
+      margin-left: 10px;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+  }
 `;

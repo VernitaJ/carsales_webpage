@@ -16,10 +16,14 @@ const HowItWorks = () => {
           Once you find a car on our website that you&apos;re interested in,
           complete the <b>&apos;check availability&apos;</b> form. You will then
           be contacted by a member of our team to discuss any questions you may
-          have, arrange a viewing and test drive with the owner. Once you are
-          happy it is the car for you, we do financing applications and ensure
-          you get the best deal possible. All payments will go through the
-          BlueAuto Secure Payment System enabling delivery on the same day.
+          have, arrange a viewing and test drive with the owner. <br />
+          Once you are happy it is the car for you, we do financing applications
+          and ensure you get the best deal possible. All payments will go
+          through the BlueAuto Secure Payment System enabling delivery on the
+          same day. <br />
+          Pre-delivery inspections will be done, and extended warranties of up
+          to 2 years are available on all purchases.
+          <br />
           Interested in payment plans? Ask a member of our team and they can
           tell you all about our finance offers.
         </div>
@@ -29,17 +33,18 @@ const HowItWorks = () => {
           <b>&apos;Sell your car&apos;</b> form. Following this, one of our team
           will get in contact with you to ensure we have all your details and
           help you get great photos so we can get the right buyer for your car.
+          <br />
           Once your car is visible on BlueAuto, our team will manage all
           enquiries, to save you the time and hassle. When we have a potential
           buyer we will arrange a suitable time for viewing the car and arrange
-          a test drive. Once we have found the right buyer and you&apos;re ready
+          a test drive. When we have found the right buyer and you&apos;re ready
           for the sale, the car will be collected by one of our team members
           once the full payment has been paid into your bank account using the
           BlueAuto Secure Payment System.
         </div>
         <Heading>Got any other questions?</Heading>
         <div>
-          Our team would be more than happy to help{" "}
+          Our team would be more than happy to help.
           <span>
             <Link href="/contact" passHref>
               Contact us.
@@ -98,7 +103,7 @@ const Container = styled.div`
 
 const Heading = styled.div`
   font-size: 24px;
-  margin-top: 25px;
+  margin-top: 40px;
   font-weight: 600;
   @media (min-width: 1000px) {
     font-size: 34px;

@@ -32,14 +32,31 @@ const About = () => {
         </Link>
       </Text>
       <BottomSection>
-        <Image
-          alt="car keys handed over to buyer"
-          className={styles.about_image}
-          src="/keys.webp"
-          layout="responsive"
-          width={800}
-          height={500}
-        ></Image>
+        <ImageContainer>
+          <div>
+            <Image
+              alt="Vernita Jones technical administator"
+              className={styles.about_image}
+              src="/veevee.png"
+              width={200}
+              height={200}
+            />
+            <p>Vernita Jones</p>
+            <p>Technical administator</p>
+          </div>
+          <div>
+            <Image
+              alt="car keys handed over to buyer"
+              className={styles.about_image}
+              src="/pedri-vakansie.png"
+              width={200}
+              height={200}
+            />
+            <p>Pedri Gouws</p>
+            <p>Sales Manager</p>
+          </div>
+        </ImageContainer>
+
         <BottomImage>
           <Image
             alt="blue auto logo"
@@ -57,6 +74,16 @@ const About = () => {
 };
 
 export default About;
+
+const ImageContainer = styled.div`
+  display: flex;
+  gap: 6px;
+  p:nth-child(3) {
+    @media (max-width: 768px) {
+      font-size: 12.5px;
+    }
+  }
+`;
 
 const BottomImage = styled.div`
   margin-top: 40px;
@@ -83,7 +110,7 @@ const Text = styled.div`
 `;
 
 const Container = styled.div`
-  height: 80vh;
+  min-height: 100vh;
   display: flex;
   gap: 120px;
   border-radius: 10px;
@@ -105,14 +132,20 @@ const Container = styled.div`
 `;
 
 const BottomSection = styled.div`
-  width: 30%;
+  width: 50%;
   display: flex;
-  margin-top: 50px;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 70px;
   flex-direction: column;
   @media (max-width: 768px) {
     flex-direction: column-reverse;
     align-items: center;
     width: 100%;
+    margin: unset;
+    margin-bottom: 40px;
+  }
+  p {
+    font-weight: bold;
+    color: rgba(50, 50, 100);
   }
 `;

@@ -121,7 +121,7 @@ const Car = ({ car }) => {
 export default Car;
 
 const Container = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   background-image: rgb(0, 0, 77);
   width: 70vw;
   margin-top: 5%;
@@ -144,6 +144,7 @@ const Icon = styled.div`
     gap: 2px;
   }
 `;
+
 const CarInfo = styled.div`
   display: flex;
   flex-direction: column;

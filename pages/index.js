@@ -195,7 +195,7 @@ export default function Landing() {
                 <img
                   style={{ maxWidth: "400px" }}
                   alt="used car salesman on a call"
-                  src="/call.webp"
+                  src="/call.png"
                   className="w-full align-middle rounded-t-lg"
                 />
                 <blockquote className="relative p-8 mb-4">
@@ -309,7 +309,7 @@ export default function Landing() {
             </div>
 
             <FinancingImages>
-              <div className="lg:w-3/12 px-4 m-3 text-center sm:w-6/12">
+              <div className="lg:w-3/12 px-4 m-3 text-center w-6/12">
                 <Image
                   alt="motor financing company logo"
                   src="/mfc.png"
@@ -318,11 +318,7 @@ export default function Landing() {
                 ></Image>
               </div>
 
-              <div className="lg:w-3/12 mx-4 text-center -m-2">
-                <Image alt="bmw logo" src="/bmw.png" width={200} height={100} />
-              </div>
-
-              <div className="lg:w-3/12 px-4 text-center -m-6">
+              <div className="lg:w-3/12 px-4 text-center -m-6 w-6/12">
                 <Image
                   alt="wesbank logo"
                   src="/wesbanklogo.png"
@@ -331,11 +327,15 @@ export default function Landing() {
                 />
               </div>
 
-              <div className="lg:w-3/12 pl-4 text-center">
+              <div className="lg:w-3/12 mx-4 text-center -m-2 w-6/12">
+                <Image alt="bmw logo" src="/bmw.png" width={200} height={100} />
+              </div>
+
+              <div className="lg:w-3/12 pl-4 text-center w-6/12">
                 <Image alt="absa logo" src="/absa.png" width={80} height={80} />
               </div>
 
-              <div className="lg:w-3/12 pr-4 text-center -m-3">
+              <div className="lg:w-3/12 pr-4 text-center -m-3 w-6/12">
                 <Image
                   alt="standard bank logo"
                   src="/standardbank.png"
@@ -491,5 +491,6 @@ export const LinkButton = styled.button`
   }
   @media (max-width: 568px) {
     width: 160px;
+    font-size: 16px;
   }
 `;

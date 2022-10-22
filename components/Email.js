@@ -155,6 +155,9 @@ const InputBlock = styled.div`
   width: 100%;
   gap: 16px;
   margin-bottom: 15px;
+  input {
+    padding-left: 10px;
+  }
   textarea {
     border: 1px solid lightgrey;
   }
