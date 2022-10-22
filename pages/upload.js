@@ -108,6 +108,7 @@ const Page = styled.div`
   @media (max-width: 1100px) {
     flex-direction: column;
     gap: 5px;
+    padding: 15px;
   }
   background: rgb(0, 0, 77); /* fallback for old browsers */
   background: -webkit-linear-gradient(

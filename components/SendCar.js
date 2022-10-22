@@ -294,7 +294,7 @@ const InputBlock = styled.div`
     justify-content: space-between;
     align-items: center;
     @media (max-width: 768px) {
-      width: 320px;
+      width: 100%;
     }
   }
   margin: 15px;
@@ -307,7 +307,7 @@ const InputBlock = styled.div`
     border: 1px solid slategray;
     focus-outline: none !important;
     @media (max-width: 768px) {
-      width: 200px;
+      width: 60%;
     }
   }
   select {
@@ -316,7 +316,7 @@ const InputBlock = styled.div`
     border-radius: 2px;
     padding: 5px;
     @media (max-width: 768px) {
-      width: 200px;
+      width: 60%;
     }
     option {
       background-color: rgb(200, 200, 200);
@@ -377,17 +377,21 @@ const Form = styled.form`
     padding: 0;
   }
   textarea {
+    margin-left: 10px;
     width: 70%;
+    @media (max-width: 420px) {
+      width: 90%;
+    }
   }
 `;
 
 const Container = styled.div`
-  @media (max-width: 800px) {
-    width: 90%;
+  @media (max-width: 1100px) {
+    width: 95%;
   }
   @media (max-width: 568px) {
     margin-left: 0;
-    width: 98%;
+    width: 99%;
   }
   width: 50%;
   margin-left: 5%;
