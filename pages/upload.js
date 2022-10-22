@@ -48,6 +48,7 @@ const Upload = () => {
           <p>Your car. Your money. The way it should be.</p>
           <div>
             <Image
+              alt="blue auto favicon"
               src="/favicon_white.png"
               width={60}
               height={60}

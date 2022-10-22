@@ -8,7 +8,7 @@ const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <NavbarContainer>
-      <Link style={{ padding: "10px", marginLeft: "20px" }} href="/">
+      <Link style={{ padding: "10px", marginLeft: "20px" }} href="/" passHref>
         <Image
           src="/blueauto_logo.png"
           alt="blue auto logo"

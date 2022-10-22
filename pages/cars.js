@@ -136,7 +136,7 @@ const Cars = ({ cars }) => {
                     </Carousel>
                   </CarImage>
 
-                  <Link href={`/car/${car.slug}`}>
+                  <Link href={`/car/${car.slug}`} passHref>
                     <CarInfo>
                       <CarHeading>
                         {car.brand}&nbsp;

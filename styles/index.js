@@ -138,7 +138,7 @@ export default function Landing() {
                 Easy. Affordable. Simple.
               </InfoParagraph>
               <InfoParagraph className="text-xl font-semibold text-white mt-8">
-                <Link href="/cars">
+                <Link href="/cars" passHref>
                   Check out the cars we have on offer here.
                 </Link>
               </InfoParagraph>

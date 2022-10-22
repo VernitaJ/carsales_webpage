@@ -41,7 +41,9 @@ const HowItWorks = () => {
         <div>
           Our team would be more than happy to help{" "}
           <span>
-            <Link href="/contact">Contact us.</Link>
+            <Link href="/contact" passHref>
+              Contact us.
+            </Link>
           </span>
         </div>
       </Container>

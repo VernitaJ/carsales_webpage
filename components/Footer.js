@@ -66,9 +66,9 @@ export default function Footer() {
                       </Link>
                     </li>
                     <li>
-                      <Link className="text-blueGray-100 hover:text-white font-semibold block pb-2 text-sm">
+                      <a className="text-blueGray-100 hover:text-white font-semibold block pb-2 text-sm">
                         Privacy Policy
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -86,6 +86,7 @@ export default function Footer() {
 }
 
 const Container = styled.footer`
+  color: white;
   background-color: rgb(30 58 138);
   polygon {
     color: rgb(30 58 138);

@@ -131,7 +131,7 @@ const Cars = ({ cars }) => {
 
               {/* onClick={() => router.push(`/car/${car.slug}`)} */}
 
-              <Link href={`/car/${car.slug}`}>
+              <Link href={`/car/${car.slug}`} passHref>
                 <CarBox key={car.id} className="">
                   <TopSection>
                     <CarImage>

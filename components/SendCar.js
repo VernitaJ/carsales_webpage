@@ -40,7 +40,7 @@ const SendCar = () => {
           router.push("/"), 4000;
         })
       : null;
-  }, [sent]);
+  }, [sent, router]);
 
   const getErrorMessage = (err) => {
     if (err == "required") {
