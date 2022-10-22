@@ -33,6 +33,7 @@ const About = () => {
       </Text>
       <BottomSection>
         <Image
+          alt="car keys handed over to buyer"
           className={styles.about_image}
           src="/keys.webp"
           layout="responsive"
@@ -41,6 +42,7 @@ const About = () => {
         ></Image>
         <BottomImage>
           <Image
+            alt="blue auto logo"
             src="/blueauto_logo.png"
             width={200}
             height={35}

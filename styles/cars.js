@@ -95,7 +95,12 @@ const Cars = ({ cars }) => {
       <InfoContainer>
         <Heading>
           <span>
-            <Image src="/favicon.png" width={70} height={70} />
+            <Image
+              alt="blue auto favicon "
+              src="/favicon.png"
+              width={70}
+              height={70}
+            />
           </span>
           <p>It&apos;s all about you.</p>
           <br />
@@ -135,7 +140,7 @@ const Cars = ({ cars }) => {
                           <div key={key}>
                             <img
                               src={img.url}
-                              alt="carousel image"
+                              alt="carousel image of car"
                               style={{ width: "300px", height: "auto" }}
                             />
                           </div>

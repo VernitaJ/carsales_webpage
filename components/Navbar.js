@@ -9,7 +9,12 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <Link style={{ padding: "10px", marginLeft: "20px" }} href="/">
-        <Image src="/blueauto_logo.png" alt="Logo" width={190} height={32} />
+        <Image
+          src="/blueauto_logo.png"
+          alt="blue auto logo"
+          width={190}
+          height={32}
+        />
       </Link>
       <MenuDropdown onClick={() => setNavbarOpen(!navbarOpen)}>
         <i className="text-darkBlue-900 fas fa-bars"></i>

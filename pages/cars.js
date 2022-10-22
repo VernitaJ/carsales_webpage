@@ -89,7 +89,12 @@ const Cars = ({ cars }) => {
       <InfoContainer>
         <Heading>
           <span>
-            <Image src="/favicon.png" width={70} height={70} />
+            <Image
+              alt="blue auto favicon"
+              src="/favicon.png"
+              width={70}
+              height={70}
+            />
           </span>
           <p>It&apos;s all about you.</p>
           <br />

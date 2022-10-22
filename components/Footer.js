@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -34,20 +35,20 @@ export default function Footer() {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
+                      <Link
                         className="text-blueGray-100 hover:text-white font-semibold block pb-2 text-sm"
                         href="/about"
                       >
                         About Us
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="text-blueGray-100 hover:text-white font-semibold block pb-2 text-sm"
                         href="/cars"
                       >
                         Cars
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -57,17 +58,17 @@ export default function Footer() {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
+                      <Link
                         className="text-blueGray-100 hover:text-white font-semibold block pb-2 text-sm"
                         href="/howitworks"
                       >
                         The Process
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a className="text-blueGray-100 hover:text-white font-semibold block pb-2 text-sm">
+                      <Link className="text-blueGray-100 hover:text-white font-semibold block pb-2 text-sm">
                         Privacy Policy
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>

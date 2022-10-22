@@ -69,12 +69,13 @@ const Car = ({ car }) => {
         >
           {car.image.map((img, key) => (
             <img
+              key={key}
               sizes="320 640 750"
               layout="responsive"
               width={1400}
               height={980}
               src={img.url}
-              alt=" carousel image"
+              alt="carousel car image"
             />
           ))}
         </Carousel>

@@ -31,6 +31,7 @@ export default function Landing() {
             slidesToShow={3}
           >
             <img
+              alt="car driving through desert"
               src="/car.webp"
               layout="fill"
               sizes="(max-width: 768px) 100vw,
@@ -38,6 +39,7 @@ export default function Landing() {
               33vw"
             />
             <img
+              alt="person driving car at night"
               src="/car2.webp"
               layout="fill"
               sizes="(max-width: 768px) 100vw,
@@ -45,6 +47,7 @@ export default function Landing() {
               33vw"
             />
             <img
+              alt="car on cliff with view"
               src="/car3.webp"
               layout="fill"
               sizes="(max-width: 768px) 100vw,
@@ -56,6 +59,7 @@ export default function Landing() {
 
         <TopSection>
           <Image
+            alt="blue auto logo favicon"
             src="/favicon_white.png"
             width={70}
             height={70}
@@ -190,7 +194,7 @@ export default function Landing() {
               <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-blue-900">
                 <img
                   style={{ maxWidth: "400px" }}
-                  alt="..."
+                  alt="used car salesman on a call"
                   src="/call.webp"
                   className="w-full align-middle rounded-t-lg"
                 />
@@ -306,23 +310,38 @@ export default function Landing() {
 
             <FinancingImages>
               <div className="lg:w-3/12 px-4 text-center sm:w-6/12">
-                <Image src="/mfc.png" width={160} height={60}></Image>
+                <Image
+                  alt="motor financing company logo"
+                  src="/mfc.png"
+                  width={160}
+                  height={60}
+                ></Image>
               </div>
 
               <div className="lg:w-3/12 mx-4 text-center -m-2">
-                <Image src="/bmw.png" width={180} height={95} />
+                <Image alt="bmw logo" src="/bmw.png" width={180} height={95} />
               </div>
 
               <div className="lg:w-3/12 px-4 text-center -m-3">
-                <Image src="/wesbanklogo.png" width={190} height={65} />
+                <Image
+                  alt="wesbank logo"
+                  src="/wesbanklogo.png"
+                  width={190}
+                  height={65}
+                />
               </div>
 
               <div className="lg:w-3/12 px-4 text-center">
-                <Image src="/absa.png" width={70} height={70} />
+                <Image alt="absa logo" src="/absa.png" width={70} height={70} />
               </div>
 
               <div className="lg:w-3/12 px-4 text-center -m-3">
-                <Image src="/standardbank.png" width={100} height={140} />
+                <Image
+                  alt="standard bank logo"
+                  src="/standardbank.png"
+                  width={100}
+                  height={140}
+                />
               </div>
             </FinancingImages>
           </div>

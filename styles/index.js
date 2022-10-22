@@ -148,7 +148,7 @@ export default function Landing() {
               <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-blue-900">
                 <img
                   style={{ maxWidth: "300px" }}
-                  alt="..."
+                  alt="car"
                   src="/car.png"
                   className="w-full align-middle rounded-t-lg"
                 />

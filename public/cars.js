@@ -135,7 +135,7 @@ const Cars = ({ cars }) => {
                           <div key={key}>
                             <img
                               src={img.url}
-                              alt="carousel image"
+                              alt="carousel image of car"
                               style={{ width: "300px", height: "auto" }}
                             />
                           </div>
