@@ -12,7 +12,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Carousel } from "react-responsive-carousel";
-import { InfoHeading } from ".";
 import CarEmail from "../components/CarEmail";
 
 export const getStaticProps = async () => {
