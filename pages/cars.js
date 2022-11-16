@@ -125,11 +125,7 @@ const Cars = ({ cars }) => {
                     <Carousel dynamicHeight={false} showThumbs={false}>
                       {car.image.map((img, key) => (
                         <div key={key}>
-                          <img
-                            src={img.url}
-                            alt="carousel image"
-                            style={{ width: "300px", height: "auto" }}
-                          />
+                          <img src={img.url} alt="carousel image" />
                         </div>
                       ))}
                     </Carousel>
@@ -216,6 +212,7 @@ const CarBox = styled.div`
   border: 1px solid rgb(200, 200, 255);
   color: black;
   border-radius: 10px;
+  padding: 10px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -240,18 +237,18 @@ const TopSection = styled.div`
 `;
 
 const CarInfo = styled.div`
+  width: 500px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
 `;
 
 const CarImage = styled.div`
-  width: 300px;
+  width: 400px;
   margin: 0px 20px 30px 0px;
 `;
 
 const CarHeading = styled.p`
-  margin: 20px 0;
   font-size: 19px;
   font-weight: bold;
   @media (max-width: 900px) {
