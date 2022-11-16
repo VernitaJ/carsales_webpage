@@ -37,7 +37,7 @@ export default class MyApp extends App {
           <title>BlueAuto</title>
           <link rel="icon" href="/favicon.png" />
         </Head>
-        <Layout position="relative" minHeight="100vh">
+        <Layout position="relative" minHeight="100vh" maxWidth="90vw">
           <Navbar transparent />
           <div suppressHydrationWarning>
             {typeof window === "undefined" ? null : (

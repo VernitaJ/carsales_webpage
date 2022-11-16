@@ -19,11 +19,15 @@ function getPropertiesDisplayText(count) {
 const Filter = (props) => {
   const [brandList, setBrandList] = useState([]);
   const [modelList, setModelList] = useState([]);
-  const [colourList, setColourList] = useState([]);
+  const [minPriceList, setMinPriceList] = useState([
+    0, 50000, 100000, 200000, 400000,
+  ]);
+  const [maxPriceList, setMaxPriceList] = useState([
+    200000, 400000, 500000, 700000, 1000000,
+  ]);
   const [brand, setBrand] = useState([]);
   const [model, setModel] = useState([]);
-  const [colour, setColour] = useState([]);
-  //const [minPrice, setMinPrice] = useState(0);
+  const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(2000000);
   const [sortOrder, setSortOrder] = useState();
   const [sortOrders, setSortOrders] = useState([
@@ -47,15 +51,12 @@ const Filter = (props) => {
     if (model.length > 0) {
       result = result.filter((car) => model.includes(car.model));
     }
-    if (colour.length > 0) {
-      result = result.filter((car) => colour.includes(car.colour));
+    if (minPrice > 0) {
+      result = result.filter((car) => {
+        minPrice <= car.price;
+      });
+      console.log(minPrice, result);
     }
-    // if (minPrice > 0) {
-    //   result = result.filter((car) => {
-    //     minPrice <= car.price;
-    //   });
-    //   console.log(minPrice, result);
-    // }
     if (maxPrice < 2000000) {
       console.log(result, " and ", maxPrice);
       result = result.filter((car) => car.price <= maxPrice);
@@ -80,7 +81,6 @@ const Filter = (props) => {
     setFilteredCars(props.cars);
     setBrand([]);
     setModel([]);
-    setColour([]);
     setMaxPrice(2000000);
   };
 
@@ -94,14 +94,16 @@ const Filter = (props) => {
         label: car.model,
         value: car.model,
       }));
-      const colours = filteredCars.map((car) => ({
-        label: car.colour,
-        value: car.colour,
-      }));
+
       setBrandList(brands.filter((v, i, a) => a.indexOf(v) === i));
-      setModelList(models.filter((v, i, a) => a.indexOf(v) === i));
-      setColourList([
-        ...new Map(colours.map((item) => [item["value"], item])).values(),
+      // setModelList(models.filter((v, i, a) => a.indexOf(v) === i));
+
+      setBrandList([
+        ...new Map(brands.map((item) => [item["value"], item])).values(),
+      ]);
+
+      setModelList([
+        ...new Map(models.map((item) => [item["value"], item])).values(),
       ]);
     };
     handleFilterSetup();
@@ -160,7 +162,17 @@ const Filter = (props) => {
                     isMulti
                   />
                 </div>
-
+                {/* <Multiselect
+                  options={brandList} // Options to display in the dropdown
+                  selectedValues={brand} // Preselected value to persist in dropdown
+                  onSelect={(e) =>
+                    setBrand(Array.isArray(e) ? e.map((x) => x.value) : [])
+                  } // Function will trigger on select event
+                  onRemove={(e) =>
+                    setBrand(Array.isArray(e) ? e.map((x) => !x.value) : [])
+                  } // Function will trigger on remove event
+                  displayValue="brand" // Property name to display in the dropdown options
+                /> */}
                 <div>
                   <label className="form-label" htmlFor="price-from">
                     Model
@@ -175,22 +187,6 @@ const Filter = (props) => {
                   />
                 </div>
 
-                <div>
-                  <label className="form-label" htmlFor="price-from">
-                    Colour
-                  </label>
-                  <SelectOption
-                    value={colourList.filter((obj) =>
-                      colour.includes(obj.value)
-                    )}
-                    options={colourList}
-                    onChange={(e) =>
-                      setColour(Array.isArray(e) ? e.map((x) => x.value) : [])
-                    } // assign onChange function
-                    styles={customStyles}
-                    isMulti
-                  />
-                </div>
                 <div className="slider">
                   <span>Max Price: </span>
                   <span style={{ marginLeft: "10px" }}>
@@ -206,24 +202,31 @@ const Filter = (props) => {
                     labels={horizontalLabels}
                   />
                 </div>
-                {/* <div>
+                <div>
                   <label className="form-label" htmlFor="price-from">
                     Price
                   </label>
-                  <Prices>
-                    <slider></slider>
-                    <input
-                      type="number"
+                  {/* <Prices>
+                    <SelectOption
                       value={minPrice}
-                      onChange={(e) => setMinPrice(e.value)}
+                      options={minPriceList}
+                      onChange={(e) =>
+                        setMinPrice(
+                          Array.isArray(e) ? e.map((x) => x.value) : []
+                        )
+                      }
                     />
-                    <input
-                      type="number"
+                    <SelectOption
                       value={maxPrice}
-                      onChange={(e) => setMaxPrice(e.value)}
+                      options={maxPriceList}
+                      onChange={(e) =>
+                        setMinPrice(
+                          Array.isArray(e) ? e.map((x) => x.value) : []
+                        )
+                      }
                     />
-                  </Prices>
-                </div> */}
+                  </Prices> */}
+                </div>
                 <SubmitButton type="submit" onClick={applyFilter}>
                   Update
                 </SubmitButton>

@@ -7,6 +7,6 @@ export default class Error404 extends Component {
   };
 
   render() {
-    return <div />;
+    return <div>404</div>;
   }
 }
