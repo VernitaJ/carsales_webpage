@@ -5,6 +5,7 @@ Single page application using Next for FE, and Hygraph and GraphQL as BE, with E
 First, run the development server:
 
 ```bash
+
 npm run dev
 # or
 yarn dev
