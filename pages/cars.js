@@ -30,6 +30,10 @@ export const getStaticProps = async () => {
         year
         price
         colour
+        doors
+        mileage
+        seats
+        transmission
         tags
         location
         slug
@@ -81,7 +85,7 @@ const Cars = ({ cars }) => {
   const removeCar = () => {
     setSelectedCar(null);
   };
-
+  console.info(cars[1]);
   return (
     <CarPage>
       <Sidebar cars={cars} updateFilter={applyFilter} className="z-10" />
@@ -144,19 +148,19 @@ const Cars = ({ cars }) => {
                       <BottomTextInfo>
                         <div>
                           <Transmission />
-                          Manual
+                          <p>{car.transmission}</p>
                         </div>
                         <div>
                           <Door />
-                          <p>5 door</p>
+                          <p>{car.doors}</p>
                         </div>
-                        <div>
+                        {/* <div>
                           <Seats />
-                          <p>5 seats</p>
-                        </div>
+                          <p>{car.seats}</p>
+                        </div> */}
                         <div>
                           <Mileage />
-                          <p>10,000km</p>
+                          <p>{car.mileage.toLocaleString()}km</p>
                         </div>
                       </BottomTextInfo>
                     </CarInfo>
@@ -207,9 +211,9 @@ const Heading = styled.div`
 `;
 
 const CarBox = styled.div`
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(250, 250, 250);
   margin-top: 5%;
-  border: 1px solid rgb(200, 200, 255);
+  border: 1px solid rgb(250, 250, 255);
   color: black;
   border-radius: 10px;
   padding: 10px;
@@ -302,7 +306,7 @@ const InfoContainer = styled.div`
   position: absolute;
   right: 80px;
   position: fixed;
-  font-size: 16px;
+  font-size: 13px;
   font-family: Helvetica;
   color: rgb(10, 0, 80);
   width: 20%;
@@ -327,7 +331,7 @@ const List = styled.ol`
 `;
 
 const ListItem = styled.li`
-  font-size: 20px;
+  font-size: 14px;
   margin-bottom: 15px;
 `;
 
