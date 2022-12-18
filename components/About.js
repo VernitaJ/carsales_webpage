@@ -35,25 +35,27 @@ const About = () => {
         <ImageContainer>
           <div>
             <Image
-              alt="Vernita Jones technical administator"
+              alt="Blue auto sales manager image"
+              className={styles.about_image}
+              src="/pedri_about.png"
+              width={170}
+              height={200}
+              lazyLoad={true}
+            />
+            <p>Pedri Gouws</p>
+            <p>Sales Manager</p>
+          </div>
+          <div>
+            <Image
+              alt="Vernita Jones technical administrator"
               className={styles.about_image}
               src="/veevee.png"
               width={200}
               height={200}
+              lazyLoad={true}
             />
             <p>Vernita Jones</p>
             <p>Technical administator</p>
-          </div>
-          <div>
-            <Image
-              alt="car keys handed over to buyer"
-              className={styles.about_image}
-              src="/pedri-vakansie.png"
-              width={200}
-              height={200}
-            />
-            <p>Pedri Gouws</p>
-            <p>Sales Manager</p>
           </div>
         </ImageContainer>
 
@@ -145,7 +147,9 @@ const BottomSection = styled.div`
     margin-bottom: 40px;
   }
   p {
+    font-family: calibri;
+    font-size: 15px;
     font-weight: bold;
-    color: rgba(50, 50, 100);
+    color: rgb(105, 103, 106);
   }
 `;

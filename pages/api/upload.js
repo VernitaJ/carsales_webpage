@@ -16,7 +16,6 @@ module.exports = {
     res.render("pages/new");
   },
   create: function (req, res) {
-    console.log("here!!!!!!!!!!!");
     // Use Cloudinary uploader to upload to cloudinary sever
     // Access files uploaded from the browser using req.files
     cloudinary.uploader.upload(req.files.image.path, function (result) {

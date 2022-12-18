@@ -8,6 +8,7 @@ import Transmission from "../../public/CarGear.svg";
 import Mileage from "../../public/CarMileage.svg";
 import Door from "../../public/CarDoor.svg";
 import Seats from "../../public/CarSeat.svg";
+import FuelType from "../../public/CarFuel.svg";
 
 export const getServerSideProps = async (pageContext) => {
   const pagelink = pageContext.query.slug;
@@ -20,16 +21,20 @@ export const getServerSideProps = async (pageContext) => {
   });
 
   const query = gql`
-    query ($pagelink: String!) {
-      cars(where: { slug: $pagelink }) {
+    query ($pagelink: ID!) {
+      cars(where: { id: $pagelink }) {
         brand
         model
         year
         price
+        mileage
+        doors
+        seats
         colour
         slug
         location
         tags
+        fuel
         image {
           url
         }
@@ -58,6 +63,7 @@ const Car = ({ car }) => {
     }
     return numArray.reverse().join("");
   };
+
   return (
     <Container>
       <CarContainer>
@@ -96,17 +102,21 @@ const Car = ({ car }) => {
               <Transmission />
               Manual
             </Icon>
-            <Icon>
+            {/* <Icon>
               <Door />
-              <p>5 door</p>
+              <p>{car.doors}</p>
+            </Icon> */}
+            <Icon>
+              <FuelType style={{ height: "30px", width: "35px" }} />
+              <p>{car.fuel}</p>
             </Icon>
             <Icon>
               <Seats />
-              <p>5 seats</p>
+              <p>{car.seats}</p>
             </Icon>
             <Icon>
               <Mileage />
-              <p>10,000km</p>
+              <p>{car.mileage.toLocaleString()}km</p>
             </Icon>
           </BottomTextInfo>
         </CarInfo>
@@ -123,13 +133,12 @@ export default Car;
 const Container = styled.div`
   min-height: 100vh;
   background-image: rgb(0, 0, 77);
-  width: 70vw;
+  width: 90vw;
   margin-top: 5%;
   display: flex;
   flex-direction: row;
   gap: 30px;
   margin-left: auto;
-  margin-right: auto;
   @media (max-width: 900px) {
     flex-direction: column;
     width: 90vw;
@@ -162,9 +171,9 @@ const CarContainer = styled.div`
 `;
 
 const InterestContainer = styled.div`
-  width: 40%;
+  width: 70%;
   @media (max-width: 900px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 
@@ -194,7 +203,7 @@ const BottomTextInfo = styled.span`
   }
   svg {
     height: 25px;
-    max-width: 25px;
+    width: 25px;
   }
   justify-content: space-between;
   display: flex;

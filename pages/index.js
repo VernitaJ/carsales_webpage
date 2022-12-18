@@ -315,6 +315,7 @@ export default function Landing() {
                   src="/mfc.png"
                   width={180}
                   height={70}
+                  lazyLoad={true}
                 ></Image>
               </div>
 
@@ -324,15 +325,28 @@ export default function Landing() {
                   src="/wesbanklogo.png"
                   width={190}
                   height={120}
+                  lazyLoad={true}
                 />
               </div>
 
               <div className="lg:w-3/12 mx-4 text-center -m-2 w-6/12">
-                <Image alt="bmw logo" src="/bmw.png" width={200} height={100} />
+                <Image
+                  alt="bmw logo"
+                  src="/bmw.png"
+                  width={200}
+                  height={100}
+                  lazyLoad={true}
+                />
               </div>
 
               <div className="lg:w-3/12 pl-4 text-center w-6/12">
-                <Image alt="absa logo" src="/absa.png" width={80} height={80} />
+                <Image
+                  alt="absa logo"
+                  src="/absa.png"
+                  width={80}
+                  height={80}
+                  lazyLoad={true}
+                />
               </div>
 
               <div className="lg:w-3/12 pr-4 text-center -m-3 w-6/12">
@@ -341,6 +355,7 @@ export default function Landing() {
                   src="/standardbank.png"
                   width={120}
                   height={160}
+                  lazyLoad={true}
                 />
               </div>
             </FinancingImages>

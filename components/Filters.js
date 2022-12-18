@@ -187,7 +187,7 @@ const Filter = (props) => {
                   />
                 </div>
 
-                <div className="slider">
+                {/* <div className="slider">
                   <span>Max Price: </span>
                   <span style={{ marginLeft: "10px" }}>
                     {new Intl.NumberFormat().format(maxPrice)}
@@ -201,12 +201,21 @@ const Filter = (props) => {
                     tooltip={false}
                     labels={horizontalLabels}
                   />
-                </div>
+                </div> */}
                 <div>
-                  <label className="form-label" htmlFor="price-from">
-                    Price
-                  </label>
-                  {/* <Prices>
+                  <label htmlFor="price-from">Price</label>
+                  <PriceRange>
+                    <input
+                      placeholder="Min Price"
+                      onChange={(e) => setMinPrice(e.target.value)}
+                    ></input>
+                    <input
+                      placeholder="Max Price"
+                      onChange={(e) => setMaxPrice(e.target.value)}
+                    ></input>
+                  </PriceRange>
+                </div>
+                {/* <Prices>
                     <SelectOption
                       value={minPrice}
                       options={minPriceList}
@@ -226,7 +235,6 @@ const Filter = (props) => {
                       }
                     />
                   </Prices> */}
-                </div>
                 <SubmitButton type="submit" onClick={applyFilter}>
                   Update
                 </SubmitButton>
@@ -266,10 +274,24 @@ const Filter = (props) => {
 
 export default Filter;
 
+const PriceRange = styled.div`
+  input {
+    width: 100%;
+    color: black;
+    padding: 5px;
+  }
+  width: 100%;
+  display: flex;
+  gap: 10px;
+`;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  @media (max-width: 768px) {
+    margin: 0 5% 5%;
+  }
 `;
 
 const Heading = styled.div`
@@ -338,6 +360,8 @@ const SelectOption = styled(Select)`
 
 const ClearButton = styled.button`
   float: right;
+  margin-right: 10px;
+  font-size: 12px;
   color: rgb(199, 199, 199);
   font-size: 13px;
 `;

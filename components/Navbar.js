@@ -92,7 +92,7 @@ const NavList = styled.ul`
     align-items: center;
   }
   li:nth-child(-n+2) {
-    color: orange;
+    color: rgb(0, 90, 90);
   }
   li {
     font-weight: 600;
