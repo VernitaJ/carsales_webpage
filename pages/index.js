@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Image from "next/image";
+import ProgressiveImage from "../components/ProgressImage";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { LinkBox, LinkContainer } from "../styles/index.styled";
@@ -30,30 +31,24 @@ export default function Landing() {
             showStatus={false}
             slidesToShow={3}
           >
-            <img
+            <ProgressiveImage
               alt="car driving through desert"
               src="/car.webp"
               layout="fill"
-              sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-            />
-            <img
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            ></ProgressiveImage>
+            <ProgressiveImage
               alt="person driving car at night"
               src="/car2.webp"
               layout="fill"
-              sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-            />
-            <img
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            ></ProgressiveImage>
+            <ProgressiveImage
               alt="car on cliff with view"
               src="/car3.webp"
               layout="fill"
-              sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-            />
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            ></ProgressiveImage>
           </Carousel>
         </Background>
 

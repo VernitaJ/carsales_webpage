@@ -16,6 +16,10 @@ main {
     Helvetica, Roboto, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"
 }
 
+body { 
+  display: block !important; 
+}
+
 /*
 a {
   color: inherit;
