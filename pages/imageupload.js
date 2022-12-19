@@ -8,8 +8,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   // Função abaixo para quando o usuário selecionar a imagem de seu dispositivo, irá fazer alguma coisa.
   const onDrop = useCallback((acceptedFiles) => {
-    const url = `https://api.cloudinary.com/v1_1/gothenburg-university/upload`;
-
     acceptedFiles.forEach(async (acceptedFile) => {
       setLoading(true);
       const { signature, timestamp } = await getSignature();

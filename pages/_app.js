@@ -2,10 +2,10 @@ import React from "react";
 import App from "next/app";
 import Head from "next/head";
 
+import "../styles/cars.css";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
-import "../styles/cars.css";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/tailwind.css";
