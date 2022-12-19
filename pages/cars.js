@@ -122,7 +122,7 @@ const Cars = ({ cars }) => {
               ) : null}
 
               <Link href={`/car/${car.id}`} passHref>
-                <CarBox key={car.id} className="">
+                <CarBox key={car.id}>
                   <TopText>
                     <CarHeading>
                       {car.brand}&nbsp;

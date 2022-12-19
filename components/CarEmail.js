@@ -1,10 +1,9 @@
 import { useRef, useState } from "react";
-import emailjs, { init } from "@emailjs/browser";
+import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
 const CarEmail = ({ removeCar }) => {
-  const router = useRouter();
   const [sent, setSent] = useState(false);
   const car = JSON.parse(localStorage.getItem("current_car"));
   const id = car ? JSON.stringify(car) : null;
