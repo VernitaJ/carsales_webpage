@@ -46,21 +46,21 @@ const Filter = (props) => {
     let result = cars;
     if (brand.length > 0) {
       result = result.filter((car) => brand.includes(car.brand));
-      console.log("result", result);
     }
     if (model.length > 0) {
       result = result.filter((car) => model.includes(car.model));
     }
-    if (minPrice > 0) {
+
+    if (minPrice >= 0) {
       result = result.filter((car) => {
-        minPrice <= car.price;
+        return car.price >= minPrice;
       });
-      console.log(minPrice, result);
     }
+
     if (maxPrice < 2000000) {
-      console.log(result, " and ", maxPrice);
-      result = result.filter((car) => car.price <= maxPrice);
-      console.log(result);
+      result = result.filter((car) => {
+        return car.price <= maxPrice;
+      });
     }
     if (sortOrder) {
       if (sortOrder === "highestfirst") {
@@ -81,6 +81,7 @@ const Filter = (props) => {
     setFilteredCars(props.cars);
     setBrand([]);
     setModel([]);
+    setMinPrice(0);
     setMaxPrice(2000000);
   };
 
@@ -109,25 +110,6 @@ const Filter = (props) => {
     handleFilterSetup();
   }, [filteredCars]);
 
-  const customStyles = useMemo(
-    () => ({
-      valueContainer: (provided, state) => ({
-        ...provided,
-        maxWidth: "100%",
-        textOverflow: "ellipsis",
-        whiteSpace: "nowrap",
-        wrap: "nowrap",
-        overflow: "hidden",
-      }),
-      input: (provided, state) => ({
-        ...provided,
-        minWidth: "20%",
-        maxHeight: "15px",
-        wrap: "nowrap",
-      }),
-    }),
-    []
-  );
   const { cars, updateFilter } = props;
 
   return (
@@ -206,10 +188,12 @@ const Filter = (props) => {
                   <label htmlFor="price-from">Price</label>
                   <PriceRange>
                     <input
+                      defaultValue={minPrice}
                       placeholder="Min Price"
                       onChange={(e) => setMinPrice(e.target.value)}
                     ></input>
                     <input
+                      defaultValue={maxPrice}
                       placeholder="Max Price"
                       onChange={(e) => setMaxPrice(e.target.value)}
                     ></input>

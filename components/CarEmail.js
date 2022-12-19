@@ -9,7 +9,6 @@ const CarEmail = ({ removeCar }) => {
   const car = JSON.parse(localStorage.getItem("current_car"));
   const id = car ? JSON.stringify(car) : null;
   const form = useRef();
-  console.log(id);
 
   const onSubmit = (e) => {
     e.preventDefault();

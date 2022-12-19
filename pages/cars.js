@@ -53,9 +53,6 @@ export const getStaticProps = async () => {
 const Cars = ({ cars }) => {
   const router = useRouter();
   const [showPopUp, setShowPopUp] = useState(false);
-  const [colour, setColour] = useState("");
-  const [brand, setBrand] = useState("");
-  const [price, setPrice] = useState({ min: 0, max: 1000000 });
   const [filteredCars, setFilteredCars] = useState(cars);
   const [selectedCar, setSelectedCar] = useState(null);
 
@@ -85,7 +82,7 @@ const Cars = ({ cars }) => {
   const removeCar = () => {
     setSelectedCar(null);
   };
-  console.info(cars[1]);
+
   return (
     <CarPage>
       <Sidebar cars={cars} updateFilter={applyFilter} className="z-10" />
@@ -159,7 +156,7 @@ const Cars = ({ cars }) => {
                       <p>{car.year}</p>
                       <Price>R{format(car.price)}</Price>
                       <p>{car.mileage.toLocaleString()}km</p>
-                      <InterestButton />
+                      <InterestButton>Quick</InterestButton>
                       {/* <div>
                         <Transmission />
                         <p>{car.transmission}</p>
@@ -184,9 +181,9 @@ const Cars = ({ cars }) => {
           ))}
         </CarsContainer>
       ) : (
-        <div className="z-50 mr-0 p-40 bg-transparent">
-          Unfortunately we don&apos;t have the exact match. Try another search.
-        </div>
+        <NoCarsContainer>
+          Unfortunately we don&apos;t have that exact match. Try another search.
+        </NoCarsContainer>
       )}
     </CarPage>
   );
@@ -209,6 +206,20 @@ const TopText = styled.div`
 const CarsContainer = styled.div`
   width: 40%;
   margin-left: 25%;
+  @media (max-width: 900px) {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 600px) {
+    width: 90%;
+    margin-top: 15px;
+  }
+`;
+
+const NoCarsContainer = styled.div`
+  width: 40%;
+  margin: 25%;
   @media (max-width: 900px) {
     width: 80%;
     margin-left: auto;
