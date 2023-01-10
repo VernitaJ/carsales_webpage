@@ -191,7 +191,7 @@ const Container = styled.div`
 
 const ErrorMessage = styled.p`
   font-size: 12px;
-  color: darkorange;
+  color: seagreen;
   align-self: flex-end;
   margin-right: 5px;
 `;
