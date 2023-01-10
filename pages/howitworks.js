@@ -8,14 +8,14 @@ const HowItWorks = () => {
       <Container>
         <PageHeading>How it works </PageHeading>
         <div>
-          Buying and selling your vehicle through BlueAuto is simple, reliable
-          and safe. We&apos;re here to help the Buyer and the Seller.
+          Buying and selling your vehicle through <b>Blue Auto</b> is simple,
+          reliable and safe. We&apos;re here to help the Buyer and the Seller.
         </div>
         <Heading>Buying</Heading>
         <div>
           Once you find a vehicle on our website that you&apos;re interested in,
-          complete the <b>&apos;check availability&apos;</b> form. You will then
-          be contacted by a member of our team to discuss any questions you may
+          complete the <i>check availability</i> form. You will then be
+          contacted by a member of our team to discuss any questions you may
           have. <br />
           All vehicles sold by Blue Auto are quality approved. You will be
           provided with an AA certificate, as well as an AA 101 Multipoint Check
@@ -97,19 +97,13 @@ const Container = styled.div`
 `;
 
 const Heading = styled.div`
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 40px;
   font-weight: 600;
-  @media (min-width: 1000px) {
-    font-size: 34px;
-  }
 `;
 
 const PageHeading = styled.div`
-  font-size: 27px;
+  font-size: 30px;
   margin-bottom: 25px;
   font-weight: 600;
-  @media (min-width: 1000px) {
-    font-size: 40px;
-  }
 `;

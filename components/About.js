@@ -12,24 +12,35 @@ const About = () => {
       <Text>
         <h1>About us</h1>
         <p className={styles.paragraph}>
-          Car owners spend up to 7 years of their lives paying for their cars,
-          then dealerships buy the vehicle for less than it&apos;s worth, with
-          the profit in their pockets. <b>We</b> are fixing this cycle by giving
-          the benefit to the correct person - you.
+          <b>Blue Auto</b> is based online, and boasts a team with 24 years of
+          experience in car sales and services. The principle of{" "}
+          <b>Blue Auto</b> lies in our interest in customer service, and our
+          vision of fair business.
         </p>
         <p className={styles.paragraph}>
-          Blue Auto was established in 2021, with a combined 24 years of
-          experience in car sales and services. Instead of buying your vehicle
-          from you, we sell it for you. The seller AND the buyer wins.
+          We achieve this through our business model:
+          <br />
+          Instead of buying your vehicle <b>from</b> you, we sell it <b>for</b>{" "}
+          you.
         </p>
         <p className={styles.paragraph}>
-          <b>Blue Auto</b> is here to ensure your experience of buying/selling
-          your car runs smoothly. Even if you just need the right advice,
-          we&apos;re happy to help.
+          Our team of experts are here to ensure your experience of
+          buying/selling your vehicle runs smoothly. Even if you just need the
+          right advice, we&apos;re here to assist.
         </p>
-        <Link href="/contact" onClick={() => router.push("/contact")}>
-          Contact us today.
-        </Link>
+        <p>
+          Please{" "}
+          <Link href="/contact" onClick={() => router.push("/contact")}>
+            contact us
+          </Link>{" "}
+          with any questions you might have, or visit our{" "}
+          <i>
+            <Link href="/howitworks" onClick={() => router.push("/howitworks")}>
+              How it works
+            </Link>
+          </i>{" "}
+          page for more information.
+        </p>
       </Text>
       <BottomSection>
         <ImageContainer>
@@ -112,7 +123,7 @@ const Text = styled.div`
 `;
 
 const Container = styled.div`
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   gap: 120px;
   border-radius: 10px;

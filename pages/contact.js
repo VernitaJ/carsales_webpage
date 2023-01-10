@@ -8,6 +8,7 @@ const Contact = () => {
       <TopSection>
         <Heading>Contact us</Heading>
         <div>Mobile: 076-990-6274</div>
+        <div>Mobile: 068-679-3903</div>
         <div>admin@blueauto.co.za</div>
         <br></br>
         <p>Alternatively, submit a contact request:</p>
