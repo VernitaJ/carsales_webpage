@@ -56,8 +56,9 @@ const SendCar = () => {
     <Container>
       <PageHeading>
         <h1>Sell your car</h1>
-        Fill out the fields below and one of our team will be in touch by phone
-        or email. We&apos;ll give you advice on the best way to take images and
+        Fill out the fields below and our team will be in touch by phone or
+        email.
+        <br /> We&apos;ll give you advice on the best way to take images and
         explain how the selling process works - completely commitment free.
       </PageHeading>
       {sent ? (
@@ -198,7 +199,7 @@ const SendCar = () => {
                       maxLength: 14,
                       pattern: /[0-9+]/,
                     })}
-                    placeholder="0612342700"
+                    placeholder="Mobile/Landline"
                   />
                 </div>
                 <ErrorMessage>
@@ -260,7 +261,7 @@ const PageHeading = styled.h4`
   }
   font-size: 16px;
   color: rgb(250, 250, 250);
-  margin: 10px 0 30px;
+  margin: 30px 0 30px;
 `;
 
 const SentMessage = styled.p`
@@ -345,7 +346,7 @@ const Item = styled.div`
 
 const ErrorMessage = styled.p`
   font-size: 12px;
-  color: darkorange;
+  color: seagreen;
   align-self: flex-end;
   margin-right: 5px;
 `;
@@ -393,8 +394,8 @@ const Container = styled.div`
     margin-left: 0;
     width: 99%;
   }
-  width: 50%;
-  margin-left: 5%;
+  width: 40%;
+  margin-left: 10%;
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: 10%;

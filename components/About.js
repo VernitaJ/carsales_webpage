@@ -49,7 +49,7 @@ const About = () => {
               alt="Blue auto sales manager image"
               className={styles.about_image}
               src="/about_pedri.webp"
-              width={170}
+              width={190}
               height={200}
               lazyLoad={true}
             />
