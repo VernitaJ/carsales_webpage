@@ -156,7 +156,6 @@ const Cars = ({ cars }) => {
                       <p>{car.year}</p>
                       <Price>R{format(car.price)}</Price>
                       <p>{car.mileage.toLocaleString()}km</p>
-                      <InterestButton>Quick</InterestButton>
                       {/* <div>
                         <Transmission />
                         <p>{car.transmission}</p>
@@ -307,12 +306,10 @@ const Price = styled.p`
 `;
 
 const InterestButton = styled.button`
-  position: absolute;
   padding: 8px;
   border-radius: 5px;
   border: 1px solid darkblue;
   right: 30px;
-  bottom: 100px;
   :hover {
     box-shadow: 2px 2px 2px 1px rgba(0, 20, 100, 0.9);
     border: 1px solid lightblue;

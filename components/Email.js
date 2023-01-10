@@ -74,7 +74,7 @@ const Email = (car, removeCar) => {
                   maxLength: 14,
                   pattern: /[0-9+]/,
                 })}
-                placeholder="0612342700"
+                placeholder="Mobile/Landline"
               />
             </div>
             <ErrorMessage>
@@ -92,7 +92,7 @@ const Email = (car, removeCar) => {
                   pattern:
                     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
                 })}
-                placeholder="email address"
+                placeholder="Personal/Business email"
               />
             </div>
             <ErrorMessage>

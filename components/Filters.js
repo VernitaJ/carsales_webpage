@@ -41,6 +41,14 @@ const Filter = (props) => {
     100: "100k",
   };
 
+  const format = (num) => {
+    let numArray = num.toString().split("").reverse();
+    for (let i = 3; i < numArray.length; i += 4) {
+      numArray.splice(i, 0, ",");
+    }
+    return numArray.reverse().join("");
+  };
+
   const applyFilter = (event) => {
     event.preventDefault();
     let result = cars;
@@ -188,12 +196,12 @@ const Filter = (props) => {
                   <label htmlFor="price-from">Price</label>
                   <PriceRange>
                     <input
-                      defaultValue={minPrice}
+                      defaultValue={format(minPrice)}
                       placeholder="Min Price"
                       onChange={(e) => setMinPrice(e.target.value)}
                     ></input>
                     <input
-                      defaultValue={maxPrice}
+                      defaultValue={format(maxPrice)}
                       placeholder="Max Price"
                       onChange={(e) => setMaxPrice(e.target.value)}
                     ></input>
