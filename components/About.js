@@ -28,9 +28,19 @@ const About = () => {
           buying/selling your vehicle runs smoothly. Even if you just need the
           right advice, we&apos;re here to assist.
         </p>
-        <Link href="/contact" onClick={() => router.push("/contact")}>
-          Contact us today.
-        </Link>
+        <p>
+          Please{" "}
+          <Link href="/contact" onClick={() => router.push("/contact")}>
+            contact us
+          </Link>{" "}
+          with any questions you might have, or visit our{" "}
+          <i>
+            <Link href="/howitworks" onClick={() => router.push("/howitworks")}>
+              How it works
+            </Link>
+          </i>{" "}
+          page for more information.
+        </p>
       </Text>
       <BottomSection>
         <ImageContainer>
@@ -113,7 +123,7 @@ const Text = styled.div`
 `;
 
 const Container = styled.div`
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   gap: 120px;
   border-radius: 10px;
