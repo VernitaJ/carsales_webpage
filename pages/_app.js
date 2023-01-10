@@ -34,7 +34,7 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>BlueAuto</title>
+          <title>BlueAuto Car sales South Africa</title>
           <link rel="icon" href="/favicon.png" />
         </Head>
         <Layout position="relative" minHeight="100vh" maxWidth="90vw">

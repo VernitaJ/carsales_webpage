@@ -51,7 +51,7 @@ const About = () => {
               src="/about_pedri.webp"
               width={190}
               height={200}
-              lazyLoad={true}
+              lazyload="true"
             />
             <p>Pedri Gouws</p>
             <p>Sales Manager</p>
@@ -63,7 +63,7 @@ const About = () => {
               src="/veevee.webp"
               width={200}
               height={200}
-              lazyLoad={true}
+              lazyload="true"
             />
             <p>Vernita Jones</p>
             <p>Technical administator</p>
