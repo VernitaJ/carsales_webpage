@@ -48,7 +48,7 @@ const About = () => {
             <Image
               alt="Blue auto sales manager image"
               className={styles.about_image}
-              src="/pedri_about.png"
+              src="/about_pedri.webp"
               width={170}
               height={200}
               lazyLoad={true}
@@ -60,7 +60,7 @@ const About = () => {
             <Image
               alt="Vernita Jones technical administrator"
               className={styles.about_image}
-              src="/veevee.png"
+              src="/veevee.webp"
               width={200}
               height={200}
               lazyLoad={true}

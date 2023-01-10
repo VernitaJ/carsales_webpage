@@ -100,6 +100,9 @@ const Cars = ({ cars }) => {
           <br />
         </Heading>
         <List>
+          <ListItem>
+            <b>With every purchase, we guarantee:</b>
+          </ListItem>
           <ListItem>Predelivery inspection provided before delivery.</ListItem>
           <ListItem>
             Financing applications to all our affiliate banks, so you get the
@@ -141,10 +144,7 @@ const Cars = ({ cars }) => {
                     >
                       {car.image.map((img, key) => (
                         <div key={key}>
-                          <ProgressImage
-                            src={img.url}
-                            placeholder="../../public/favicon_white.png"
-                          />
+                          <ProgressImage src={img.url} placeholder="" />
                           {/* <img src={img.url} alt="carousel image" /> */}
                         </div>
                       ))}
@@ -204,7 +204,10 @@ const TopText = styled.div`
 
 const CarsContainer = styled.div`
   width: 40%;
-  margin-left: 25%;
+  margin-left: 30%;
+  @media {
+    width: 30%;
+  }
   @media (max-width: 900px) {
     width: 80%;
     margin-left: auto;
