@@ -258,7 +258,7 @@ export default function Landing() {
               <div className="lg:w-3/12 px-4 m-3 text-center w-6/12">
                 <Image
                   alt="motor financing company logo"
-                  src="/mfc.png"
+                  src="/mfc.webp"
                   width={180}
                   height={70}
                   lazyLoad={true}
@@ -268,7 +268,7 @@ export default function Landing() {
               <div className="lg:w-3/12 px-4 text-center -m-6 w-6/12">
                 <Image
                   alt="wesbank logo"
-                  src="/wesbanklogo.png"
+                  src="/wesbanklogo.webp"
                   width={190}
                   height={120}
                   lazyLoad={true}
@@ -278,7 +278,7 @@ export default function Landing() {
               <div className="lg:w-3/12 mx-4 text-center -m-2 w-6/12">
                 <Image
                   alt="bmw logo"
-                  src="/bmw.png"
+                  src="/bmw.webp"
                   width={200}
                   height={100}
                   lazyLoad={true}
@@ -288,7 +288,7 @@ export default function Landing() {
               <div className="lg:w-3/12 pl-4 text-center w-6/12">
                 <Image
                   alt="absa logo"
-                  src="/absa.png"
+                  src="/absa.webp"
                   width={80}
                   height={80}
                   lazyLoad={true}
@@ -298,7 +298,7 @@ export default function Landing() {
               <div className="lg:w-3/12 pr-4 text-center -m-3 w-6/12">
                 <Image
                   alt="standard bank logo"
-                  src="/standardbank.png"
+                  src="/standardbank.webp"
                   width={120}
                   height={160}
                   lazyLoad={true}
