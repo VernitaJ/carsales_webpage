@@ -131,7 +131,7 @@ const Car = ({ car }) => {
 export default Car;
 
 const Container = styled.div`
-  min-height: 100vh;
+  min-height: 75vh;
   background-image: rgb(0, 0, 77);
   width: 90vw;
   margin-top: 5%;
