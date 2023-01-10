@@ -16,7 +16,7 @@ export default function Landing() {
     <>
       <MainContainer>
         <Head>
-          <title>Blue Auto</title>
+          <title>Blue Auto Second hand cars</title>
           <meta name="description" content="It's all about you" />
           <link rel="icon" href="/favicon.png" />
         </Head>
@@ -35,18 +35,21 @@ export default function Landing() {
               alt="car driving through desert"
               src="/car.webp"
               layout="fill"
+              placeholder="/car.webp"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             ></ProgressiveImage>
             <ProgressiveImage
               alt="person driving car at night"
               src="/car2.webp"
               layout="fill"
+              placeholder="/car.webp"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             ></ProgressiveImage>
             <ProgressiveImage
               alt="car on cliff with view"
               src="/car3.webp"
               layout="fill"
+              placeholder="/car.webp"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             ></ProgressiveImage>
           </Carousel>
@@ -261,7 +264,7 @@ export default function Landing() {
                   src="/mfc.webp"
                   width={180}
                   height={70}
-                  lazyLoad={true}
+                  lazyload="true"
                 ></Image>
               </div>
 
@@ -271,7 +274,7 @@ export default function Landing() {
                   src="/wesbanklogo.webp"
                   width={190}
                   height={120}
-                  lazyLoad={true}
+                  lazyload="true"
                 />
               </div>
 
@@ -281,7 +284,7 @@ export default function Landing() {
                   src="/bmw.webp"
                   width={200}
                   height={100}
-                  lazyLoad={true}
+                  lazyload="true"
                 />
               </div>
 
@@ -291,7 +294,7 @@ export default function Landing() {
                   src="/absa.webp"
                   width={80}
                   height={80}
-                  lazyLoad={true}
+                  lazyload="true"
                 />
               </div>
 
@@ -301,7 +304,7 @@ export default function Landing() {
                   src="/standardbank.webp"
                   width={120}
                   height={160}
-                  lazyLoad={true}
+                  lazyload="true"
                 />
               </div>
             </FinancingImages>

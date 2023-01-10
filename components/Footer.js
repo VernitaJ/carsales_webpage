@@ -42,9 +42,9 @@ export default function Footer() {
                         About Us
                       </Link>
                     </li>
-                    <li className="text-blueGray-100 hover:text-white font-semibold block pb-6 text-sm">
+                    <li>
                       <Link
-                        className="text-blueGray-100 hover:text-white font-semibold block pb-6 text-sm"
+                        className="text-blueGray-100 hover:text-white font-semibold block pb-2 text-sm"
                         href="/cars"
                       >
                         Cars
@@ -72,12 +72,9 @@ export default function Footer() {
           </div>
         </div>
         <InfoText>
-          <p className="text-white ml-5 pb-5">
-            Blue Auto, registered in 2021, is a small business located in
-            Pretoria South Africa.
-          </p>
-          <p className="text-white mr-5 pb-5">
-            South Africa - Registration number: 123US2U3TS
+          <p className="text-white mr-5 ml-auto pb-2">
+            Blue Auto&#174; Second Hand Cars is a registered small business
+            based in South Africa
           </p>
         </InfoText>
       </Container>
