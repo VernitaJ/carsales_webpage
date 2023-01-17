@@ -1,14 +1,16 @@
-Single page application using Next for FE, and Hygraph and GraphQL as BE, with Emailjs service.
+### Overview
 
-## Getting Started
+Single page application using Nextjs with styled-components, Hygraph, and Emailjs service.
 
-First, run the development server:
 
-```bash
+### Contribution
 
-npm run dev
-# or
-yarn dev
-```
+Clone locally and run ```yarn dev```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Create an issue
+- Clone project
+- Create branch
+- Work on solution
+- Test solution thoroughly
+- Create PR describing changes and impact
+
