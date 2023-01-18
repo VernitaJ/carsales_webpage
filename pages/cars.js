@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { request, gql, GraphQLClient } from "graphql-request";
+import { gql, GraphQLClient } from "graphql-request";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
 import styled from "styled-components";
-import Transmission from "../public/CarGear.svg";
-import Mileage from "../public/CarMileage.svg";
-import Door from "../public/CarDoor.svg";
-import Seats from "../public/CarSeat.svg";
+// import Transmission from "../public/CarGear.svg";
+// import Mileage from "../public/CarMileage.svg";
+// import Door from "../public/CarDoor.svg";
+// import Seats from "../public/CarSeat.svg";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import ProgressImage from "../components/ProgressImage";
+import Reviews from "../components/Reviews";
 
 import { Carousel } from "react-responsive-carousel";
 import CarEmail from "../components/CarEmail";
@@ -73,12 +74,6 @@ const Cars = ({ cars }) => {
     return numArray.reverse().join("");
   };
 
-  useEffect(() => {
-    setTimeout = () => {
-      setShowPopUp(true), 3000;
-    };
-  }, []);
-
   const removeCar = () => {
     setSelectedCar(null);
   };
@@ -113,6 +108,7 @@ const Cars = ({ cars }) => {
             Extended warranties of up to 2 years available on all vehicles.
           </ListItem>
         </List>
+        <Reviews />
       </InfoContainer>
       {filteredCars.length > 0 ? (
         <CarsContainer>
@@ -138,13 +134,17 @@ const Cars = ({ cars }) => {
                     <Carousel
                       dynamicHeight={false}
                       showThumbs={false}
-                      showArrows={false}
-                      showIndicators={false}
+                      showArrows={true}
+                      showIndicators={true}
                       showStatus={false}
                     >
-                      {car.image.map((img, key) => (
+                      {car.image.map((img, key, index) => (
                         <div key={key}>
-                          <ProgressImage src={img.url} placeholder="" />
+                          <ProgressImage
+                            priority={index === 0}
+                            src={img.url}
+                            placeholder="/blueauto_logo.png"
+                          />
                           {/* <img src={img.url} alt="carousel image" /> */}
                         </div>
                       ))}
@@ -191,7 +191,6 @@ const Cars = ({ cars }) => {
 export default Cars;
 
 const CarPage = styled.div`
-  top: 0;
   padding: 20px;
   min-height: 100vh + 400px;
   margin-bottom: 200px;
@@ -203,6 +202,7 @@ const TopText = styled.div`
 `;
 
 const CarsContainer = styled.div`
+  margin-top: 60px;
   width: 40%;
   margin-left: 30%;
   @media {
@@ -339,8 +339,7 @@ const BottomTextInfo = styled.span`
 `;
 
 const InfoContainer = styled.div`
-  margin-top: 20px;
-  position: absolute;
+  margin-top: 50px;
   right: 80px;
   position: fixed;
   font-size: 13px;

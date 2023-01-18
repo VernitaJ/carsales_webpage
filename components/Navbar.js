@@ -58,7 +58,12 @@ export const NavbarContainer = styled.nav`
   display: flex;
   align-content: center;
   justify-content: space-between;
+  z-index: 1000;
+  position: fixed;
   background-color: rgb(245, 245, 245) !important;
+  @media (max-width: 750px) {
+    position: absolute;
+  }
 `;
 
 const NavList = styled.ul`

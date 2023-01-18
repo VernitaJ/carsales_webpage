@@ -31,6 +31,7 @@ const ToggleButton = styled.button`
 `;
 
 const Container = styled.div`
+  margin-top: 30px;
   background-color: rgb(0, 0, 77);
   font-size: 14px;
   padding: 20px;

@@ -89,6 +89,9 @@ const Container = styled.footer`
     color: rgb(30 58 138);
     border-color: rgb(30 58 138);
   }
+  ul {
+    margin: 5px 0 15px;
+  }
 `;
 
 const InfoText = styled.div`
