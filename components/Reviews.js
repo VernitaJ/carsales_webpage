@@ -28,8 +28,8 @@ const Reviews = () => {
       <Container>
         {reviews.map((review, key) => {
           return (
-            <div>
-              <p key={key}>"{review.review}"</p>
+            <div key={key}>
+              <p>&quot;{review.review}&quot;</p>
               <span>- {review.name}</span>
             </div>
           );
