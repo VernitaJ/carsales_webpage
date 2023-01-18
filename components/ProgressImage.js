@@ -37,6 +37,7 @@ class ProgressiveImage extends Component {
           transition: "opacity .15s linear",
         }}
         alt={alt}
+        loading="eager"
       />
     );
   }

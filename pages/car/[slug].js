@@ -72,6 +72,7 @@ const Car = ({ car }) => {
           showThumbs={true}
           showStatus={false}
           swipeable={true}
+          showArrows={true}
         >
           {car.image.map((img, key) => (
             <img
@@ -110,10 +111,12 @@ const Car = ({ car }) => {
               <FuelType style={{ height: "30px", width: "35px" }} />
               <p>{car.fuel}</p>
             </Icon>
-            <Icon>
-              <Seats />
-              <p>{car.seats}</p>
-            </Icon>
+            {car.seats > 0 ? (
+              <Icon>
+                <Seats />
+                <p>{car.seats}</p>
+              </Icon>
+            ) : null}
             <Icon>
               <Mileage />
               <p>{car.mileage.toLocaleString()}km</p>
@@ -131,10 +134,9 @@ const Car = ({ car }) => {
 export default Car;
 
 const Container = styled.div`
-  min-height: 75vh;
+  min-height: 80vh;
   background-image: rgb(0, 0, 77);
   width: 90vw;
-  margin-top: 5%;
   display: flex;
   flex-direction: row;
   gap: 30px;
@@ -164,13 +166,16 @@ const CarInfo = styled.div`
 `;
 
 const CarContainer = styled.div`
-  width: 50%;
+  margin-top: 7%;
+  width: 40%;
   @media (max-width: 900px) {
     width: 90%;
+    margin-top: 15%;
   }
 `;
 
 const InterestContainer = styled.div`
+  margin-top: 7%;
   width: 70%;
   @media (max-width: 900px) {
     width: 90%;
