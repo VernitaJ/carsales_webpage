@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 // Create an array of positive reviews for car services and sales
@@ -22,18 +22,33 @@ const reviews = [
 
 // Create a component that shows customer reviews
 const Reviews = () => {
+  // create a state variable to keep track of the current review
+  const [reviewIndex, setReviewIndex] = React.useState(0);
+
+  // create a useeffect based on a timeout to change the reviews every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setReviewIndex((reviewIndex + 1) % reviews.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [reviewIndex]);
+
   return (
     <div>
       <Heading>Customer Feedback</Heading>
       <Container>
-        {reviews.map((review, key) => {
+        <div>
+          <p>&quot;{reviews[reviewIndex].review}&quot;</p>
+          <span>- {reviews[reviewIndex].name}</span>
+        </div>
+        {/* {reviews.map((review, key) => {
           return (
             <div key={key}>
               <p>&quot;{review.review}&quot;</p>
               <span>- {review.name}</span>
             </div>
           );
-        })}
+        })} */}
       </Container>
     </div>
   );
@@ -58,7 +73,7 @@ const Container = styled.div`
 `;
 
 const Heading = styled.div`
-  margin-top: 80px;
+  margin-top: 150px;
   margin-bottom: 25px;
   align-items: flex-end;
   display: flex;
