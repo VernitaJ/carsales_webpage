@@ -1,11 +1,12 @@
 import React from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import { isMobile } from "react-device-detect";
 
 import Filters from "./Filters";
 
 export default function Sidebar(props) {
-  const [collapseShow, setCollapseShow] = React.useState(true);
+  const [collapseShow, setCollapseShow] = React.useState(!isMobile);
   const router = useRouter();
   return (
     <Container>
@@ -48,7 +49,7 @@ const Container = styled.div`
     padding: 20px 10px;
     position: relative;
     width: 98%;
-    top: 0;
+    top: 10px;
     margin-bottom: 40px;
   }
 `;

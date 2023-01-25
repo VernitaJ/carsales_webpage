@@ -104,7 +104,6 @@ const Page = styled.div`
   min-height: 100vh;
   display: flex;
   gap: 40px;
-  top: 0;
   padding: 20px;
   @media (max-width: 1100px) {
     flex-direction: column;

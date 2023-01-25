@@ -5,7 +5,9 @@ export const LinkContainer = styled.div`
   display: flex;
   flex-wrap: no-wrap;
   justify-content: center;
-  gap: 30px;
+  max-width: 80%;
+  margin: 0 auto;
+  gap: 60px;
   p {
     color: black;
   }
@@ -14,6 +16,7 @@ export const LinkContainer = styled.div`
     flex-wrap: wrap;
     gap: 40px;
     margin-top: 130px;
+    max-width: 100%;
   }
   @media screen and (max-width: 560px) {
     gap: 20px;
@@ -42,7 +45,7 @@ export const LinkBox = styled.div`
   }
   p:nth-child(3) {
     font-family: 'Apple Color Emoji', 'Segoe UI Emoji';;
-    margin: 10px 50px;
+    margin: 10px 30px;
     font-size: 20px;
     font-weight: 500;
     color: rgb(70, 70, 70);

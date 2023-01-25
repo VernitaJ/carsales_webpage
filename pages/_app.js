@@ -34,14 +34,18 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>BlueAuto Second Hand Cars South Africa</title>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          />
+          <title>Blue Auto Second Hand Cars South Africa</title>
           <link rel="icon" href="/favicon.png" />
         </Head>
+        <Navbar transparent />
         <Layout position="relative" minHeight="100vh" maxWidth="90vw">
-          <Navbar transparent />
           <Component {...pageProps} height="100vh" paddingBottom="50px" />
-          <Footer />
         </Layout>
+        <Footer />
       </React.Fragment>
     );
   }
