@@ -34,16 +34,12 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>BlueAuto Car sales South Africa</title>
+          <title>BlueAuto Second Hand Cars South Africa</title>
           <link rel="icon" href="/favicon.png" />
         </Head>
         <Layout position="relative" minHeight="100vh" maxWidth="90vw">
           <Navbar transparent />
-          <div suppressHydrationWarning>
-            {typeof window === "undefined" ? null : (
-              <Component {...pageProps} height="100vh" paddingBottom="50px" />
-            )}
-          </div>
+          <Component {...pageProps} height="100vh" paddingBottom="50px" />
           <Footer />
         </Layout>
       </React.Fragment>
