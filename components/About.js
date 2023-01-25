@@ -123,7 +123,7 @@ const Text = styled.div`
 `;
 
 const Container = styled.div`
-  min-height: 70vh;
+  min-height: 80vh;
   display: flex;
   gap: 120px;
   border-radius: 10px;

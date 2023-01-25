@@ -38,14 +38,18 @@ export default class MyApp extends App {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
-          <title>Blue Auto Second Hand Cars South Africa</title>
+          <title>BlueAuto Car sales South Africa</title>
           <link rel="icon" href="/favicon.png" />
         </Head>
-        <Navbar transparent />
         <Layout position="relative" minHeight="100vh" maxWidth="90vw">
-          <Component {...pageProps} height="100vh" paddingBottom="50px" />
+          <Navbar transparent />
+          <div suppressHydrationWarning>
+            {typeof window === "undefined" ? null : (
+              <Component {...pageProps} height="100vh" paddingBottom="50px" />
+            )}
+          </div>
+          <Footer />
         </Layout>
-        <Footer />
       </React.Fragment>
     );
   }

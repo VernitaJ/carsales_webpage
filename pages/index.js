@@ -264,7 +264,7 @@ export default function Landing() {
                   src="/mfc.webp"
                   width={180}
                   height={70}
-                  lazyload="true"
+                  priority="true"
                 ></Image>
               </div>
 
@@ -274,7 +274,7 @@ export default function Landing() {
                   src="/wesbanklogo.webp"
                   width={190}
                   height={120}
-                  lazyload="true"
+                  priority="true"
                 />
               </div>
 
@@ -284,7 +284,7 @@ export default function Landing() {
                   src="/bmw.webp"
                   width={200}
                   height={100}
-                  lazyload="true"
+                  priority="true"
                 />
               </div>
 
@@ -294,7 +294,7 @@ export default function Landing() {
                   src="/absa.webp"
                   width={80}
                   height={80}
-                  lazyload="true"
+                  priority="true"
                 />
               </div>
 
@@ -304,7 +304,7 @@ export default function Landing() {
                   src="/standardbank.webp"
                   width={120}
                   height={160}
-                  lazyload="true"
+                  priority="true"
                 />
               </div>
             </FinancingImages>

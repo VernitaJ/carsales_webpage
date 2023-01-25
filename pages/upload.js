@@ -104,8 +104,10 @@ const Page = styled.div`
   min-height: 100vh;
   display: flex;
   gap: 40px;
-  padding: 20px;
-  @media (max-width: 1100px) {
+  justify-content: space-between;
+  top: 0;
+  padding: 20px 0;
+  @media (max-width: 1200px) {
     flex-direction: column;
     gap: 5px;
     padding: 15px;
@@ -131,13 +133,13 @@ export const InfoParagraph = styled.h3`
   flex-direction: column;
   gap: 20px;
   width: 30%;
-  margin-top: 70px;
+  margin-top: 100px;
   font-size: 18px;
   color: white;
   right: 100px;
   @media (max-width: 1200px) {
     position: relative;
-    min-width: 80%;
+    width: 80%;
     margin-top: 0;
     right: 0;
     gap: 0px;

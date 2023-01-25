@@ -259,6 +259,7 @@ const PageHeading = styled.h4`
     font-weight: bold;
     margin-bottom: 10px;
   }
+  max-width: 100%;
   font-size: 16px;
   color: rgb(250, 250, 250);
   margin: 30px 0 30px;
@@ -387,17 +388,18 @@ const Form = styled.form`
 `;
 
 const Container = styled.div`
-  @media (max-width: 1100px) {
-    width: 95%;
+  @media (max-width: 1200px) {
+    width: 90%;
+    margin: 50px auto;
   }
   @media (max-width: 568px) {
     margin-left: 0;
     width: 99%;
   }
   width: 40%;
-  margin-left: 10%;
+  margin-left: 5%;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 10%;
 `;
 
