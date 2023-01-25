@@ -104,7 +104,7 @@ export default function Landing() {
 
         <section className="pb-20 bg-lightBlue-900">
           <LinkContainer>
-            <LinkBox>
+            <LinkBox onClick={() => router.push("/cars")}>
               <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-500">
                 <i className="text-white fas fa-award"></i>
               </p>
@@ -115,7 +115,7 @@ export default function Landing() {
               </p>
             </LinkBox>
 
-            <LinkBox>
+            <LinkBox onClick={() => router.push("/upload")}>
               <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-500">
                 <i className="text-white fas fa-retweet"></i>
               </p>
@@ -125,7 +125,10 @@ export default function Landing() {
                 and handle all the administrative tasks.
               </p>
             </LinkBox>
-            <LinkBox onClick={() => router.push("/upload")} $color="darkGreen">
+            <LinkBox
+              onClick={() => router.push("/howitworks")}
+              $color="darkGreen"
+            >
               <p className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-yellow-500">
                 <i className="text-white fas fa-fingerprint"></i>
               </p>
@@ -425,13 +428,14 @@ export const LinkButtons = styled.div`
   margin-top: 15px;
 
   line-height: 30px;
-  gap: 60px;
+  gap: 100px;
   color: rgb(0, 0, 77);
   @media (max-width: 568px) {
     gap: 5px;
     margin-bottom: 30px;
   }
   button:nth-child(2) {
+    background-color: yellow;
     color: white;
   }
 `;
@@ -440,18 +444,27 @@ export const LinkButton = styled.button`
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  padding: 10px 30px;
+  padding: 15px 30px;
   width: 200px;
   font-size: 18px;
-  background-color: ${(props) => props.color};
+  background: linear-gradient(
+    to right,
+    rgb(0, 0, 77) 50%,
+    ${(props) => props.color} 50%
+  );
+  color: rgb(0, 0, 77);
   cursor: pointer;
+  background-size: 200% 100%;
+  background-position: right bottom;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.4s ease-out;
+  position: relative;
   :hover {
+    color: white;
+    background-position: left bottom;
     box-shadow: 0 1px 4px 0 rgba(120, 120, 255, 0.8),
       0 2px 2px 0 rgba(0, 0, 0, 0.19);
-    transition: box-shadow 0.1s, background-color 0.4s;
-    color: black;
-    background-color: rgb(0, 0, 77);
-    color: white;
+    transition: all 0.7s ease-in;
   }
   @media (max-width: 568px) {
     width: 160px;
