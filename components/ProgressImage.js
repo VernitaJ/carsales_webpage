@@ -12,6 +12,7 @@ class ProgressiveImage extends Component {
     this.state = {
       loading: true,
       currentSrc: props.placeholder,
+      priority: props.priority,
     };
   }
 
@@ -28,16 +29,18 @@ class ProgressiveImage extends Component {
   render() {
     const { currentSrc, loading } = this.state;
     const { alt } = this.props;
+    const { priority } = this.props;
     return (
       <img
         src={currentSrc}
         className="ProgressiveImage"
+        sizes="(max-height: 600px) 600px"
         style={{
           opacity: loading ? 0.5 : 1,
           transition: "opacity .15s linear",
         }}
         alt={alt}
-        loading="eager"
+        loading={priority ? "eager" : "lazy"}
       />
     );
   }

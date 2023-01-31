@@ -12,7 +12,7 @@ import "../styles/tailwind.css";
 import "../styles/globals.css";
 
 export default class MyApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
     if (Component.getInitialProps) {
@@ -34,22 +34,45 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
+          <style
+            id="holderStyle"
+            dangerouslySetInnerHTML={{
+              __html: `
+      /* https://github.com/ant-design/ant-design/issues/16037#issuecomment-483140458 */
+      /* Not only antd, but also any other style if you want to use ssr. */
+      *, *::before, *::after {
+        transition: none!important;
+      }
+    `,
+            }}
+          />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
-          <title>BlueAuto Car sales South Africa</title>
+          <title>BlueAuto Second Hand Cars South Africa</title>
           <link rel="icon" href="/favicon.png" />
         </Head>
-        <Layout position="relative" minHeight="100vh" maxWidth="90vw">
-          <Navbar transparent />
-          <div suppressHydrationWarning>
-            {typeof window === "undefined" ? null : (
-              <Component {...pageProps} height="100vh" paddingBottom="50px" />
-            )}
-          </div>
-          <Footer />
-        </Layout>
+        <body>
+          <Layout position="relative" minHeight="100vh" maxWidth="90vw">
+            <Navbar transparent />
+            <div suppressHydrationWarning>
+              {typeof window === "undefined"
+                ? null
+                : ((window.onload = () => {
+                    document.getElementById("holderStyle").remove();
+                  }),
+                  (
+                    <Component
+                      {...pageProps}
+                      height="100vh"
+                      paddingBottom="50px"
+                    />
+                  ))}
+            </div>
+            <Footer />
+          </Layout>
+        </body>
       </React.Fragment>
     );
   }

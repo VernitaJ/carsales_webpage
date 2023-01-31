@@ -80,6 +80,9 @@ const Heading = styled.div`
   font-weight: bold;
   font-size: 16px;
   color: ultramarine;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 export default Reviews;
