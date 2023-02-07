@@ -121,43 +121,44 @@ const Cars = ({ cars }) => {
                 </Modal>
               ) : null}
 
-              {/* <Link href={`/car/${car.id}`} passHref> */}
-              <CarBox key={car.id}>
-                <TopText>
-                  <CarHeading>
-                    {car.brand}&nbsp;
-                    {car.model}
-                  </CarHeading>
-                </TopText>
-                {/* <TopSection> */}
+              <Link href={`/car/${car.id}`} passHref>
+                <CarBox key={car.id}>
+                  <TopText>
+                    <CarHeading>
+                      {car.brand}&nbsp;
+                      {car.model}
+                    </CarHeading>
+                  </TopText>
+                  {/* <TopSection> */}
 
-                <CarImage>
-                  <Carousel
-                    dynamicHeight={false}
-                    showThumbs={false}
-                    showArrows={true}
-                    showIndicators={true}
-                    showStatus={false}
-                  >
-                    {car.image.map((img, key, index) => (
-                      <div key={key}>
-                        <ProgressImage
-                          priority={index === 0}
-                          src={img.url}
-                          placeholder="/blueauto_logo.png"
-                        />
-                        {/* <img src={img.url} alt="carousel image" /> */}
-                      </div>
-                    ))}
-                  </Carousel>
-                </CarImage>
+                  <CarImage>
+                    <Carousel
+                      dynamicHeight={false}
+                      showThumbs={false}
+                      showArrows={true}
+                      showIndicators={true}
+                      showStatus={false}
+                      onClickItem={() => {}}
+                    >
+                      {car.image.map((img, key, index) => (
+                        <div key={key}>
+                          <ProgressImage
+                            priority={index === 0}
+                            src={img.url}
+                            placeholder="/blueauto_logo.png"
+                          />
+                          {/* <img src={img.url} alt="carousel image" /> */}
+                        </div>
+                      ))}
+                    </Carousel>
+                  </CarImage>
 
-                <CarInfo>
-                  <BottomTextInfo>
-                    <p>{car.year}</p>
-                    <Price>R{format(car.price)}</Price>
-                    <p>{car.mileage.toLocaleString()}km</p>
-                    {/* <div>
+                  <CarInfo>
+                    <BottomTextInfo>
+                      <p>{car.year}</p>
+                      <Price>R{format(car.price)}</Price>
+                      <p>{car.mileage.toLocaleString()}km</p>
+                      {/* <div>
                         <Transmission />
                         <p>{car.transmission}</p>
                       </div>
@@ -166,17 +167,17 @@ const Cars = ({ cars }) => {
                         <p>{car.doors}</p>
                       </div>
                       {/* <div> */}
-                    {/* <Seats />
+                      {/* <Seats />
                           <p>{car.seats}</p>
                         </div> */}
-                    {/* <div>
+                      {/* <div>
                         <Mileage />
                       </div>{" "} */}
-                  </BottomTextInfo>
-                </CarInfo>
-                {/* </TopSection> */}
-              </CarBox>
-              {/* </Link> */}
+                    </BottomTextInfo>
+                  </CarInfo>
+                  {/* </TopSection> */}
+                </CarBox>
+              </Link>
             </>
           ))}
         </CarsContainer>
