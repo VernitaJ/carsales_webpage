@@ -34,7 +34,6 @@ const CarInterestEmail = ({ car }) => {
   const text = `I'm interested to know more about the ${car.year} ${car.brand} ${car.model} from your website. Please contact me on my mobile with more information.`;
 
   const getErrorMessage = (err) => {
-    console.log(err);
     if (err == "required") {
       console.log("required");
       return "Required field";

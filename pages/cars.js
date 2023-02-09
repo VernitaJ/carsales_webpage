@@ -121,7 +121,7 @@ const Cars = ({ cars }) => {
                 </Modal>
               ) : null}
 
-              <Link href={`/car/${car.id}`} passHref>
+              <Link href={`/car/${car.id}`} target="_blank" passHref>
                 <CarBox key={car.id}>
                   <TopText>
                     <CarHeading>

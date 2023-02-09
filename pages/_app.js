@@ -6,12 +6,17 @@ import "../styles/cars.css";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { LoadingPage } from "../components/LoadingPage";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/tailwind.css";
 import "../styles/globals.css";
 
 export default class MyApp extends App {
+  state = {
+    loaded: false,
+  };
+
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
@@ -22,8 +27,13 @@ export default class MyApp extends App {
     return { pageProps };
   }
 
+  componentDidMount() {
+    this.setState({ loaded: true });
+  }
+
   render() {
     const { Component, pageProps } = this.props;
+    const { loaded } = this.state;
 
     const Layout = Component.layout || (({ children }) => <>{children}</>);
 
@@ -37,13 +47,7 @@ export default class MyApp extends App {
           <style
             id="holderStyle"
             dangerouslySetInnerHTML={{
-              __html: `
-      /* https://github.com/ant-design/ant-design/issues/16037#issuecomment-483140458 */
-      /* Not only antd, but also any other style if you want to use ssr. */
-      *, *::before, *::after {
-        transition: none!important;
-      }
-    `,
+              __html: ``,
             }}
           />
           <link
@@ -53,26 +57,15 @@ export default class MyApp extends App {
           <title>BlueAuto Second Hand Cars South Africa</title>
           <link rel="icon" href="/favicon.png" />
         </Head>
-        <body>
+        {loaded ? (
           <Layout position="relative" minHeight="100vh" maxWidth="90vw">
             <Navbar transparent />
-            <div suppressHydrationWarning>
-              {typeof window === "undefined"
-                ? null
-                : ((window.onload = () => {
-                    document.getElementById("holderStyle").remove();
-                  }),
-                  (
-                    <Component
-                      {...pageProps}
-                      height="100vh"
-                      paddingBottom="50px"
-                    />
-                  ))}
-            </div>
+            <Component {...pageProps} height="100vh" paddingBottom="50px" />
             <Footer />
           </Layout>
-        </body>
+        ) : (
+          <LoadingPage />
+        )}
       </React.Fragment>
     );
   }

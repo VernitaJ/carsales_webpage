@@ -6,7 +6,6 @@ import styled from "styled-components";
 import CarEmail from "../../components/CarInterestEmail";
 import Transmission from "../../public/CarGear.svg";
 import Mileage from "../../public/CarMileage.svg";
-import Door from "../../public/CarDoor.svg";
 import Seats from "../../public/CarSeat.svg";
 import FuelType from "../../public/CarFuel.svg";
 
@@ -96,7 +95,8 @@ const Car = ({ car }) => {
             <Price>R{format(car.price)}</Price>
           </CarHeading>
           <p>
-            {car.year} <Text>{car.colour}</Text>
+            {car.year} <br />
+            {car.colour}
           </p>
           <BottomTextInfo>
             <Icon>
@@ -182,7 +182,7 @@ const InterestContainer = styled.div`
   }
 `;
 
-const CarHeading = styled.p`
+const CarHeading = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
