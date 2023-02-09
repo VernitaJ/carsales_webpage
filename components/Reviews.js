@@ -18,6 +18,11 @@ const reviews = [
     review:
       "Blue Auto showed me so much patience and respect through the process of buying my first car. I'll be contacting you guys again in a few years! Thank you!",
   },
+  {
+    name: "Cynthia Van Wyk",
+    review:
+      "Baie dankie Pedri vir jou vriendelike en vinnige diens. Vir uiters professionele en vriendelike diens skakel gerus vir Pedri by Blue Auto. ",
+  },
 ];
 
 // Create a component that shows customer reviews

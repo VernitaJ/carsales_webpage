@@ -33,13 +33,13 @@ const About = () => {
           <Link href="/contact" onClick={() => router.push("/contact")}>
             contact us
           </Link>{" "}
-          with any questions you might have, or visit our{" "}
+          with any questions you might have, or visit{" "}
           <i>
             <Link href="/howitworks" onClick={() => router.push("/howitworks")}>
               How it works
             </Link>
           </i>{" "}
-          page for more information.
+          for more information.
         </p>
       </Text>
       <BottomSection>
@@ -66,7 +66,7 @@ const About = () => {
               lazyload="true"
             />
             <p>Vernita Jones</p>
-            <p>Technical administator</p>
+            <p>Technical Administator</p>
           </div>
         </ImageContainer>
 

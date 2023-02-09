@@ -58,6 +58,7 @@ const TopSection = styled.div`
   }
 `;
 const BottomSection = styled.div`
+  margin-top: 80px;
   @media (max-width: 568px) {
     margin: unset;
     margin-top: 0px;

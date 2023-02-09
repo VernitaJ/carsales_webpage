@@ -9,14 +9,15 @@ const HowItWorks = () => {
         <PageHeading>How it works </PageHeading>
         <div>
           Buying and selling your vehicle through <b>Blue Auto</b> is simple,
-          reliable and safe. We&apos;re here to help the Buyer and the Seller.
+          reliable and safe. We&apos;re here to help both Buyers and Sellers.
         </div>
         <Heading>Buying</Heading>
         <div>
           Once you find a vehicle on our website that you&apos;re interested in,
-          complete the <i>check availability</i> form. You will then be
-          contacted by a member of our team to discuss any questions you may
-          have. <br />
+          complete the <b>check availability</b> form. A member of our team will
+          contact you with more information on the car, and to answer and to
+          answer all your questions. <br />
+          <br />
           All vehicles sold by Blue Auto are quality approved. You will be
           provided with an AA certificate, as well as an AA 101 Multipoint Check
           certificate. Extended warranties are available on all vehicles.
@@ -26,10 +27,11 @@ const HowItWorks = () => {
         </div>
         <Heading>Selling</Heading>
         <div>
-          To advertise your vehicle through BlueAuto, you complete the
-          <b>&apos;Sell your vehicle&apos;</b> form. Following this, one of our
-          team will get in contact with you to ensure we have all the necessary
+          To advertise your vehicle through BlueAuto, complete the{"  "}
+          <b>&apos;Sell your vehicle&apos;</b> form. One of our team members
+          will get in contact with you to ensure we have all the necessary
           details so we can get the right buyer for your vehicle.
+          <br />
           <br />
           Blue Auto makes it possible for you to keep driving your vehicle while
           we&apos;re finding a buyer. Once we have a buyer we will arrange a
@@ -37,11 +39,11 @@ const HowItWorks = () => {
           of the way. All payments will be handled using the BlueAuto Secure
           Payment System.
         </div>
-        <Heading>Got any other questions?</Heading>
+        <Heading>Got any questions?</Heading>
         <div>
-          Our team would be more than happy to help.
+          Our team would be more than happy to help out.{"  "}
           <span>
-            <Link href="/contact" passHref>
+            <Link style={{ marginLeft: "10px" }} href="/contact" passHref>
               Contact us.
             </Link>
           </span>

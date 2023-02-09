@@ -1,6 +1,7 @@
 import { gql, GraphQLClient } from "graphql-request";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import ProgressImage from "../../components/ProgressImage";
 import Image from "next/image";
 import styled from "styled-components";
 import CarEmail from "../../components/CarInterestEmail";
@@ -74,7 +75,7 @@ const Car = ({ car }) => {
           showArrows={true}
         >
           {car.image.map((img, key) => (
-            <img
+            <ProgressImage
               key={key}
               sizes="320 640 750"
               layout="responsive"
