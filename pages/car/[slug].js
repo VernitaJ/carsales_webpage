@@ -74,16 +74,17 @@ const Car = ({ car }) => {
           swipeable={true}
           showArrows={true}
         >
-          {car.image.map((img, key) => (
-            <ProgressImage
-              key={key}
-              sizes="320 640 750"
-              layout="responsive"
-              width={1400}
-              height={980}
-              src={img.url}
-              alt="carousel car image"
-            />
+          {car.image.map((img, index) => (
+            <ImageContainer key={index}>
+              <ImageItem
+                sizes="320 640 750"
+                layout="responsive"
+                width={1400}
+                height={980}
+                src={img.url}
+                alt="carousel car image"
+              />
+            </ImageContainer>
           ))}
         </Carousel>
         <CarInfo>
@@ -167,7 +168,7 @@ const CarInfo = styled.div`
 `;
 
 const CarContainer = styled.div`
-  margin-top: 7%;
+  margin-top: 10%;
   width: 40%;
   @media (max-width: 900px) {
     width: 90%;
@@ -176,11 +177,25 @@ const CarContainer = styled.div`
 `;
 
 const InterestContainer = styled.div`
-  margin-top: 7%;
+  margin-top: 10%;
   width: 70%;
   @media (max-width: 900px) {
     width: 90%;
   }
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  max-height: 300px;
+  overflow: hidden;
+  align-content: center;
+`;
+
+const ImageItem = styled(Image)`
+  object-fit: cover;
+  width: 100%;
+  height: auto;
 `;
 
 const CarHeading = styled.div`

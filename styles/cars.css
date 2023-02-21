@@ -163,3 +163,8 @@
   padding-bottom: 2.5rem;
   /* Footer height */
 }
+
+.carousel .thumb img {
+  width: 100% !important;
+  height: 100% !important;
+}

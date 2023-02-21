@@ -36,6 +36,7 @@ class ProgressiveImage extends Component {
         className="ProgressiveImage"
         sizes="(max-height: 600px) 600px"
         style={{
+          overflow: "hidden",
           opacity: loading ? 0.5 : 1,
           transition: "opacity .15s linear",
         }}

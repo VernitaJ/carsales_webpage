@@ -121,38 +121,46 @@ const Cars = ({ cars }) => {
                 </Modal>
               ) : null}
 
-              <Link href={`/car/${car.id}`} target="_blank" passHref>
-                <CarBox key={car.id}>
+              <CarBox key={car.id}>
+                <Link href={`/car/${car.id}`} target="_blank" passHref>
                   <TopText>
                     <CarHeading>
                       {car.brand}&nbsp;
                       {car.model}
                     </CarHeading>
                   </TopText>
-                  {/* <TopSection> */}
+                </Link>
+                {/* <TopSection> */}
 
-                  <CarImage>
-                    <Carousel
-                      dynamicHeight={false}
-                      showThumbs={false}
-                      showArrows={true}
-                      showIndicators={true}
-                      showStatus={false}
-                      onClickItem={() => {}}
-                    >
-                      {car.image.map((img, key, index) => (
-                        <div key={key}>
-                          <ProgressImage
+                <CarImage>
+                  <CarsCarousel
+                    dynamicHeight={false}
+                    showThumbs={false}
+                    showArrows={true}
+                    showIndicators={true}
+                    showStatus={false}
+                  >
+                    {car.image.map((img, key, index) => (
+                      <ImageContainer key={key}>
+                        {/* <ProgressImage
                             priority={index === 0}
                             src={img.url}
                             placeholder="/blueauto_logo.png"
-                          />
-                          {/* <img src={img.url} alt="carousel image" /> */}
-                        </div>
-                      ))}
-                    </Carousel>
-                  </CarImage>
+                          /> */}
+                        <ImageItem
+                          priority={index === 0}
+                          src={img.url}
+                          alt="carousel image"
+                          loading="eager"
+                          width={500}
+                          height={300}
+                        />
+                      </ImageContainer>
+                    ))}
+                  </CarsCarousel>
+                </CarImage>
 
+                <Link href={`/car/${car.id}`} target="_blank" passHref>
                   <CarInfo>
                     <BottomTextInfo>
                       <p>{car.year}</p>
@@ -175,9 +183,9 @@ const Cars = ({ cars }) => {
                       </div>{" "} */}
                     </BottomTextInfo>
                   </CarInfo>
-                  {/* </TopSection> */}
-                </CarBox>
-              </Link>
+                </Link>
+                {/* </TopSection> */}
+              </CarBox>
             </>
           ))}
         </CarsContainer>
@@ -235,6 +243,27 @@ const NoCarsContainer = styled.div`
   }
 `;
 
+const CarsCarousel = styled(Carousel)`
+  width: auto;
+  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  max-height: 300px;
+  overflow: hidden;
+  align-content: center;
+`;
+
+const ImageItem = styled(Image)`
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+`;
+
 const Heading = styled.div`
   gap: 10px;
   align-items: flex-end;
@@ -249,7 +278,6 @@ const Heading = styled.div`
 
 const CarBox = styled.div`
   :hover {
-    cursor: pointer;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(220, 220, 220);
   }
