@@ -76,7 +76,8 @@ const Car = ({ car }) => {
         >
           {car.image.map((img, index) => (
             <ImageContainer key={index}>
-              <ImageItem
+              <img
+                style={{ objectFit: "cover", width: "100%", height: "auto" }}
                 sizes="320 640 750"
                 layout="responsive"
                 width={1400}
@@ -169,6 +170,7 @@ const CarInfo = styled.div`
 
 const CarContainer = styled.div`
   margin-top: 10%;
+  margin-bottom: 5%;
   width: 40%;
   @media (max-width: 900px) {
     width: 90%;
@@ -192,11 +194,7 @@ const ImageContainer = styled.div`
   align-content: center;
 `;
 
-const ImageItem = styled(Image)`
-  object-fit: cover;
-  width: 100%;
-  height: auto;
-`;
+const ImageItem = styled.img``;
 
 const CarHeading = styled.div`
   display: flex;
