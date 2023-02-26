@@ -2,32 +2,8 @@
    <xml version="1.0" encoding="UTF-8">
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
-       <loc>http://www.blueauto.co.za/howitworks</loc>
-       <lastmod>2023-02-22</lastmod>
-     </url>
-     <url>
-       <loc>http://www.blueauto.co.za/cars</loc>
-       <lastmod>2023-02-22</lastmod>
-        </url>
-        <url>
-         <loc>http://www.blueauto.co.za/</loc>
-            <lastmod>2023-02-22</lastmod>
-        </url>
-        <url>
          <loc>http://www.blueauto.co.za</loc>
-            <lastmod>2023-02-22</lastmod>
-        </url>
-        <url>
-         <loc>http://www.blueauto.co.za/contact</loc>
-            <lastmod>2023-02-22</lastmod>
-            </url>
-            <url>
-            <loc>http://www.blueauto.co.za/admin</loc>
-            <lastmod>2023-02-22</lastmod>
-        </url>
-        <url>
-         <loc>http://www.blueauto.co.za/upload</loc>
-            <lastmod>2023-02-22</lastmod>
+            <lastmod>2023-02-25</lastmod>
         </url>
    </urlset>
    </xml>
