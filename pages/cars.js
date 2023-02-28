@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { gql, GraphQLClient } from "graphql-request";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sidebar from "../components/SideBar";
 import styled from "styled-components";
-// import Transmission from "../public/CarGear.svg";
-// import Mileage from "../public/CarMileage.svg";
-// import Door from "../public/CarDoor.svg";
-// import Seats from "../public/CarSeat.svg";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import ProgressImage from "../components/ProgressImage";
 import Reviews from "../components/Reviews";
 import { isMobile } from "react-device-detect";
 
@@ -53,17 +49,10 @@ export const getStaticProps = async () => {
 };
 
 const Cars = ({ cars }) => {
-  const router = useRouter();
-  const [showPopUp, setShowPopUp] = useState(false);
   const [filteredCars, setFilteredCars] = useState(cars);
   const [selectedCar, setSelectedCar] = useState(null);
 
   const applyFilter = (filtered) => {
-    setFilteredCars(filtered);
-  };
-
-  const filterCars = (value) => {
-    let filtered = cars.filter((car) => car.tags.includes(value));
     setFilteredCars(filtered);
   };
 
@@ -81,6 +70,13 @@ const Cars = ({ cars }) => {
 
   return (
     <CarPage>
+      <Head>
+        <title>
+          Blue Auto - Unlock the Value of Your Vehicle - Sell Smart, Buy Smart
+          with Us!
+        </title>
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <Sidebar cars={cars} updateFilter={applyFilter} className="z-10" />
       <InfoContainer>
         <Heading>

@@ -1,43 +1,19 @@
-import { useState } from "react";
-import { useMutate } from "restful-react";
 import Image from "next/image";
 import SendCar from "../components/SendCar";
+import Head from "next/head";
 import styled from "styled-components";
 
 const Upload = () => {
-  const [selectedImage, setSelectedImage] = useState();
-  const [images, setImages] = useState([]);
-  const {
-    mutate: uploadImage,
-    loading,
-    error,
-  } = useMutate({
-    verb: "POST",
-    path: "create",
-  });
-
-  const handleChange = (event) => {
-    setSelectedImage(event.target.files[0]);
-  };
-
-  const handleImageUpload = () => {
-    if (!selectedImage) {
-      return;
-    }
-    const formData = new FormData();
-    formData.append("image", selectedImage);
-    uploadImage(formData)
-      // .then(uploadedImage => {
-      //   setImages([...images, uploadedImage])
-      // })
-      .catch(() => {
-        console.log("Error");
-      });
-  };
-
   return (
     <>
       <Page>
+        <Head>
+          <title>
+            Blue Auto - Unlock the Value of Your Vehicle - Sell Smart, Buy Smart
+            with Us!
+          </title>
+          <link rel="icon" href="/favicon.png" />
+        </Head>
         <SendCar />
         <InfoParagraph>
           <p>

@@ -8,7 +8,6 @@ import ProgressiveImage from "../components/ProgressImage";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { LinkBox, LinkContainer } from "../styles/index.styled";
-import Slide1 from "../public/car.webp";
 
 export default function Landing() {
   const router = useRouter();
@@ -16,8 +15,13 @@ export default function Landing() {
     <>
       <MainContainer>
         <Head>
-          <title>Blue Auto Second hand cars</title>
-          <meta name="description" content="It's all about you" />
+          <title>
+            Blue Auto - Used Cars - Buyers pay less & Sellers get more
+          </title>
+          <meta
+            name="description"
+            content="Get More When You Sell, Pay Less When You Buy - Trust Us for Your Next Ride. Blue Auto sells your vehicle for you, so the seller gets the profit, and the buyer pays less. Simple - The way it should be."
+          />
           <link rel="icon" href="/favicon.png" />
         </Head>
         <Background>
@@ -68,9 +72,9 @@ export default function Landing() {
           />
           {/* <InfoParagraph>Here at <b>Blue Auto</b> we look after both buyer and seller - so that the benefit goes to the people that deserve it, instead of dealerships.</InfoParagraph> */}
           <Heading>
-            <p>
+            <h1>
               At <b>Blue Auto</b> the seller gets more, and the buyer pays less.
-            </p>
+            </h1>
             <p>With us - it&apos;s all about you!</p>
           </Heading>
           <LinkButtons>

@@ -54,7 +54,13 @@ export default class MyApp extends App {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
-          <title>BlueAuto Second Hand Cars South Africa</title>
+          <title>
+            Blue Auto - Used Cars - Buyers pay less & Sellers get more
+          </title>
+          <meta
+            name="description"
+            content="Get More When You Sell, Pay Less When You Buy - Trust Us for Your Next Ride. Blue Auto sells your vehicle for you, so the seller gets the profit, and the buyer pays less. Simple - The way it should be."
+          />
           <link rel="icon" href="/favicon.png" />
         </Head>
         {loaded ? (
